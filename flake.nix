@@ -51,8 +51,8 @@
           };
 
           packages = {
-            default = makeNixvim { };
-            inherit makeNixvim;
+            custom = makeNixvim { };
+            default = makeNixvim;
           };
         };
     };
