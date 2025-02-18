@@ -52,7 +52,7 @@
 
           packages = {
             default = makeNixvim { };
-            custom = makeNixvim;
+            inherit makeNixvim;
           };
         };
     };
