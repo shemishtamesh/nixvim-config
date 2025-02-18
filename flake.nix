@@ -33,12 +33,14 @@
             extraSpecialArgs = { };
           };
           makeNixvim =
-            palette:
+            {
+              colorPalette ? defaultPalette,
+            }:
             nixvim'.makeNixvimWithModule (
               nixvimModule
               // {
                 extraSpecialArgs = nixvimModule.extraSpecialArgs // {
-                  colorPalette = palette;
+                  colorPalette = colorPalette;
                 };
               }
             );
@@ -49,9 +51,7 @@
           };
 
           packages = {
-            # This is the default derivation using the defaultPalette.
-            default = makeNixvim defaultPalette;
-            # If you need to override the palette, you can use this function.
+            default = makeNixvim { };
             custom = makeNixvim;
           };
         };
