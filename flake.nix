@@ -22,25 +22,37 @@
         let
           nixvimLib = nixvim.lib.${system};
           nixvim' = nixvim.legacyPackages.${system};
-          nixvimModule = {
-            inherit system; # or alternatively, set `pkgs`
-            module = import ./config; # import the module directly
-            # You can use `extraSpecialArgs` to pass additional arguments to your module files
-            extraSpecialArgs = {
-              # inherit (inputs) foo;
-            };
+          defaultPalette = {
+            primary = "#ff0000";
+            secondary = "#00ff00";
+            accent = "#0000ff";
           };
-          nvim = nixvim'.makeNixvimWithModule nixvimModule;
+          nixvimModule = {
+            inherit system;
+            module = import ./config;
+            extraSpecialArgs = { };
+          };
+          makeNixvim =
+            palette:
+            nixvim'.makeNixvimWithModule (
+              nixvimModule
+              // {
+                extraSpecialArgs = nixvimModule.extraSpecialArgs // {
+                  colorPalette = palette;
+                };
+              }
+            );
         in
         {
           checks = {
-            # Run `nix flake check .` to verify that your config is not broken
             default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
           };
 
           packages = {
-            # Lets you run `nix run .` to start nixvim
-            default = nvim;
+            # This is the default derivation using the defaultPalette.
+            default = makeNixvim defaultPalette;
+            # If you need to override the palette, you can use this function.
+            custom = makeNixvim;
           };
         };
     };
