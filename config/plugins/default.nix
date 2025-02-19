@@ -8,18 +8,15 @@
     ./undotree.nix
     ./treesitter.nix
     ./comment.nix
+    # ./codeium.nix
     ./zen-mode.nix
     ./indent-blankline.nix
     ./which-key.nix
     ./snacks.nix
     ./dadbod.nix
-    ./flash.nix
-    ./nvim-surround.nix
-    # ./codeium.nix
     # ./dashboard.nix
     # ./obsidian.nix
   ];
-
   plugins = {
     lualine.enable = true;
     colorizer.enable = true;
