@@ -22,28 +22,12 @@
         let
           nixvimLib = nixvim.lib.${system};
           nixvim' = nixvim.legacyPackages.${system};
-          defaultPalette = {
-            primary = "#ff0000";
-            secondary = "#00ff00";
-            accent = "#0000ff";
-          };
           nixvimModule = {
             inherit system;
             module = import ./config;
             extraSpecialArgs = { };
           };
-          makeNixvim =
-            {
-              colorPalette ? defaultPalette,
-            }:
-            nixvim'.makeNixvimWithModule (
-              nixvimModule
-              // {
-                extraSpecialArgs = nixvimModule.extraSpecialArgs // {
-                  colorPalette = colorPalette;
-                };
-              }
-            );
+          nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
           checks = {
@@ -51,8 +35,7 @@
           };
 
           packages = {
-            custom = makeNixvim { };
-            default = {};
+            default = nvim;
           };
         };
     };

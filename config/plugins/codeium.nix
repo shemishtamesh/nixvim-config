@@ -7,9 +7,7 @@
   };
   cmp = {
     settings = {
-      sources = [
-        { name = "codeium"; }
-      ];
+      sources = [ { name = "codeium"; } ];
     };
   };
 }

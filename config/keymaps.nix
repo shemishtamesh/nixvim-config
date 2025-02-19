@@ -10,19 +10,10 @@ in
   keymaps = [
     # system clipboard
     (keymap "v" "<leader>y" ''"+y:let @*=@+<CR>'' { silent = true; })
-    (keymap [
-      "n"
-      "v"
-    ] "<leader>Y" ''"+Y:let @*=@+<CR>'' { silent = true; })
+    (keymap [ "n" "v" ] "<leader>Y" ''"+Y:let @*=@+<CR>'' { silent = true; })
     (keymap "n" "<leader>y" ''"+y'' { })
-    (keymap [
-      "n"
-      "v"
-    ] "<leader>p" ''"+p'' { })
-    (keymap [
-      "n"
-      "v"
-    ] "<leader>P" ''"+P'' { })
+    (keymap [ "n" "v" ] "<leader>p" ''"+p'' { })
+    (keymap [ "n" "v" ] "<leader>P" ''"+P'' { })
 
     # moving code segments
     (keymap "n" "<M-j>" "V:m '>+1<CR>gv=" { })
