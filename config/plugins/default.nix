@@ -14,9 +14,12 @@
     ./which-key.nix
     ./snacks.nix
     ./dadbod.nix
+    ./flash.nix
+    ./nvim-surround.nix
     # ./dashboard.nix
     # ./obsidian.nix
   ];
+
   plugins = {
     lualine.enable = true;
     colorizer.enable = true;
@@ -25,7 +28,6 @@
     numbertoggle.enable = true;
     gitsigns.enable = true;
     web-devicons.enable = true;
-    flash.enable = true;
     # rustaceanvim.enable = true;
     # "dressing.nvim".enable = true;
     # vimtex.enable = true;
