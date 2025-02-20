@@ -22,7 +22,23 @@ in
           enable = true;
           settings.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
         };
-        pyright.enable = true;
+        pylsp = {
+          enable = true;
+          settings = {
+            plugins = {
+              pycodestyle = {
+                enabled = true;
+              };
+              black = {
+                enabled = true;
+                line_length = 79;
+              };
+              pylsp_mypy = {
+                enabled = true;
+              };
+            };
+          };
+        };
         rust_analyzer = {
           enable = true;
           installRustc = true;
@@ -45,7 +61,6 @@ in
             };
           };
         };
-        # ts_ls.enable = true;
       };
       postConfig = # lua
         ''
