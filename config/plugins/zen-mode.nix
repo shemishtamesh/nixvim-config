@@ -26,6 +26,7 @@ in
           showcmd = false;
           laststatus = 0;
         };
+        tmux.enabled = true;
         kitty = {
           enabled = true;
           font = "+4";
