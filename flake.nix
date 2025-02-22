@@ -2,11 +2,13 @@
   description = "A nixvim configuration";
 
   inputs = {
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     nixvim.url = "github:nix-community/nixvim";
   };
 
   outputs =
     {
+      nixpkgs,
       nixvim,
       flake-parts,
       ...
@@ -22,15 +24,22 @@
       perSystem =
         { system, ... }:
         let
+          pkgs = nixpkgs.legacyPackages.${system};
           nixvim' = nixvim.legacyPackages.${system};
           nixvimModule = {
             module = import ./config;
           };
           nvim = nixvim'.makeNixvimWithModule nixvimModule;
+
+          # Wrap nvim using a custom shell script
+          wrappedNvim = with pkgs; writeShellScriptBin "nvim" ''
+            export PATH=${lib.makeBinPath [ ripgrep fd ]}:$PATH
+            exec ${nvim}/bin/nvim "$@"
+          '';
         in
         {
           packages = {
-            default = nvim;
+            default = wrappedNvim;
           };
         };
     };
