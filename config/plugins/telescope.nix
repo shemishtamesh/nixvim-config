@@ -12,18 +12,22 @@ in
               vim.bo.filetype ~= ""
               or vim.api.nvim_buf_get_lines(0, 0, -1, false)[1] ~= ""
               or vim.fn.argv(0) ~= ""
+              or #vim.v.argv == 0
             ) then
               return
             else
-              require("telescope.builtin").find_files()
+              require("telescope").extensions.frecency.frecency({initial_mode="normal", path_display={"shorten"}})
             end
           end,
         })
       '';
+    extensions.frecency.enable = true;
   };
   keymaps = [
     (keymap "n" "<leader>fo" "<cmd>Telescope oldfiles<CR>" { })
-    (keymap "n" "<leader>ff" "<cmd>Telescope find_files<CR>" { })
+    (keymap "n" "<leader>ff" "<cmd>Telescope frecency<CR>" { })
+    (keymap "n" "<leader>fF" ''Telescope frecency workspace=CWD path_display={"shorten"}'' { })
+    (keymap "n" "<leader>F" "<cmd>Telescope find_files<CR>" { })
     (keymap "n" "<leader>fl" "<cmd>Telescope live_grep<CR>" { })
     (keymap "n" "<leader>fg" "<cmd>Telescope git_files<CR>" { })
     (keymap "n" "<leader>fs" "<cmd>Telescope grep_string<CR>" { })
