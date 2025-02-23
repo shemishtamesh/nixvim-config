@@ -31,15 +31,23 @@
           };
           nvim = nixvim'.makeNixvimWithModule nixvimModule;
 
-          # Wrap nvim using a custom shell script
-          wrappedNvim = with pkgs; writeShellScriptBin "nvim" ''
-            export PATH=${lib.makeBinPath [ ripgrep fd ]}:$PATH
-            exec ${nvim}/bin/nvim "$@"
-          '';
+          wrappedNvim =
+            nvimToWrap:
+            with pkgs;
+            writeShellScriptBin "nvim" ''
+              export PATH=${
+                lib.makeBinPath [
+                  ripgrep
+                  fd
+                ]
+              }:$PATH
+              exec ${nvimToWrap}/bin/nvim "$@"
+            '';
         in
         {
           packages = {
-            default = wrappedNvim;
+            inherit nvim;
+            default = wrappedNvim nvim;
           };
         };
     };
