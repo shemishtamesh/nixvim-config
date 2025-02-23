@@ -11,8 +11,7 @@ in
             if (
               vim.bo.filetype ~= ""
               or vim.api.nvim_buf_get_lines(0, 0, -1, false)[1] ~= ""
-              or vim.fn.argv(0) ~= ""
-              or #vim.v.argv == 0
+              or vim.g.no_initial_picker ~= nil
             ) then
               return
             else
