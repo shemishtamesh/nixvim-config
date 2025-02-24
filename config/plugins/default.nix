@@ -16,6 +16,7 @@
     ./dadbod.nix
     ./flash.nix
     ./nvim-surround.nix
+    ./render-markdown.nix
     # ./dashboard.nix
     # ./obsidian.nix
   ];
@@ -28,7 +29,6 @@
     numbertoggle.enable = true;
     gitsigns.enable = true;
     web-devicons.enable = true;
-    render-markdown.enable = true;
     # rustaceanvim.enable = true;
     # "dressing.nvim".enable = true;
     # vimtex.enable = true;
