@@ -15,7 +15,7 @@ in
             ) then
               return
             else
-              require("telescope").extensions.frecency.frecency({initial_mode="normal", path_display={"shorten"}})
+              require("telescope").extensions.frecency.frecency({initial_mode="normal", path_display={"smart", "filename_first"}})
             end
           end,
         })
@@ -24,8 +24,8 @@ in
   };
   keymaps = [
     (keymap "n" "<leader>fo" "<cmd>Telescope oldfiles<CR>" { })
-    (keymap "n" "<leader>ff" "<cmd>Telescope frecency<CR>" { })
-    (keymap "n" "<leader>fF" ''Telescope frecency workspace=CWD path_display={"shorten"}'' { })
+    (keymap "n" "<leader>ff" ''<cmd>Telescope frecency workspace=CWD path_display={"smart"}<CR>'' { })
+    (keymap "n" "<leader>fF" "<cmd>Telescope frecency<CR>" { })
     (keymap "n" "<leader>F" "<cmd>Telescope find_files<CR>" { })
     (keymap "n" "<leader>fl" "<cmd>Telescope live_grep<CR>" { })
     (keymap "n" "<leader>fg" "<cmd>Telescope git_files<CR>" { })
