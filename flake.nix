@@ -39,6 +39,7 @@
                 lib.makeBinPath [
                   ripgrep
                   fd
+                  python3Packages.jupytext
                 ]
               }:$PATH
               exec ${nvimToWrap}/bin/nvim "$@"
