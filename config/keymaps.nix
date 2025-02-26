@@ -9,9 +9,10 @@ in
   };
   keymaps = [
     # system clipboard
-    (keymap "v" "<leader>y" ''"+y:let @*=@+<CR>'' { silent = true; })
-    (keymap [ "n" "v" ] "<leader>Y" ''"+Y:let @*=@+<CR>'' { silent = true; })
     (keymap "n" "<leader>y" ''"+y'' { })
+    (keymap "v" "<leader>y" ''"+y:let @*=@+<CR>'' { silent = true; })
+    (keymap "n" "<leader>Y" ''"+y$:let @*=@+<CR>'' { silent = true; })
+    (keymap "v" "<leader>Y" ''"+yy:let @*=@+<CR>'' { silent = true; })
     (keymap [ "n" "v" ] "<leader>p" ''"+p'' { })
     (keymap [ "n" "v" ] "<leader>P" ''"+P'' { })
 
