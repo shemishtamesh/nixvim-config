@@ -40,6 +40,7 @@
                   ripgrep
                   fd
                   python3Packages.jupytext
+                  python3Packages.pylatexenc
                 ]
               }:$PATH
               exec ${nvimToWrap}/bin/nvim "$@"
