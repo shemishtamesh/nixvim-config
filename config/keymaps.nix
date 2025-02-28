@@ -41,10 +41,6 @@ in
     # toggle search highlighting highlighting
     (keymap "n" "<leader>n" "<cmd>set hlsearch!<CR>" { })
 
-    # hex mode
-    (keymap "n" "<leader>h" "<cmd>%!xxd<CR>" { })
-    (keymap "n" "<leader>H" "<cmd>%!xxd -r<CR>" { })
-
     # faster exit
     (keymap "n" "Q" "<cmd>qa<CR>" { })
   ];
