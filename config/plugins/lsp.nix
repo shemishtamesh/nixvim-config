@@ -28,6 +28,10 @@ in
             plugins = {
               pycodestyle = {
                 enabled = true;
+                ignore = [
+                  "E203" # space before ':'
+                  "W503" # linebreak before binary operator
+                ];
               };
               black = {
                 enabled = true;
