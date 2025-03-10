@@ -39,6 +39,16 @@ in
               };
               pylsp_mypy = {
                 enabled = true;
+                overrides.__raw = # l ua
+                  ''
+                    (function ()
+                        virtual_environment = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
+                        if virtual_environment then
+                            return { "--python-executable", virtual_environment .. "/bin/python3", true }
+                        end
+                        return 10
+                    end)()
+                  '';
               };
             };
           };
@@ -68,6 +78,7 @@ in
       };
       postConfig = # lua
         ''
+          -- ignore repeated erorr that should probably be ignored by the lsp client anyway
           for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
             local default_diagnostic_handler = vim.lsp.handlers[method]
             vim.lsp.handlers[method] = function(err, result, context, config)
