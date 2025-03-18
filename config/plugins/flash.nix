@@ -13,7 +13,7 @@
     (
       (import ../nix_functions.nix).keymap
       "n"
-      "<C-g>"
+      "<C-s>"
       "<CMD>lua require('flash').jump()<CR>"
       { }
     )
