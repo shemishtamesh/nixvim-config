@@ -38,11 +38,9 @@ in
                 ];
                 lineLength = 79;
                 config = builtins.toString (
-                  pkgs.writeText "ruff.toml" # toml
-                    ''
-                      [lint.flake8-implicit-str-concat]
-                      allow-multiline = false
-                    ''
+                  (pkgs.formats.toml { }).generate "ruff.toml" {
+                    "lint.flake8-implicit-str-concat".allow-multiline = false;
+                  }
                 );
               };
               pylsp_mypy = {
