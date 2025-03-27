@@ -39,7 +39,7 @@ in
                 lineLength = 79;
                 config = builtins.toString (
                   (pkgs.formats.toml { }).generate "ruff.toml" {
-                    "lint.flake8-implicit-str-concat".allow-multiline = false;
+                    lint.flake8-implicit-str-concat.allow-multiline = false;
                   }
                 );
               };
