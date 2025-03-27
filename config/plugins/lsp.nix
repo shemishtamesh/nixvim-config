@@ -26,20 +26,39 @@ in
           enable = true;
           settings = {
             plugins = {
-              pycodestyle = {
+              ruff = {
                 enabled = true;
-                ignore = [
-                  "E203" # space before ':'
-                  "W503" # linebreak before binary operator
+                extendSelect = [
+                  "E"
+                  "W"
+                  "F"
+                  "S"
+                  "ISC"
+                  "RUF"
                 ];
+                lineLength = 79;
+                config = builtins.toString (
+                  pkgs.writeText "ruff.toml" # toml
+                    ''
+                      [lint.flake8-implicit-str-concat]
+                      allow-multiline = false
+                    ''
+                );
               };
-              black = {
-                enabled = true;
-                line_length = 79;
-              };
+              # pycodestyle = {
+              #   enabled = true;
+              #   ignore = [
+              #     "E203" # space before ':'
+              #     "W503" # linebreak before binary operator
+              #   ];
+              # };
+              # black = {
+              #   enabled = true;
+              #   line_length = 79;
+              # };
               pylsp_mypy = {
                 enabled = true;
-                overrides.__raw = # l ua
+                overrides.__raw = # lua
                   ''
                     (function ()
                         virtual_environment = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
@@ -75,6 +94,7 @@ in
             };
           };
         };
+        yamlls.enable = true;
       };
       postConfig = # lua
         ''
