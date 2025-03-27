@@ -45,17 +45,6 @@ in
                     ''
                 );
               };
-              # pycodestyle = {
-              #   enabled = true;
-              #   ignore = [
-              #     "E203" # space before ':'
-              #     "W503" # linebreak before binary operator
-              #   ];
-              # };
-              # black = {
-              #   enabled = true;
-              #   line_length = 79;
-              # };
               pylsp_mypy = {
                 enabled = true;
                 overrides.__raw = # lua
@@ -65,7 +54,7 @@ in
                         if virtual_environment then
                             return { "--python-executable", virtual_environment .. "/bin/python3", true }
                         end
-                        return 10
+                        return { true }
                     end)()
                   '';
               };
