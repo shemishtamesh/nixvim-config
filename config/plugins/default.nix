@@ -17,6 +17,7 @@
     ./flash.nix
     ./nvim-surround.nix
     ./render-markdown.nix
+    ./visimatch.nix
     # ./dashboard.nix
     # ./obsidian.nix
   ];
