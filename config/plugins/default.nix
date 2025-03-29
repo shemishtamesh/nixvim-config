@@ -14,6 +14,7 @@
     ./which-key.nix
     ./snacks.nix
     ./dadbod.nix
+    ./nvim-dap.nix
     ./flash.nix
     ./nvim-surround.nix
     ./render-markdown.nix
