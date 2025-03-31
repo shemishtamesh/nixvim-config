@@ -31,10 +31,12 @@ in
                 extendSelect = [
                   "E"
                   "W"
-                  "F"
-                  "S"
+                  "Q"
+                  "N"
+                  "T10"
+                  "ARG"
+                  "FIX"
                   "ISC"
-                  "RUF"
                 ];
                 lineLength = 79;
                 config = builtins.toString (
