@@ -47,7 +47,6 @@ in
               };
               pylsp_mypy = {
                 enabled = true;
-                live_mode = false;
                 overrides.__raw = # lua
                   ''
                     (function ()
