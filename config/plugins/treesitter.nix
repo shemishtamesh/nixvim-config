@@ -11,7 +11,7 @@
     };
     treesitter-context = {
       enable = true;
-      settings.max_lines = 1;
+      settings.max_lines = 2;
     };
     treesitter-textobjects = {
       enable = true;
