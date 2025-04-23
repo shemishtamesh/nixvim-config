@@ -37,6 +37,9 @@ in
                   "ARG"
                   "FIX"
                   "ISC"
+                  "D414"
+                  "D417"
+                  "D419"
                 ];
                 lineLength = 79;
                 config = builtins.toString (
