@@ -2,7 +2,7 @@
 
 {
   plugins = {
-    codeium-nvim = {
+    windsurf-nvim = {
       enable = true;
       settings.enable_chat = true;
     };
