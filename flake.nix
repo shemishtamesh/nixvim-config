@@ -41,6 +41,7 @@
                   fd
                   python3Packages.jupytext
                   python3Packages.pylatexenc
+                  gcc
                 ]
               }:$PATH
               exec ${nvimToWrap}/bin/nvim "$@"
