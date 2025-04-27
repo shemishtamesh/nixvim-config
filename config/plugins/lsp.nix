@@ -87,10 +87,7 @@ in
           };
         };
         yamlls.enable = true;
-        openscad_ls = {
-          enable = true;
-          package = pkgs.openscad-lsp;
-        };
+        openscad_lsp.enable = true;
       };
       postConfig = # lua
         ''

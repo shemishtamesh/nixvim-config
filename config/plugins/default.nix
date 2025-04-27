@@ -27,7 +27,7 @@
     lualine.enable = true;
     colorizer.enable = true;
     tmux-navigator.enable = true;
-    otter.enable = true;
+    # otter.enable = true;
     numbertoggle.enable = true;
     gitsigns.enable = true;
     web-devicons.enable = true;
