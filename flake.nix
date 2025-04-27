@@ -37,10 +37,6 @@
             writeShellScriptBin "nvim" ''
               export PATH=${
                 lib.makeBinPath [
-                  gcc
-                  clang
-                  cl
-                  zig
                   ripgrep
                   fd
                   python3Packages.jupytext
