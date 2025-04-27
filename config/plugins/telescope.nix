@@ -4,22 +4,6 @@ in
 {
   plugins.telescope = {
     enable = true;
-    luaConfig.post = # lua
-      ''
-        vim.api.nvim_create_autocmd("VimEnter", {
-          callback = function()
-            if (
-              vim.bo.filetype ~= ""
-              or vim.api.nvim_buf_get_lines(0, 0, -1, false)[1] ~= ""
-              or vim.g.no_initial_picker ~= nil
-            ) then
-              return
-            else
-              require("telescope").extensions.frecency.frecency({initial_mode="normal", path_display={"smart", "filename_first"}})
-            end
-          end,
-        })
-      '';
     extensions.frecency.enable = true;
   };
   keymaps = [
