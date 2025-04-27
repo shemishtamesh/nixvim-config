@@ -38,6 +38,8 @@
               export PATH=${
                 lib.makeBinPath [
                   gcc
+                  clang
+                  cl
                   zig
                   ripgrep
                   fd
