@@ -87,6 +87,7 @@ in
           };
         };
         yamlls.enable = true;
+        openscad_ls.enable = true;
       };
       postConfig = # lua
         ''
