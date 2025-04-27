@@ -37,11 +37,11 @@
             writeShellScriptBin "nvim" ''
               export PATH=${
                 lib.makeBinPath [
+                  zig
                   ripgrep
                   fd
                   python3Packages.jupytext
                   python3Packages.pylatexenc
-                  gcc
                 ]
               }:$PATH
               exec ${nvimToWrap}/bin/nvim "$@"
