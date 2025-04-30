@@ -20,17 +20,12 @@
         "x86_64-darwin"
         "aarch64-darwin"
       ];
-
-      perSystem =
-        { system, ... }:
+      flake =
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          nixvim' = nixvim.legacyPackages.${system};
-          nixvimModule = {
-            module = import ./config;
-          };
-          nvim = nixvim'.makeNixvimWithModule nixvimModule;
-
+        in
+        {
           wrappedNvim =
             nvimToWrap:
             with pkgs;
@@ -46,13 +41,21 @@
               }:$PATH
               exec ${nvimToWrap}/bin/nvim "$@"
             '';
+        };
+      perSystem =
+        { system, self', ... }:
+        let
+          nixvim' = nixvim.legacyPackages.${system};
+          nixvimModule = {
+            module = import ./config;
+          };
+          nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
           packages = {
             inherit nvim;
-            default = wrappedNvim nvim;
+            default = self'.wrappedNvim system nvim;
           };
-          lib.wrappedNvim = wrappedNvim;
         };
     };
 }
