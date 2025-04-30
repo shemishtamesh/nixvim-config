@@ -8,43 +8,22 @@
 
   outputs =
     {
-      nixpkgs,
       nixvim,
       ...
     }@inputs:
     let
       per_system = inputs.nixpkgs.lib.genAttrs inputs.nixpkgs.lib.systems.doubles.all;
-      wrappedNvim =
-        system: nvimToWrap:
-        with nixpkgs.legacyPackages.${system};
-        writeShellScriptBin "nvim" ''
-          export PATH=${
-            lib.makeBinPath [
-              gcc
-              ripgrep
-              fd
-              python3Packages.jupytext
-              python3Packages.pylatexenc
-            ]
-          }:$PATH
-          exec ${nvimToWrap}/bin/nvim "$@"
-        '';
+      nixvimModule = system: {
+        inherit system;
+        module = import ./config;
+      };
     in
     {
-      packages = per_system (
-        system:
-        let
-          nixvim' = nixvim.legacyPackages.${system};
-          nixvimModule = {
-            module = import ./config;
-          };
-          nvim = nixvim'.makeNixvimWithModule nixvimModule;
-        in
-        {
-          inherit nvim;
-          default = wrappedNvim system nvim;
-        }
-      );
-      inherit wrappedNvim;
+      checks = per_system (system: {
+        default = nixvim.lib.${system}.check.mkTestDerivationFromNixvimModule (nixvimModule system);
+      });
+      packages = per_system (system: {
+        default = nixvim.legacyPackages.${system}.makeNixvimWithModule (nixvimModule system);
+      });
     };
 }
