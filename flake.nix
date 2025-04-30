@@ -52,7 +52,7 @@
             inherit nvim;
             default = wrappedNvim nvim;
           };
-          inherit wrappedNvim;
+          lib.wrappedNvim = wrappedNvim;
         };
     };
 }
