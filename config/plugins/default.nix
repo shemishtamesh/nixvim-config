@@ -8,7 +8,8 @@
     ./undotree.nix
     ./treesitter.nix
     ./comment.nix
-    ./codeium.nix
+    # ./codeium.nix
+    ./minuet.nix
     ./zen-mode.nix
     ./indent-blankline.nix
     ./which-key.nix
