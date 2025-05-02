@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   plugins = {
     render-markdown.enable = true;
@@ -8,4 +9,6 @@
       };
     };
   };
+
+  extraPackages = with pkgs; [ python3Packages.pylatexenc ];
 }
