@@ -8,9 +8,6 @@
   ];
 
   extraPackages = with pkgs; [
-    gcc
-    ripgrep
-    fd
     python3Packages.jupytext
     python3Packages.pylatexenc
   ];

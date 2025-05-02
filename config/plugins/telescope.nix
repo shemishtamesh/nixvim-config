@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   keymap = (import ../nix_functions.nix).keymap;
 in
@@ -18,5 +19,10 @@ in
     (keymap "n" "<leader>fq" "<cmd>Telescope quickfix<CR>" { })
     (keymap "n" "<leader>fj" "<cmd>Telescope jumplist<CR>" { })
     (keymap "n" "<leader>fk" "<cmd>Telescope keymaps<CR>" { })
+  ];
+
+  extraPackages = with pkgs; [
+    ripgrep
+    fd
   ];
 }

@@ -42,16 +42,16 @@
     # beacon.enable = true;
     # noice.enable =  true;
   };
-  extraPlugins = with pkgs; [
-    (vimUtils.buildVimPlugin {
-      pname = "cheat.sh-vim";
-      version = "latest";
-      src = fetchFromGitHub {
-        owner = "dbeniamine";
-        repo = "cheat.sh-vim";
-        rev = "master";
-        sha256 = "sha256-awowfQ4q9CCX2V7Vhf1EjKr2GaqQFPOpdwq7FT8os0Y=";
-      };
-    })
-  ];
+  # extraPlugins = with pkgs; [
+  #   (vimUtils.buildVimPlugin {
+  #     pname = "cheat.sh-vim";
+  #     version = "latest";
+  #     src = fetchFromGitHub {
+  #       owner = "dbeniamine";
+  #       repo = "cheat.sh-vim";
+  #       rev = "master";
+  #       sha256 = "sha256-awowfQ4q9CCX2V7Vhf1EjKr2GaqQFPOpdwq7FT8os0Y=";
+  #     };
+  #   })
+  # ];
 }

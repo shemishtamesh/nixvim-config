@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   plugins = {
     treesitter = {
@@ -28,4 +29,5 @@
       };
     };
   };
+  extraPackages = with pkgs; [ gcc ];
 }
