@@ -5,6 +5,7 @@
     ./keymaps.nix
     ./highlights.nix
     ./plugins
+    ./ftplugin.nix
   ];
 
   nixpkgs.config = {
