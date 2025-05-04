@@ -43,6 +43,9 @@ in
 
     # faster exit
     (keymap "n" "Q" "<cmd>qa<CR>" { })
+
+    # alternative alternative file
+    (keymap "n" "<M-6>" "<C-6>" { })
   ];
   userCommands = {
     W = {
