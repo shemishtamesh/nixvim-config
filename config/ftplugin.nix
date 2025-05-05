@@ -8,5 +8,11 @@
         end
         vim.keymap.set('n', 'gd', go_to_manpage, { noremap = true })
       '';
+    "ftplugin/markdown.lua".text = # lua
+      ''
+        vim.opt.wrap = true
+        vim.opt.linebreak = true
+        vim.opt.spell = true
+      '';
   };
 }
