@@ -51,7 +51,7 @@ in
                 overrides.__raw = # lua
                   ''
                     (function ()
-                        virtual_environment = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
+                        local virtual_environment = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
                         if virtual_environment then
                             return { "--python-executable", virtual_environment .. "/bin/python3", true }
                         end
@@ -87,6 +87,29 @@ in
                 "\${3rd}/love2d/library"
               ];
               checkThirdParty = false;
+            };
+            Lua = {
+              hint = {
+                enable = true;
+                arrayIndex = "Enable";
+                setType = true;
+                paramName = "All";
+                paramType = true;
+              };
+            };
+          };
+        };
+        gopls = {
+          enable = true;
+          settings = {
+            hints = {
+              assignVariableTypes = true;
+              compositeLiteralFields = true;
+              compositeLiteralTypes = true;
+              constantValues = true;
+              functionTypeParameters = true;
+              parameterNames = true;
+              rangeVariableTypes = true;
             };
           };
         };
