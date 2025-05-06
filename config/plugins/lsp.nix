@@ -11,7 +11,6 @@ in
     update_in_insert = true;
   };
   plugins = {
-    typescript-tools.enable = true;
     lsp = {
       enable = true;
       inlayHints = true;
@@ -62,17 +61,6 @@ in
             };
           };
         };
-        rust_analyzer = {
-          enable = true;
-          installRustc = true;
-          installCargo = true;
-          settings = {
-            chainingHints.enable = true;
-            closureReturnTypeHints.enable = "always";
-            parameterHints.enable = true;
-            typeHints.enable = true;
-          };
-        };
         lua_ls = {
           enable = true;
           settings = {
@@ -117,6 +105,8 @@ in
         openscad_lsp.enable = true;
       };
     };
+    rustaceanvim.enable = true;
+    typescript-tools.enable = true;
   };
   keymaps = [
     # defined outside of lsp for whichkey
@@ -168,5 +158,10 @@ in
     })
     (keymap "n" "]d" "<cmd>lua vim.lsp.buf.goto_next()<CR>" { silent = true; })
     (keymap "n" "[d" "<cmd>lua vim.lsp.buf.goto_prev()<CR>" { silent = true; })
+  ];
+  extraPackages = [
+    pkgs.cargo
+    pkgs.rustc
+    pkgs.lldb
   ];
 }
