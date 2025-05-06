@@ -6,7 +6,7 @@ in
   diagnostic.settings = {
     signs = false;
     underline = true;
-    virtual_lines = true;
+    virtual_text = true;
     severity_sort = true;
     update_in_insert = true;
   };
@@ -131,7 +131,7 @@ in
       silent = true;
     })
     (keymap "n" "<leader>ll"
-      "<cmd>lua vim.diagnostic.config({virtual_lines = not vim.diagnostic.config().virtual_lines})<CR>"
+      "<cmd>lua vim.diagnostic.config({virtual_lines = not vim.diagnostic.config().virtual_lines, virtual_text = not vim.diagnostic.config().virtual_text})<CR>"
       {
         silent = true;
       }
