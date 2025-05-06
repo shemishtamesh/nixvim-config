@@ -3,7 +3,7 @@ let
   keymap = (import ../nix_functions.nix).keymap;
 in
 {
-  diagnostic.config.signs.text.__raw = # make space for git signs
+  diagnostic.settings.signs.text.__raw = # make space for git signs
     ''
       {
         [vim.diagnostic.severity.ERROR] = "",
