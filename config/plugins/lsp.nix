@@ -131,7 +131,7 @@ in
       silent = true;
     })
     (keymap "n" "<leader>ll"
-      "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>"
+      "<cmd>vim.diagnostic.config({virtual_lines = not vim.diagnostic.config().virtual_lines})<CR>"
       {
         silent = true;
       }
