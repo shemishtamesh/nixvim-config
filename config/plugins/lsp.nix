@@ -5,9 +5,10 @@ in
 {
   diagnostic.settings = {
     signs = false;
-    virtual_text = true;
+    underline = true;
     virtual_lines = true;
     severity_sort = true;
+    update_in_insert = true;
   };
   plugins = {
     typescript-tools.enable = true;
@@ -65,6 +66,12 @@ in
           enable = true;
           installRustc = true;
           installCargo = true;
+          settings = {
+            chainingHints.enable = true;
+            closureReturnTypeHints.enable = "always";
+            parameterHints.enable = true;
+            typeHints.enable = true;
+          };
         };
         lua_ls = {
           enable = true;
