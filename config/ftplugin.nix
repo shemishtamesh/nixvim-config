@@ -8,11 +8,11 @@
         end
         vim.keymap.set('n', 'gd', go_to_manpage, { noremap = true })
       '';
-    "ftplugin/hlep.lua".text = # lua
+    "ftplugin/help.lua".text = # lua
       ''
         local go_to_help = function()
-        local line = vim.api.nvim_get_current_line()
-        local word = line:match("|([^|]*)|")
+          local line = vim.api.nvim_get_current_line()
+          local word = line:match("|([^|]*)|")
           vim.cmd('help ' .. word)
         end
         vim.keymap.set('n', 'gd', go_to_help, { noremap = true })
