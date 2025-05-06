@@ -3,15 +3,12 @@ let
   keymap = (import ../nix_functions.nix).keymap;
 in
 {
-  diagnostic.settings.signs.text.__raw = # make space for git signs
-    ''
-      {
-        [vim.diagnostic.severity.ERROR] = "",
-        [vim.diagnostic.severity.HINT] = "",
-        [vim.diagnostic.severity.INFO] = "",
-        [vim.diagnostic.severity.WARN] = "",
-      }
-    '';
+  diagnostic.settings = {
+    signs = false;
+    virtual_text = true;
+    virtual_lines = true;
+    severity_sort = true;
+  };
   plugins = {
     typescript-tools.enable = true;
     lsp = {

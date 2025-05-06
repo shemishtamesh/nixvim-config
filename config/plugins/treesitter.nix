@@ -29,5 +29,5 @@
       };
     };
   };
-  extraPackages = with pkgs; [ gcc ];
+  extraPackages = with pkgs; [ gcc nodejs ];
 }
