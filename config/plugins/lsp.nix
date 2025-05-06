@@ -131,7 +131,7 @@ in
       silent = true;
     })
     (keymap "n" "<leader>ll"
-      "<cmd>vim.diagnostic.config({virtual_lines = not vim.diagnostic.config().virtual_lines})<CR>"
+      "<cmd>lua vim.diagnostic.config({virtual_lines = not vim.diagnostic.config().virtual_lines})<CR>"
       {
         silent = true;
       }
