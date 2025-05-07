@@ -101,6 +101,7 @@ in
             };
           };
         };
+        sqls.enable = true;
         yamlls.enable = true;
         openscad_lsp.enable = true;
       };
