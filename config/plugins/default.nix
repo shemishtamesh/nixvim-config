@@ -33,10 +33,10 @@
     numbertoggle.enable = true;
     gitsigns.enable = true;
     web-devicons.enable = true;
+    hardtime.enable = true;
     # rustaceanvim.enable = true;
     # "dressing.nvim".enable = true;
     # vimtex.enable = true;
-    # vim-surround.enable = true;
     # gen.enable = true
     # vim-asciidoctor.enable = true;
     # beacon.enable = true;
