@@ -2,8 +2,15 @@
   plugins.hardtime = {
     enable = true;
     settings = {
-      dissable_mouse = false;
-      disabled_keys = { };
+      disable_mouse = false;
+      disabled_keys.__raw = ''
+        {
+          ["<Up>"] = {},
+          ["<Down>"] = {},
+          ["<Left>"] = {},
+          ["<Right>"] = {},
+        }
+      '';
       restriction_mode = "hint";
     };
   };
