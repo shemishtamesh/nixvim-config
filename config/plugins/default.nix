@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   imports = [
     ./lsp.nix
@@ -21,6 +19,7 @@
     ./render-markdown.nix
     ./visimatch.nix
     ./jupytext.nix
+    ./hardtime.nix
     # ./dashboard.nix
     # ./obsidian.nix
   ];
@@ -33,7 +32,6 @@
     numbertoggle.enable = true;
     gitsigns.enable = true;
     web-devicons.enable = true;
-    hardtime.enable = true;
     lastplace.enable = true;
     # rustaceanvim.enable = true;
     # "dressing.nvim".enable = true;
