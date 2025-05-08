@@ -157,8 +157,8 @@ in
     (keymap "n" "<leader>ld" "<cmd>lua vim.diagnostic.setqflist()<CR>" {
       silent = true;
     })
-    (keymap "n" "]d" "<cmd>lua vim.lsp.buf.goto_next()<CR>" { silent = true; })
-    (keymap "n" "[d" "<cmd>lua vim.lsp.buf.goto_prev()<CR>" { silent = true; })
+    (keymap "n" "]d" "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>" { silent = true; })
+    (keymap "n" "[d" "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>" { silent = true; })
   ];
   extraPackages = [
     pkgs.cargo
