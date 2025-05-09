@@ -30,6 +30,10 @@
       # not using normal string interpulation so that lua_ls wouldn't think there's a problem
       builtins.replaceStrings [ "nix_store_zathura_path" ] [ "${pkgs.zathura}/bin/zathura" ] # lua
         ''
+          vim.opt.wrap = true
+          vim.opt.linebreak = true
+          vim.opt.spell = true
+
           local zathura_path = "nix_store_zathura_path"
           vim.keymap.set(
             'n',
