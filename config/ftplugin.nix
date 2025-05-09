@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   extraFiles = {
     "ftplugin/man.lua".text = # lua
@@ -25,5 +26,17 @@
       '';
     "ftplugin/gitcommit.lua".text = # lua
       "vim.opt.spell = true";
+    "ftplugin/typst.lua".text =
+      # not using normal string interpulation so that lua_ls wouldn't think there's a problem
+      builtins.replaceStrings [ "nix_store_zathura_path" ] [ "${pkgs.zathura}/bin/zathura" ] # lua
+        ''
+          local zathura_path = "nix_store_zathura_path"
+          vim.keymap.set(
+            'n',
+            '<leader>lp',
+            '<CMD>silent !' .. zathura_path .. ' target/%:.:r.pdf&<CR>',
+            { noremap = true }
+          )
+        '';
   };
 }

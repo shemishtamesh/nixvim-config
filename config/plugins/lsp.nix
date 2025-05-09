@@ -101,6 +101,14 @@ in
             };
           };
         };
+        tinymist = {
+          enable = true;
+          settings = {
+            formatterMode = "typstyle";
+            exportPdf = "onType";
+            outputPath = "$root/target/$name";
+          };
+        };
         sqls.enable = true;
         yamlls.enable = true;
         openscad_lsp.enable = true;
