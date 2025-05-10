@@ -1,6 +1,11 @@
 { pkgs, ... }:
 {
   extraFiles = {
+    "ftplugin/nix.lua".text = # lua
+      ''
+        vim.opt.tabstop = 2
+        vim.opt.shiftwidth = 2
+      '';
     "ftplugin/man.lua".text = # lua
       ''
         local go_to_manpage = function()
