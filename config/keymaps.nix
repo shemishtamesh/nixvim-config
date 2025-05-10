@@ -39,7 +39,7 @@ in
     (keymap "n" "<leader>sc" "<cmd>setlocal spell! spelllang=en_us<CR>" { })
 
     # toggle search highlighting highlighting
-    (keymap "n" "<leader>n" "<cmd>set hlsearch!<CR>" { })
+    (keymap "n" "<leader>h" "<cmd>set hlsearch!<CR>" { })
 
     # faster exit
     (keymap "n" "Q" "<cmd>qa<CR>" { })
