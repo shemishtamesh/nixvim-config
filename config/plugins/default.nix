@@ -19,6 +19,7 @@
     ./render-markdown.nix
     ./visimatch.nix
     ./jupytext.nix
+    ./luasnip.nix
     # ./hardtime.nix
     # ./dashboard.nix
     # ./obsidian.nix
