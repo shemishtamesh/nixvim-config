@@ -4,8 +4,8 @@
     luasnip = {
       enable = true;
       luaConfig.content = ''
-        luasnip = require("luasnip")
-        fmt = require("luasnip.extras.fmt").fmt
+        local luasnip = require("luasnip")
+        local fmt = require("luasnip.extras.fmt").fmt
 
         luasnip.add_snippets("nix", {
           luasnip.snippet(
