@@ -20,7 +20,7 @@
             };
           };
         };
-        add_single_line_entry = false;
+        add_single_line_entry = true;
       };
     };
     cmp = {
