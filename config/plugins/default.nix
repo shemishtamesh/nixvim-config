@@ -34,6 +34,7 @@
     gitsigns.enable = true;
     web-devicons.enable = true;
     lastplace.enable = true;
+    neoscroll.enable = true;
     # rustaceanvim.enable = true;
     # "dressing.nvim".enable = true;
     # vimtex.enable = true;
