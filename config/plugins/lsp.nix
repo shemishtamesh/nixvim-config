@@ -136,6 +136,7 @@ in
             outputPath = "$root/target/$name";
           };
         };
+        clangd.enable = true;
         sqls.enable = true;
         yamlls.enable = true;
         openscad_lsp.enable = true;
