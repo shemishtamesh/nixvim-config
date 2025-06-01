@@ -20,6 +20,7 @@
     ./visimatch.nix
     ./jupytext.nix
     ./luasnip.nix
+    ./neoscroll.nix
     # ./hardtime.nix
     # ./dashboard.nix
     # ./obsidian.nix
@@ -34,7 +35,6 @@
     gitsigns.enable = true;
     web-devicons.enable = true;
     lastplace.enable = true;
-    neoscroll.enable = true;
     # rustaceanvim.enable = true;
     # "dressing.nvim".enable = true;
     # vimtex.enable = true;
