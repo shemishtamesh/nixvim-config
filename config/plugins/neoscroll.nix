@@ -12,7 +12,7 @@
         "zb"
       ];
       hide_cursor = false;
-      duration_multiplier = 0.5;
+      duration_multiplier = 1. / 4;
     };
   };
 }

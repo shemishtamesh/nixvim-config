@@ -21,6 +21,7 @@
     ./jupytext.nix
     ./luasnip.nix
     ./neoscroll.nix
+    ./gitblame.nix
     # ./hardtime.nix
     # ./dashboard.nix
     # ./obsidian.nix
