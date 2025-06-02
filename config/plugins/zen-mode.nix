@@ -39,7 +39,9 @@ in
     (keymap "n" "<leader>z" (lib.concatStrings [
       "<cmd>ZenMode"
       " | IBLToggle"
+      " | GitBlameToggle"
       " | lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())"
+      " | lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())"
       "<CR>"
     ]) { silent = true; })
   ];
