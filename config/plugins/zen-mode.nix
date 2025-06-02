@@ -37,12 +37,14 @@ in
   plugins.twilight.enable = true;
   keymaps = [
     (keymap "n" "<leader>z" (lib.concatStrings [
-      "<cmd>ZenMode"
-      " | IBLToggle"
-      " | GitBlameToggle"
-      " | lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())"
-      " | lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())"
+      "<cmd> lua "
+      " vim.cmd('ZenMode');"
+      " vim.cmd('IBLToggle');"
+      " vim.cmd('GitBlameToggle');"
+      " vim.diagnostic.enable(not vim.diagnostic.is_enabled());"
+      " vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled());"
       "<CR>"
     ]) { silent = true; })
+    # (keymap "n" "<leader>z" "ToggleZenMode" { silent = true; })
   ];
 }
