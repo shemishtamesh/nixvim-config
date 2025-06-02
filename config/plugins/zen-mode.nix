@@ -45,6 +45,5 @@ in
       " vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled());"
       "<CR>"
     ]) { silent = true; })
-    # (keymap "n" "<leader>z" "ToggleZenMode" { silent = true; })
   ];
 }
