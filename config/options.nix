@@ -51,5 +51,8 @@
 
     # enable mouse support
     mouse = "a";
+
+    # treesitter should define which parts should be spell checked
+    spell = true;
   };
 }
