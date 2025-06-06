@@ -11,7 +11,21 @@ in
     (keymap "n" "<leader>fo" "<cmd>Telescope oldfiles<CR>" { })
     (keymap "n" "<leader>ff" ''<cmd>Telescope frecency workspace=CWD path_display={"smart"}<CR>'' { })
     (keymap "n" "<leader>fF" "<cmd>Telescope frecency<CR>" { })
-    (keymap "n" "<leader>F" "<cmd>Telescope git_files show_untracked=true<CR>" { })
+    {
+      mode = "n";
+      key = "<leader>F";
+      action.__raw = ''
+        function()
+          local _is_git_repo = vim.fn.system("git rev-parse --is-inside-work-tree")
+          if vim.v.shell_error == 0 then
+            require('telescope.builtin').git_files({show_untracked=true})
+          else
+            require('telescope.builtin').find_files()
+          end
+        end
+      '';
+      options = { };
+    }
     (keymap "n" "<leader>fl" "<cmd>Telescope live_grep<CR>" { })
     (keymap "n" "<leader>fa" "<cmd>Telescope find_files hidden=true<CR>" { })
     (keymap "n" "<leader>fs" "<cmd>Telescope grep_string<CR>" { })

@@ -36,14 +36,21 @@ in
   };
   plugins.twilight.enable = true;
   keymaps = [
-    (keymap "n" "<leader>z" (lib.concatStrings [
-      "<cmd> lua "
-      " vim.cmd('ZenMode');"
-      " vim.cmd('IBLToggle');"
-      " vim.cmd('GitBlameToggle');"
-      " vim.diagnostic.enable(not vim.diagnostic.is_enabled());"
-      " vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled());"
-      "<CR>"
-    ]) { silent = true; })
+    {
+      mode = "n";
+      key = "<leader>z";
+      action.__raw = ''
+        function()
+          require("zen-mode").toggle()
+          require("gitblame").toggle()
+          vim.cmd('IBLToggle');
+          vim.diagnostic.enable(not vim.diagnostic.is_enabled());
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled());
+        end
+      '';
+      options = {
+        silent = true;
+      };
+    }
   ];
 }
