@@ -53,6 +53,7 @@ in
               ruff = {
                 enabled = true;
                 extendSelect = [
+                  "I"
                   "E"
                   "W"
                   "Q"
