@@ -175,6 +175,6 @@ in
     cargo
     rustc
     lldb
-    typescript
+    typescript # tsserver
   ];
 }
