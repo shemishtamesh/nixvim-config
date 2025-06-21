@@ -171,9 +171,10 @@ in
     (keymap "n" "]d" "<cmd>lua vim.diagnostic.goto_next()<CR>" { silent = true; })
     (keymap "n" "[d" "<cmd>lua vim.diagnostic.goto_prev()<CR>" { silent = true; })
   ];
-  extraPackages = [
-    pkgs.cargo
-    pkgs.rustc
-    pkgs.lldb
+  extraPackages = with pkgs; [
+    cargo
+    rustc
+    lldb
+    typescript
   ];
 }
