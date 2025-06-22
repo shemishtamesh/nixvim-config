@@ -16,7 +16,7 @@ in
       key = "<leader>F";
       action.__raw = ''
         function()
-          local _is_git_repo = vim.fn.system("git rev-parse --is-inside-work-tree")
+          local _ = vim.fn.system("git rev-parse --is-inside-work-tree")
           if vim.v.shell_error == 0 then
             require('telescope.builtin').git_files({show_untracked=true})
           else
@@ -26,9 +26,9 @@ in
       '';
       options = { };
     }
-    (keymap "n" "<leader>fl" "<cmd>Telescope live_grep<CR>" { })
+    (keymap "n" "<leader>fl" "<cmd>Telescope live_grep additional_args=--hidden<CR>" { })
     (keymap "n" "<leader>fa" "<cmd>Telescope find_files hidden=true<CR>" { })
-    (keymap "n" "<leader>fs" "<cmd>Telescope grep_string<CR>" { })
+    (keymap [ "n" "v" ] "<leader>fs" "<cmd>Telescope grep_string additional_args=--hidden<CR>" { })
     (keymap "n" "<leader>fc" "<cmd>Telescope command_history<CR>" { })
     (keymap "n" "<leader>fq" "<cmd>Telescope quickfix<CR>" { })
     (keymap "n" "<leader>fj" "<cmd>Telescope jumplist<CR>" { })
