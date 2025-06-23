@@ -137,11 +137,17 @@ in
             outputPath = "$root/target/$name";
           };
         };
+        qmlls = {
+          enable = true;
+          cmd = [
+            "qmlls"
+            "-E"
+          ];
+        };
         clangd.enable = true;
         sqls.enable = true;
         yamlls.enable = true;
         openscad_lsp.enable = true;
-        qmlls.enable = true;
       };
     };
     rustaceanvim.enable = true;
