@@ -1,7 +1,3 @@
-{ lib, ... }:
-let
-  keymap = (import ../nix_functions.nix).keymap;
-in
 {
   plugins.zen-mode = {
     enable = true;
