@@ -147,6 +147,7 @@ in
         clangd.enable = true;
         sqls.enable = true;
         yamlls.enable = true;
+        jsonls.enable = true;
         openscad_lsp.enable = true;
       };
     };
