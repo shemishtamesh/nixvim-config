@@ -1,6 +1,7 @@
 { pkgs, ... }:
 let
   keymap = (import ../nix_functions.nix).keymap;
+  rg_args = "{'--hidden', '--glob', '!**/.git/**', '--glob', '!**/*.lock'}";
 in
 {
   plugins.telescope = {
@@ -26,9 +27,15 @@ in
       '';
       options = { };
     }
-    (keymap "n" "<leader>fl" "<cmd>lua require('telescope.builtin').live_grep({additional_args={'--hidden'}})<CR>" { })
+    (keymap "n" "<leader>fl"
+      "<cmd>lua require('telescope.builtin').live_grep({additional_args=${rg_args}})<CR>"
+      { }
+    )
     (keymap "n" "<leader>fa" "<cmd>Telescope find_files hidden=true<CR>" { })
-    (keymap [ "n" "v" ] "<leader>fs" "<cmd>lua require('telescope.builtin').grep_string({additional_args={'--hidden'}})<CR>" { })
+    (keymap [ "n" "v" ] "<leader>fs"
+      "<cmd>lua require('telescope.builtin').grep_string({additional_args=${rg_args}})<CR>"
+      { }
+    )
     (keymap "n" "<leader>fc" "<cmd>Telescope command_history<CR>" { })
     (keymap "n" "<leader>fq" "<cmd>Telescope quickfix<CR>" { })
     (keymap "n" "<leader>fj" "<cmd>Telescope jumplist<CR>" { })
