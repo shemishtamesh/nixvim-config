@@ -40,7 +40,7 @@ in
     (keymap "n" "<leader>fq" "<cmd>Telescope quickfix<CR>" { })
     (keymap "n" "<leader>fj" "<cmd>Telescope jumplist<CR>" { })
     (keymap "n" "<leader>fk" "<cmd>Telescope keymaps<CR>" { })
-    (keymap "n" "<leader>fm" "<cmd>Telescope man_pages<CR>" { })
+    (keymap "n" "<leader>fm" "<cmd>Telescope man_pages sections=['ALL']<CR>" { })
   ];
 
   extraPackages = with pkgs; [
