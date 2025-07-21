@@ -12,7 +12,7 @@
           local word = vim.fn.expand('<cword>')
           vim.cmd('Man ' .. word)
         end
-        vim.keymap.set('n', 'gd', go_to_manpage, { noremap = true })
+        vim.keymap.set('n', 'gd', go_to_manpage, { noremap = true, buffer = true })
       '';
     "ftplugin/help.lua".text = # lua
       ''
@@ -21,7 +21,7 @@
           local word = line:match("|([^|]*)|")
           vim.cmd('help ' .. word)
         end
-        vim.keymap.set('n', 'gd', go_to_help, { noremap = true })
+        vim.keymap.set('n', 'gd', go_to_help, { noremap = true, buffer = true })
       '';
     "ftplugin/markdown.lua".text = # lua
       ''
@@ -44,7 +44,7 @@
             'n',
             '<leader>lp',
             '<CMD>silent !' .. zathura_path .. ' target/%:.:r.pdf&<CR>',
-            { noremap = true }
+            { noremap = true, buffer = true }
           )
         '';
   };
