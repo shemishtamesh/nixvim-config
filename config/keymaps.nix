@@ -88,7 +88,7 @@ in
           query_group = "locals";
           desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} assignment";
         };
-        "${textobjectsMoveKey isNext isStart "{"}" = {
+        "${textobjectsMoveKey isNext isStart "r"}" = {
           query = "@loop.outer";
           query_group = "locals";
           desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} loop";
