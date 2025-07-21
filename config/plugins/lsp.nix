@@ -5,7 +5,8 @@ let
   telescope_commands = (
     if config.plugins.telescope.enable then
       {
-        workspace_symbols = "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>";
+        workspace_symbols = "<cmd>Telescope lsp_document_symbols<CR>";
+        document_symbols = "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>";
         type_definitions = "<cmd>Telescope lsp_type_definitions<CR>";
         references = "<cmd>Telescope lsp_references<CR>";
         implementations = "<cmd>Telescope lsp_implementations<CR>";
@@ -18,6 +19,7 @@ let
     else
       {
         workspace_symbols = "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>";
+        document_symbols = "<cmd>lua vim.lsp.buf.document_symbol()<CR>";
         type_definitions = "<cmd>lua vim.lsp.buf.type_definition()<CR>";
         references = "<cmd>lua vim.lsp.buf.references()<CR>";
         implementations = "<cmd>lua vim.lsp.buf.implementation()<CR>";
@@ -174,8 +176,9 @@ in
     (keymap "n" "<leader>lr" telescope_commands.references { silent = true; })
     (keymap "n" "<leader>lt" telescope_commands.type_definitions { silent = true; })
     (keymap "n" "<leader>ls" telescope_commands.workspace_symbols { silent = true; })
-    (keymap "n" "gd" telescope_commands.definitions { silent = true; })
-    (keymap "n" "gD" telescope_commands.declarations { silent = true; })
+    (keymap "n" "<leader>lO" telescope_commands.document_symbols { silent = true; })
+    (keymap "n" "gd" telescope_commands.declarations { silent = true; })
+    (keymap "n" "gD" telescope_commands.definitions { silent = true; })
     (keymap "n" "]d" "<cmd>lua vim.diagnostic.goto_next()<CR>" { silent = true; })
     (keymap "n" "[d" "<cmd>lua vim.diagnostic.goto_prev()<CR>" { silent = true; })
   ];

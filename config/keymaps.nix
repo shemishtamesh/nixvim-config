@@ -83,12 +83,12 @@ in
           query = "@class.outer";
           desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} class";
         };
-        "${textobjectsMoveKey isNext isStart "a"}" = {
+        "${textobjectsMoveKey isNext isStart "="}" = {
           query = "@assignment.outer";
           query_group = "locals";
           desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} assignment";
         };
-        "${textobjectsMoveKey isNext isStart "l"}" = {
+        "${textobjectsMoveKey isNext isStart "{"}" = {
           query = "@loop.outer";
           query_group = "locals";
           desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} loop";
