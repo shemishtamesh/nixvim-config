@@ -177,8 +177,8 @@ in
     (keymap "n" "<leader>lt" telescope_commands.type_definitions { silent = true; })
     (keymap "n" "<leader>ls" telescope_commands.workspace_symbols { silent = true; })
     (keymap "n" "<leader>lO" telescope_commands.document_symbols { silent = true; })
-    (keymap "n" "gd" telescope_commands.declarations { silent = true; })
-    (keymap "n" "gD" telescope_commands.definitions { silent = true; })
+    (keymap "n" "gD" telescope_commands.declarations { silent = true; })
+    (keymap "n" "gd" telescope_commands.definitions { silent = true; })
     (keymap "n" "]d" "<cmd>lua vim.diagnostic.goto_next()<CR>" { silent = true; })
     (keymap "n" "[d" "<cmd>lua vim.diagnostic.goto_prev()<CR>" { silent = true; })
   ];
