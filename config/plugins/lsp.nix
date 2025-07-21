@@ -5,8 +5,8 @@ let
   telescope_commands = (
     if config.plugins.telescope.enable then
       {
-        workspace_symbols = "<cmd>Telescope lsp_document_symbols<CR>";
-        document_symbols = "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>";
+        workspace_symbols = "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>";
+        document_symbols = "<cmd>Telescope lsp_document_symbols<CR>";
         type_definitions = "<cmd>Telescope lsp_type_definitions<CR>";
         references = "<cmd>Telescope lsp_references<CR>";
         implementations = "<cmd>Telescope lsp_implementations<CR>";
