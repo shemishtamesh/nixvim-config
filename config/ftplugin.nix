@@ -47,5 +47,10 @@
             { noremap = true, buffer = true }
           )
         '';
+    "ftplugin/c.lua".text = # lua
+      ''
+        vim.opt.tabstop = 2
+        vim.opt.shiftwidth = 2
+      '';
   };
 }
