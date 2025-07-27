@@ -16,6 +16,7 @@
     number = true;
     numberwidth = 1;
     relativenumber = true;
+    winblend = 10;
 
     # Better editing experience
     expandtab = true;
