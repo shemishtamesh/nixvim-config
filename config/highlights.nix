@@ -19,7 +19,13 @@
       base0E = "#df53dd";
       base0F = "#916a1d";
     };
-    settings.telescope_borders = true;
+    settings = {
+      telescope = true;
+      telescope_borders = true;
+      cmp = true;
+      dapui = true;
+      indentblankline = true;
+    };
   };
   autoCmd = [
     {
