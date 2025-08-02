@@ -15,8 +15,8 @@ in
     (keymap "v" "<leader>Y" ''"+yy:let @*=@+<CR>'' { silent = true; })
     (keymap [ "n" "v" ] "<leader>p" ''"+p'' { })
     (keymap [ "n" "v" ] "<leader>P" ''"+P'' { })
-    (keymap [ "n" "v" ] "<S-p>" ''"0p'' { })
-    (keymap [ "n" "v" ] "<S-P>" ''"0P'' { })
+    (keymap [ "n" "v" ] "<M-p>" ''"0p'' { })
+    (keymap [ "n" "v" ] "<M-P>" ''"0P'' { })
 
     # moving code segments
     (keymap "n" "<M-j>" "V:m '>+1<CR>gv=" { })
