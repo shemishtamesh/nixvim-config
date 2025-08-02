@@ -9,6 +9,14 @@
 
         luasnip.add_snippets("nix", {
           luasnip.snippet(
+            "pr",
+            fmt(
+              [[https://github.com/NixOS/nixpkgs/archive/pull/{}/head.tar.gz";]],
+              { luasnip.insert_node(0) }
+            )
+          ),
+
+          luasnip.snippet(
             "python-devenv",
             fmt(
               [[
