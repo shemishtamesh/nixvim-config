@@ -39,7 +39,6 @@
     web-devicons.enable = true;
     lastplace.enable = true;
     rainbow-delimiters.enable = true;
-    autoclose.enable = true;
     # rustaceanvim.enable = true;
     # "dressing.nvim".enable = true;
     # vimtex.enable = true;
