@@ -27,6 +27,7 @@
     # ./dashboard.nix
     # ./obsidian.nix
     ./ethersync-nvim.nix
+    # ./opencode-nvim.nix
   ];
 
   plugins = {
