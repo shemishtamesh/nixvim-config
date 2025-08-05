@@ -40,8 +40,9 @@ in
     (keymap "n" "<leader>fq" "<cmd>Telescope quickfix<CR>" { })
     (keymap "n" "<leader>fj" "<cmd>Telescope jumplist<CR>" { })
     (keymap "n" "<leader>fk" "<cmd>Telescope keymaps<CR>" { })
-    (keymap "n" "<leader>fm" "<cmd>Telescope man_pages sections=['ALL']<CR>" { })
     (keymap "n" "<leader>fh" "<cmd>Telescope help_tags<CR>" { })
+    (keymap "n" "<leader>fm" "<cmd>Telescope man_pages sections=['ALL']<CR>" { })
+    (keymap "n" "<leader>fM" "<cmd>set filetype=man | Telescope man_pages sections=['ALL']<CR>" { })
   ];
 
   extraPackages = with pkgs; [
