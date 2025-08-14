@@ -2,7 +2,20 @@ let
   keymap = (import ../nix_functions.nix).keymap;
 in
 {
-  plugins.gitsigns.enable = true;
+  plugins.gitsigns = {
+    enable = true;
+    settings = {
+      current_line_blame = false;
+      current_line_blame_opts = {
+        virt_text = true;
+        virt_text_pos = "eol";
+        delay = 0;
+      };
+      signcolumn = false;
+      numhl = true;
+      watch_gitdir.follow_files = true;
+    };
+  };
 
   keymaps = [
     # defined outside of lsp for whichkey
@@ -24,7 +37,10 @@ in
 
     (keymap "n" "<leader>gb" "<cmd>Gitsigns blame_line<CR>" { silent = true; })
     (keymap "n" "<leader>gB" "<cmd>Gitsigns blame<CR>" { silent = true; })
+    (keymap "n" "<leader>gl" "<cmd>Gitsigns toggle_current_line_blame<CR>" { silent = true; })
 
     (keymap "n" "<leader>gq" "<cmd>Gitsigns setqflist<CR>" { silent = true; })
+
+    (keymap "n" "<leader>gd" "<cmd>Gitsigns diffthis<CR>" { silent = true; })
   ];
 }
