@@ -1,5 +1,10 @@
 let
   keymap = (import ../nix_functions.nix).keymap;
+
+  first_hunk_command = "<cmd>Gitsigns nav_hunk first<CR>";
+  prev_hunk_command = "<cmd>Gitsigns nav_hunk prev<CR>";
+  next_hunk_command = "<cmd>Gitsigns nav_hunk next<CR>";
+  last_hunk_command = "<cmd>Gitsigns nav_hunk last<CR>";
 in
 {
   plugins.gitsigns = {
@@ -11,6 +16,7 @@ in
         virt_text_pos = "eol";
         delay = 0;
       };
+      current_line_blame_formatter = "<author>, <author_time:%R>: <summary>";
       signcolumn = false;
       numhl = true;
       watch_gitdir.follow_files = true;
@@ -19,12 +25,17 @@ in
 
   keymaps = [
     # defined outside of lsp for whichkey
-    (keymap "n" "<leader>gP" "<cmd>Gitsigns nav_hunk first<CR>" { silent = true; })
-    (keymap "n" "<leader>gp" "<cmd>Gitsigns nav_hunk prev<CR>" { silent = true; })
-    (keymap "n" "<leader>gn" "<cmd>Gitsigns nav_hunk next<CR>" { silent = true; })
-    (keymap "n" "<leader>gN" "<cmd>Gitsigns nav_hunk last<CR>" { silent = true; })
+    (keymap "n" "<leader>gP" first_hunk_command { silent = true; })
+    (keymap "n" "<leader>[G" first_hunk_command { silent = true; })
+    (keymap "n" "<leader>gp" prev_hunk_command { silent = true; })
+    (keymap "n" "<leader>[g" prev_hunk_command { silent = true; })
+    (keymap "n" "<leader>]g" next_hunk_command { silent = true; })
+    (keymap "n" "<leader>gn" next_hunk_command { silent = true; })
+    (keymap "n" "<leader>gN" last_hunk_command { silent = true; })
+    (keymap "n" "<leader>]G" last_hunk_command { silent = true; })
 
     (keymap "n" "<leader>gv" "<cmd>Gitsigns preview_hunk<CR>" { silent = true; })
+    (keymap "n" "<leader>gV" "<cmd>Gitsigns preview_hunk_inline<CR>" { silent = true; })
 
     (keymap "n" "<leader>gs" "<cmd>Gitsigns select_hunk<CR>" { silent = true; })
 
