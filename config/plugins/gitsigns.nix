@@ -26,13 +26,13 @@ in
   keymaps = [
     # defined outside of lsp for whichkey
     (keymap "n" "<leader>gP" first_hunk_command { silent = true; })
-    (keymap "n" "<leader>[G" first_hunk_command { silent = true; })
+    (keymap "n" "[G" first_hunk_command { silent = true; })
     (keymap "n" "<leader>gp" prev_hunk_command { silent = true; })
-    (keymap "n" "<leader>[g" prev_hunk_command { silent = true; })
-    (keymap "n" "<leader>]g" next_hunk_command { silent = true; })
+    (keymap "n" "[g" prev_hunk_command { silent = true; })
+    (keymap "n" "]g" next_hunk_command { silent = true; })
     (keymap "n" "<leader>gn" next_hunk_command { silent = true; })
+    (keymap "n" "]G" last_hunk_command { silent = true; })
     (keymap "n" "<leader>gN" last_hunk_command { silent = true; })
-    (keymap "n" "<leader>]G" last_hunk_command { silent = true; })
 
     (keymap "n" "<leader>gv" "<cmd>Gitsigns preview_hunk<CR>" { silent = true; })
     (keymap "n" "<leader>gV" "<cmd>Gitsigns preview_hunk_inline<CR>" { silent = true; })
