@@ -17,6 +17,7 @@
     numberwidth = 1;
     relativenumber = true;
     winblend = 10;
+    winborder = "rounded";
 
     # Better editing experience
     expandtab = true;
