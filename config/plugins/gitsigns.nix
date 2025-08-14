@@ -11,12 +11,13 @@ in
     enable = true;
     settings = {
       current_line_blame = false;
+      current_line_blame_formatter = "<author>, <author_time:%R>: <summary>";
       current_line_blame_opts = {
         virt_text = true;
         virt_text_pos = "eol";
         delay = 0;
       };
-      current_line_blame_formatter = "<author>, <author_time:%R>: <summary>";
+      diff_opts.vertical = true;
       signcolumn = false;
       numhl = true;
       watch_gitdir.follow_files = true;
@@ -52,6 +53,11 @@ in
 
     (keymap "n" "<leader>gq" "<cmd>Gitsigns setqflist<CR>" { silent = true; })
 
-    (keymap "n" "<leader>gd" "<cmd>Gitsigns diffthis<CR>" { silent = true; })
+    (keymap "n" "<leader>gd" "<cmd>Gitsigns diffthis vertical=true split=rightbelow<CR>" {
+      silent = true;
+    })
+    (keymap "n" "<leader>gD" "<cmd>Gitsigns diffthis ~1 vertical=true split=rightbelow<CR>" {
+      silent = true;
+    })
   ];
 }

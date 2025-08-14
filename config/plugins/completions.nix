@@ -10,7 +10,7 @@ let
       cmp.mapping.preset.cmdline({ ["<C-y>"] = { c = cmp.mapping.confirm() } })
     '';
     sources = [
-      { name = "async_path"; }
+      { name = "path"; }
       { name = "cmdline"; }
     ];
   };
@@ -51,7 +51,7 @@ in
           # Words from other open buffers can also be suggested.
           option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
         }
-        { name = "async_path"; }
+        { name = "path"; }
       ];
       experimental.ghost_text = true;
     };
