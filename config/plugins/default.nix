@@ -22,12 +22,13 @@
     # ./jupytext.nix
     ./luasnip.nix
     ./neoscroll.nix
-    ./gitblame.nix
+    # ./gitblame.nix
     # ./hardtime.nix
     # ./dashboard.nix
     # ./obsidian.nix
     ./ethersync-nvim.nix
     # ./opencode-nvim.nix
+    ./gitsigns.nix
   ];
 
   plugins = {
@@ -36,7 +37,6 @@
     tmux-navigator.enable = true;
     otter.enable = true;
     numbertoggle.enable = true;
-    gitsigns.enable = true;
     web-devicons.enable = true;
     lastplace.enable = true;
     rainbow-delimiters.enable = true;

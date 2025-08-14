@@ -38,7 +38,7 @@
       action.__raw = ''
         function()
           require("zen-mode").toggle()
-          require("gitblame").toggle()
+          -- require("gitblame").toggle()
           vim.cmd('IBLToggle');
           vim.diagnostic.enable(not vim.diagnostic.is_enabled());
           vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled());
