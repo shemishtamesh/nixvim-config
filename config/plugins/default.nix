@@ -29,6 +29,7 @@
     ./ethersync-nvim.nix
     # ./opencode-nvim.nix
     ./gitsigns.nix
+    ./neogit.nix
   ];
 
   plugins = {
