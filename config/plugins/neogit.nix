@@ -6,15 +6,11 @@ in
     neogit = {
       enable = true;
       settings = {
-        integrations = {
-          diffview = true;
-          telescope = true;
-        };
+        integrations.telescope = true;
         console_timeout = 0;
         graph_style = "unicode";
       };
     };
-    diffview.enable = true;
   };
 
   keymaps = [
