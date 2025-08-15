@@ -43,6 +43,7 @@ in
     (keymap "n" "<leader>fh" "<cmd>Telescope help_tags<CR>" { })
     (keymap "n" "<leader>fm" "<cmd>Telescope man_pages sections=['ALL']<CR>" { })
     (keymap "n" "<leader>fM" "<cmd>set filetype=man | Telescope man_pages sections=['ALL']<CR>" { })
+    (keymap "n" "<leader>fb" "<cmd>Telescope git_branches<CR>" { })
   ];
 
   extraPackages = with pkgs; [
