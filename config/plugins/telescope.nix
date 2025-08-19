@@ -7,6 +7,7 @@ in
   plugins.telescope = {
     enable = true;
     extensions.frecency.enable = true;
+    settings.defaults.layout_config.horizontal.width = 0.9;
   };
   keymaps = [
     (keymap "n" "<leader>fo" "<cmd>Telescope oldfiles<CR>" { })
