@@ -30,6 +30,7 @@
     # ./opencode-nvim.nix
     ./gitsigns.nix
     ./neogit.nix
+    ./git-worktree.nix
   ];
 
   plugins = {
