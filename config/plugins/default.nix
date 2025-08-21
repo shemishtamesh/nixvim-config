@@ -19,7 +19,7 @@
     ./nvim-surround.nix
     ./render-markdown.nix
     ./visimatch.nix
-    # ./jupytext.nix
+    ./jupytext.nix
     ./luasnip.nix
     ./neoscroll.nix
     # ./gitblame.nix
