@@ -25,28 +25,28 @@ in
     (keymap "n" "]g" "<cmd>Gitsigns nav_hunk next<CR>" { silent = true; })
     (keymap "n" "]G" "<cmd>Gitsigns nav_hunk last<CR>" { silent = true; })
 
-    (keymap "n" "<leader>gv" "<cmd>Gitsigns preview_hunk<CR>" { silent = true; })
-    (keymap "n" "<leader>gV" "<cmd>Gitsigns preview_hunk_inline<CR>" { silent = true; })
+    (keymap "n" "<leader>cv" "<cmd>Gitsigns preview_hunk<CR>" { silent = true; })
+    (keymap "n" "<leader>cV" "<cmd>Gitsigns preview_hunk_inline<CR>" { silent = true; })
 
-    (keymap "n" "<leader>gs" "<cmd>Gitsigns select_hunk<CR>" { silent = true; })
+    (keymap "n" "<leader>cs" "<cmd>Gitsigns select_hunk<CR>" { silent = true; })
 
-    (keymap "n" "<leader>gR" "<cmd>Gitsigns reset_buffer<CR>" { silent = true; })
-    (keymap "n" "<leader>gr" "<cmd>Gitsigns reset_hunk<CR>" { silent = true; })
-    (keymap "n" "<leader>ga" "<cmd>Gitsigns stage_hunk<CR>" { silent = true; })
-    (keymap "n" "<leader>gA" "<cmd>Gitsigns stage_buffer<CR>" { silent = true; })
+    (keymap "n" "<leader>cR" "<cmd>Gitsigns reset_buffer<CR>" { silent = true; })
+    (keymap "n" "<leader>cr" "<cmd>Gitsigns reset_hunk<CR>" { silent = true; })
+    (keymap "n" "<leader>ca" "<cmd>Gitsigns stage_hunk<CR>" { silent = true; })
+    (keymap "n" "<leader>cA" "<cmd>Gitsigns stage_buffer<CR>" { silent = true; })
 
-    (keymap "n" "<leader>gw" "<cmd>Gitsigns toggle_word_diff<CR>" { silent = true; })
+    (keymap "n" "<leader>cw" "<cmd>Gitsigns toggle_word_diff<CR>" { silent = true; })
 
-    (keymap "n" "<leader>gb" "<cmd>Gitsigns blame_line<CR>" { silent = true; })
-    (keymap "n" "<leader>gB" "<cmd>Gitsigns blame<CR>" { silent = true; })
-    (keymap "n" "<leader>gl" "<cmd>Gitsigns toggle_current_line_blame<CR>" { silent = true; })
+    (keymap "n" "<leader>cb" "<cmd>Gitsigns blame_line<CR>" { silent = true; })
+    (keymap "n" "<leader>cB" "<cmd>Gitsigns blame<CR>" { silent = true; })
+    (keymap "n" "<leader>cl" "<cmd>Gitsigns toggle_current_line_blame<CR>" { silent = true; })
 
-    (keymap "n" "<leader>gq" "<cmd>Gitsigns setqflist<CR>" { silent = true; })
+    (keymap "n" "<leader>cq" "<cmd>Gitsigns setqflist<CR>" { silent = true; })
 
-    (keymap "n" "<leader>gd" "<cmd>Gitsigns diffthis vertical=true split=rightbelow<CR>" {
+    (keymap "n" "<leader>cd" "<cmd>Gitsigns diffthis vertical=true split=rightbelow<CR>" {
       silent = true;
     })
-    (keymap "n" "<leader>gD" "<cmd>Gitsigns diffthis ~1 vertical=true split=rightbelow<CR>" {
+    (keymap "n" "<leader>cD" "<cmd>Gitsigns diffthis ~1 vertical=true split=rightbelow<CR>" {
       silent = true;
     })
   ];
