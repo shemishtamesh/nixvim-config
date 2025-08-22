@@ -22,6 +22,7 @@
           vim.cmd('help ' .. word)
         end
         vim.keymap.set('n', 'gd', go_to_help, { noremap = true, buffer = true })
+        vim.keymap.set('n', 'q', "<CMD>q<CR>", { noremap = true, buffer = true })
       '';
     "ftplugin/markdown.lua".text = # lua
       ''
