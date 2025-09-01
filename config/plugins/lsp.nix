@@ -147,6 +147,7 @@ in
           ];
         };
         clangd.enable = true;
+        java_language_server.enable = true;
         sqls.enable = true;
         bashls.enable = true;
         yamlls.enable = true;
