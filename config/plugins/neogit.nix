@@ -14,18 +14,18 @@ in
   };
 
   keymaps = [
-    (keymap "n" "<leader>gs" "<cmd>Neogit<CR>" { })
-    (keymap "n" "<leader>gl" "<cmd>Neogit log<CR>" { })
-    (keymap "n" "<leader>gc" "<cmd>Neogit commit<CR>" { })
-    (keymap "n" "<leader>gw" "<cmd>Neogit worktree<CR>" { })
-    (keymap "n" "<leader>gb" "<cmd>Neogit branch<CR>" { })
-    (keymap "n" "<leader>gm" "<cmd>Neogit merge<CR>" { })
-    (keymap "n" "<leader>gr" "<cmd>Neogit remote<CR>" { })
-    (keymap "n" "<leader>gf" "<cmd>Neogit fetch<CR>" { })
-    (keymap "n" "<leader>gp" "<cmd>Neogit pull<CR>" { })
-    (keymap "n" "<leader>gP" "<cmd>Neogit push<CR>" { })
-    (keymap "n" "<leader>gS" "<cmd>Neogit stash<CR>" { })
-    (keymap "n" "<leader>gL" "<cmd>NeogitLog<CR>" { })
-    (keymap "n" "<leader>gC" "<cmd>NeogitCommit<CR>" { })
+    (keymap "n" "<leader>gs" "<cmd>Neogit<cr>" { })
+    (keymap "n" "<leader>gl" "<cmd>Neogit log<cr>" { })
+    (keymap "n" "<leader>gc" "<cmd>Neogit commit<cr>" { })
+    (keymap "n" "<leader>gw" "<cmd>Neogit worktree<cr>" { })
+    (keymap "n" "<leader>gb" "<cmd>Neogit branch<cr>" { })
+    (keymap "n" "<leader>gm" "<cmd>Neogit merge<cr>" { })
+    (keymap "n" "<leader>gr" "<cmd>Neogit remote<cr>" { })
+    (keymap "n" "<leader>gf" "<cmd>Neogit fetch<cr>" { })
+    (keymap "n" "<leader>gp" "<cmd>Neogit pull<cr>" { })
+    (keymap "n" "<leader>gP" "<cmd>Neogit push<cr>" { })
+    (keymap "n" "<leader>gS" "<cmd>Neogit stash<cr>" { })
+    (keymap "n" "<leader>gL" "<cmd>NeogitLog<cr>" { })
+    (keymap "n" "<leader>gC" "<cmd>NeogitCommit<cr>" { })
   ];
 }

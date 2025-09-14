@@ -11,16 +11,16 @@ in
     dap-go.enable = true;
   };
   keymaps = [
-    (keymap "n" "<leader>db" "<cmd>lua require('dap').toggle_breakpoint()<CR>" { })
-    (keymap "n" "<leader>dc" "<cmd>lua require('dap').continue()<CR>" { })
-    (keymap "n" "<leader>ds" "<cmd>lua require('dap').run_to_cursor()<CR>" { })
-    (keymap "n" "<leader>di" "<cmd>lua require('dap').step_into()<CR>" { })
-    (keymap "n" "<leader>do" "<cmd>lua require('dap').step_over()<CR>" { })
-    (keymap "n" "<leader>du" "<cmd>lua require('dap').step_out()<CR>" { })
-    (keymap "n" "<leader>da" "<cmd>lua require('dap').step_back()<CR>" { })
-    (keymap "n" "<leader>dr" "<cmd>lua require('dap').restart()<CR>" { })
-    (keymap "n" "<leader>dt" "<cmd>lua require('dap').terminate()<CR>" { })
-    (keymap "n" "<leader>dk" "<cmd>lua require('dapui').eval(nil, {enter = true})<CR>" { })
+    (keymap "n" "<leader>db" "<cmd>lua require('dap').toggle_breakpoint()<cr>" { })
+    (keymap "n" "<leader>dc" "<cmd>lua require('dap').continue()<cr>" { })
+    (keymap "n" "<leader>ds" "<cmd>lua require('dap').run_to_cursor()<cr>" { })
+    (keymap "n" "<leader>di" "<cmd>lua require('dap').step_into()<cr>" { })
+    (keymap "n" "<leader>do" "<cmd>lua require('dap').step_over()<cr>" { })
+    (keymap "n" "<leader>du" "<cmd>lua require('dap').step_out()<cr>" { })
+    (keymap "n" "<leader>da" "<cmd>lua require('dap').step_back()<cr>" { })
+    (keymap "n" "<leader>dr" "<cmd>lua require('dap').restart()<cr>" { })
+    (keymap "n" "<leader>dt" "<cmd>lua require('dap').terminate()<cr>" { })
+    (keymap "n" "<leader>dk" "<cmd>lua require('dapui').eval(nil, {enter = true})<cr>" { })
   ];
   extraConfigLua = ''
     require('dap').listeners.before.attach.dapui_config = function()

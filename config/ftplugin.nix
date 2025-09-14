@@ -22,7 +22,7 @@
           vim.cmd('help ' .. word)
         end
         vim.keymap.set('n', 'gd', go_to_help, { noremap = true, buffer = true })
-        vim.keymap.set('n', 'q', "<CMD>q<CR>", { noremap = true, buffer = true })
+        vim.keymap.set('n', 'q', "<cmd>q<cr>", { noremap = true, buffer = true })
       '';
     "ftplugin/markdown.lua".text = # lua
       ''
@@ -44,7 +44,7 @@
           vim.keymap.set(
             'n',
             '<leader>lp',
-            '<CMD>silent !' .. zathura_path .. ' target/%:.:r.pdf&<CR>',
+            '<cmd>silent !' .. zathura_path .. ' target/%:.:r.pdf&<cr>',
             { noremap = true, buffer = true }
           )
         '';

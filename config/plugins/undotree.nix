@@ -3,5 +3,5 @@ let
 in
 {
   plugins.undotree.enable = true;
-  keymaps = [ (keymap "n" "<leader>u" "<cmd>UndotreeToggle<CR>" { }) ];
+  keymaps = [ (keymap "n" "<leader>u" "<cmd>UndotreeToggle<cr>" { }) ];
 }

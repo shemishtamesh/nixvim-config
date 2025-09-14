@@ -5,29 +5,29 @@ let
   telescope_commands = (
     if config.plugins.telescope.enable then
       {
-        workspace_symbols = "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>";
-        document_symbols = "<cmd>Telescope lsp_document_symbols<CR>";
-        type_definitions = "<cmd>Telescope lsp_type_definitions<CR>";
-        references = "<cmd>Telescope lsp_references<CR>";
-        implementations = "<cmd>Telescope lsp_implementations<CR>";
-        incoming_calls = "<cmd>Telescope lsp_incoming_calls<CR>";
-        outgoing_calls = "<cmd>Telescope lsp_outgoing_calls<CR>";
-        definitions = "<cmd>Telescope lsp_definitions<CR>";
-        declarations = "<cmd>Telescope lsp_declarations<CR>";
-        diagnostics = "<cmd>Telescope diagnostics<CR>";
+        workspace_symbols = "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>";
+        document_symbols = "<cmd>Telescope lsp_document_symbols<cr>";
+        type_definitions = "<cmd>Telescope lsp_type_definitions<cr>";
+        references = "<cmd>Telescope lsp_references<cr>";
+        implementations = "<cmd>Telescope lsp_implementations<cr>";
+        incoming_calls = "<cmd>Telescope lsp_incoming_calls<cr>";
+        outgoing_calls = "<cmd>Telescope lsp_outgoing_calls<cr>";
+        definitions = "<cmd>Telescope lsp_definitions<cr>";
+        declarations = "<cmd>Telescope lsp_declarations<cr>";
+        diagnostics = "<cmd>Telescope diagnostics<cr>";
       }
     else
       {
-        workspace_symbols = "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>";
-        document_symbols = "<cmd>lua vim.lsp.buf.document_symbol()<CR>";
-        type_definitions = "<cmd>lua vim.lsp.buf.type_definition()<CR>";
-        references = "<cmd>lua vim.lsp.buf.references()<CR>";
-        implementations = "<cmd>lua vim.lsp.buf.implementation()<CR>";
-        incoming_calls = "<cmd>lua vim.lsp.buf.incoming_calls()<CR>";
-        outgoing_calls = "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>";
-        definitions = "<cmd>lua vim.lsp.buf.definition()<CR>";
-        declarations = "<cmd>lua vim.lsp.buf.declaration()<CR>";
-        diagnostics = "<cmd>lua vim.diagnostic.setqflist()<CR>";
+        workspace_symbols = "<cmd>lua vim.lsp.buf.workspace_symbol()<cr>";
+        document_symbols = "<cmd>lua vim.lsp.buf.document_symbol()<cr>";
+        type_definitions = "<cmd>lua vim.lsp.buf.type_definition()<cr>";
+        references = "<cmd>lua vim.lsp.buf.references()<cr>";
+        implementations = "<cmd>lua vim.lsp.buf.implementation()<cr>";
+        incoming_calls = "<cmd>lua vim.lsp.buf.incoming_calls()<cr>";
+        outgoing_calls = "<cmd>lua vim.lsp.buf.outgoing_calls()<cr>";
+        definitions = "<cmd>lua vim.lsp.buf.definition()<cr>";
+        declarations = "<cmd>lua vim.lsp.buf.declaration()<cr>";
+        diagnostics = "<cmd>lua vim.diagnostic.setqflist()<cr>";
       }
   );
 in
@@ -160,13 +160,13 @@ in
   };
   keymaps = [
     # defined outside of lsp for whichkey
-    (keymap "n" "<leader>la" "<cmd>lua vim.lsp.buf.code_action()<CR>" { silent = true; })
-    (keymap "n" "<leader>lf" "<cmd>lua vim.lsp.buf.format()<CR>" { silent = true; })
-    (keymap "n" "<leader>ln" "<cmd>lua vim.lsp.buf.rename()<CR>" { silent = true; })
-    (keymap "n" "<leader>lh" "<cmd>lua vim.lsp.buf.signature_help()<CR>" { silent = true; })
-    (keymap "n" "<leader>lc" "<cmd>lua vim.lsp.buf.typehierarchy()<CR>" { silent = true; })
+    (keymap "n" "<leader>la" "<cmd>lua vim.lsp.buf.code_action()<cr>" { silent = true; })
+    (keymap "n" "<leader>lf" "<cmd>lua vim.lsp.buf.format()<cr>" { silent = true; })
+    (keymap "n" "<leader>ln" "<cmd>lua vim.lsp.buf.rename()<cr>" { silent = true; })
+    (keymap "n" "<leader>lh" "<cmd>lua vim.lsp.buf.signature_help()<cr>" { silent = true; })
+    (keymap "n" "<leader>lc" "<cmd>lua vim.lsp.buf.typehierarchy()<cr>" { silent = true; })
     (keymap "n" "<leader>ll"
-      "<cmd>lua vim.diagnostic.config({virtual_lines = not vim.diagnostic.config().virtual_lines, virtual_text = not vim.diagnostic.config().virtual_text})<CR>"
+      "<cmd>lua vim.diagnostic.config({virtual_lines = not vim.diagnostic.config().virtual_lines, virtual_text = not vim.diagnostic.config().virtual_text})<cr>"
       {
         silent = true;
       }
@@ -181,8 +181,8 @@ in
     (keymap "n" "<leader>lO" telescope_commands.document_symbols { silent = true; })
     (keymap "n" "gD" telescope_commands.declarations { silent = true; })
     (keymap "n" "gd" telescope_commands.definitions { silent = true; })
-    (keymap "n" "]d" "<cmd>lua vim.diagnostic.goto_next()<CR>" { silent = true; })
-    (keymap "n" "[d" "<cmd>lua vim.diagnostic.goto_prev()<CR>" { silent = true; })
+    (keymap "n" "]d" "<cmd>lua vim.diagnostic.goto_next()<cr>" { silent = true; })
+    (keymap "n" "[d" "<cmd>lua vim.diagnostic.goto_prev()<cr>" { silent = true; })
   ];
   extraPackages = with pkgs; [
     cargo

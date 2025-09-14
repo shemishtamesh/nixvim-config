@@ -31,6 +31,7 @@
     ./gitsigns.nix
     ./neogit.nix
     ./git-worktree.nix
+    ./coerce.nix
   ];
 
   plugins = {

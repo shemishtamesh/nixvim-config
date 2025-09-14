@@ -10,9 +10,9 @@ in
     settings.defaults.layout_config.horizontal.width = 0.9;
   };
   keymaps = [
-    (keymap "n" "<leader>fo" "<cmd>Telescope oldfiles<CR>" { })
-    (keymap "n" "<leader>ff" ''<cmd>Telescope frecency workspace=CWD path_display={"smart"}<CR>'' { })
-    (keymap "n" "<leader>fF" "<cmd>Telescope frecency<CR>" { })
+    (keymap "n" "<leader>fo" "<cmd>Telescope oldfiles<cr>" { })
+    (keymap "n" "<leader>ff" ''<cmd>Telescope frecency workspace=CWD path_display={"smart"}<cr>'' { })
+    (keymap "n" "<leader>fF" "<cmd>Telescope frecency<cr>" { })
     {
       mode = "n";
       key = "<leader>F";
@@ -29,22 +29,22 @@ in
       options = { };
     }
     (keymap "n" "<leader>fl"
-      "<cmd>lua require('telescope.builtin').live_grep({additional_args=${rg_args}})<CR>"
+      "<cmd>lua require('telescope.builtin').live_grep({additional_args=${rg_args}})<cr>"
       { }
     )
-    (keymap "n" "<leader>fa" "<cmd>Telescope find_files hidden=true<CR>" { })
+    (keymap "n" "<leader>fa" "<cmd>Telescope find_files hidden=true<cr>" { })
     (keymap [ "n" "v" ] "<leader>fs"
-      "<cmd>lua require('telescope.builtin').grep_string({additional_args=${rg_args}})<CR>"
+      "<cmd>lua require('telescope.builtin').grep_string({additional_args=${rg_args}})<cr>"
       { }
     )
-    (keymap "n" "<leader>fc" "<cmd>Telescope command_history<CR>" { })
-    (keymap "n" "<leader>fq" "<cmd>Telescope quickfix<CR>" { })
-    (keymap "n" "<leader>fj" "<cmd>Telescope jumplist<CR>" { })
-    (keymap "n" "<leader>fk" "<cmd>Telescope keymaps<CR>" { })
-    (keymap "n" "<leader>fh" "<cmd>Telescope help_tags<CR>" { })
-    (keymap "n" "<leader>fm" "<cmd>Telescope man_pages sections=['ALL']<CR>" { })
-    (keymap "n" "<leader>fM" "<cmd>set filetype=man | Telescope man_pages sections=['ALL']<CR>" { })
-    (keymap "n" "<leader>fb" "<cmd>Telescope git_branches<CR>" { })
+    (keymap "n" "<leader>fc" "<cmd>Telescope command_history<cr>" { })
+    (keymap "n" "<leader>fq" "<cmd>Telescope quickfix<cr>" { })
+    (keymap "n" "<leader>fj" "<cmd>Telescope jumplist<cr>" { })
+    (keymap "n" "<leader>fk" "<cmd>Telescope keymaps<cr>" { })
+    (keymap "n" "<leader>fh" "<cmd>Telescope help_tags<cr>" { })
+    (keymap "n" "<leader>fm" "<cmd>Telescope man_pages sections=['ALL']<cr>" { })
+    (keymap "n" "<leader>fM" "<cmd>set filetype=man | Telescope man_pages sections=['ALL']<cr>" { })
+    (keymap "n" "<leader>fb" "<cmd>Telescope git_branches<cr>" { })
   ];
 
   extraPackages = with pkgs; [

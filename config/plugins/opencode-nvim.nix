@@ -16,21 +16,21 @@
   keymaps = [
     {
       key = "<leader>ot";
-      action = "<cmd>lua require('opencode').toggle()<CR>";
+      action = "<cmd>lua require('opencode').toggle()<cr>";
     }
     {
       key = "<leader>oa";
-      action = "<cmd>lua require('opencode').ask()<CR>";
+      action = "<cmd>lua require('opencode').ask()<cr>";
       mode = "n";
     }
     {
       key = "<leader>oa";
-      action = "<cmd>lua require('opencode').ask('@selection: ')<CR>";
+      action = "<cmd>lua require('opencode').ask('@selection: ')<cr>";
       mode = "v";
     }
     {
       key = "<leader>oe";
-      action = "<cmd>lua require('opencode').select_prompt()<CR>";
+      action = "<cmd>lua require('opencode').select_prompt()<cr>";
       mode = [
         "n"
         "v"
@@ -38,7 +38,7 @@
     }
     {
       key = "<leader>on";
-      action = "<cmd>lua require('opencode').command('session_new')<CR>";
+      action = "<cmd>lua require('opencode').command('session_new')<cr>";
     }
   ];
   extraPackages = with pkgs; [ lsof ];
