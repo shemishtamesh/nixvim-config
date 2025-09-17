@@ -56,5 +56,8 @@
 
     # treesitter should define which parts should be spell checked
     spell = true;
+
+    # bidirectional text
+    termbidi = true;
   };
 }

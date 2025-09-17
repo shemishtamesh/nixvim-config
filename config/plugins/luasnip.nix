@@ -11,7 +11,7 @@
           luasnip.snippet(
             "pr",
             fmt(
-              [[https://github.com/NixOS/nixpkgs/archive/pull/{}/head.tar.gz";]],
+              [["https://github.com/NixOS/nixpkgs/archive/pull/{}/head.tar.gz";]],
               { luasnip.insert_node(0) }
             )
           ),

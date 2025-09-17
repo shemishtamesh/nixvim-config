@@ -27,6 +27,10 @@
           enabled = true;
           font = "+10";
         };
+        wezterm = {
+          enabled = true;
+          font = "+10";
+        };
       };
     };
   };
