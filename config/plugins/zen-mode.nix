@@ -25,11 +25,11 @@
         tmux.enabled = true;
         kitty = {
           enabled = true;
-          font = "+10";
+          font = "+8";
         };
         wezterm = {
           enabled = true;
-          font = "+10";
+          font = "+8";
         };
       };
     };
