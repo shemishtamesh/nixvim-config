@@ -157,6 +157,7 @@ in
     };
     rustaceanvim.enable = true;
     typescript-tools.enable = true;
+    lean.enable = true;
   };
   keymaps = [
     # defined outside of lsp for whichkey
