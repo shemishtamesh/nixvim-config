@@ -96,13 +96,15 @@ in
           settings = {
             telemetry.enable = false;
             diagnostics.globals = [
-              "vim"
-              "love"
+              "vim" # neovim configuration
+              "love" # love2d game engine
+              "sol" # solarus game engine
             ];
             workspace = {
               library = [
                 "${pkgs.neovim}/share/nvim/runtime"
                 "\${3rd}/love2d/library"
+                # no easily accessible static docs offline for solarus lua api
               ];
               checkThirdParty = false;
             };
