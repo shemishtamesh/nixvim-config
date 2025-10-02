@@ -39,127 +39,127 @@ in
     severity_sort = true;
     update_in_insert = true;
   };
-  plugins = {
-    lsp = {
-      enable = true;
-      inlayHints = true;
-      servers = {
-        nixd = {
-          enable = true;
-          settings.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
-        };
-        pylsp = {
-          enable = true;
-          settings = {
-            plugins = {
-              ruff = {
-                enabled = true;
-                extendSelect = [
-                  "I"
-                  "E"
-                  "W"
-                  "Q"
-                  "N"
-                  "T10"
-                  "ARG"
-                  "FIX"
-                  "ISC"
-                  "D414"
-                  "D417"
-                  "D419"
-                ];
-                lineLength = 79;
-                config = builtins.toString (
-                  (pkgs.formats.toml { }).generate "ruff.toml" {
-                    lint.flake8-implicit-str-concat.allow-multiline = false;
-                  }
-                );
-              };
-              pylsp_mypy = {
-                enabled = true;
-                overrides.__raw = # lua
-                  ''
-                    (function ()
-                        local virtual_environment = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
-                        if virtual_environment then
-                            return { "--python-executable", virtual_environment .. "/bin/python3", true }
-                        end
-                        return { true }
-                    end)()
-                  '';
-              };
-            };
-          };
-        };
-        lua_ls = {
-          enable = true;
-          settings = {
-            telemetry.enable = false;
-            diagnostics.globals = [
-              "vim" # neovim configuration
-              "love" # love2d game engine
-              "sol" # solarus game engine
-            ];
-            workspace = {
-              library = [
-                "${pkgs.neovim}/share/nvim/runtime"
-                "\${3rd}/love2d/library"
-                # no easily accessible static docs offline for solarus lua api
-              ];
-              checkThirdParty = false;
-            };
-            Lua = {
-              hint = {
-                enable = true;
-                arrayIndex = "Enable";
-                setType = true;
-                paramName = "All";
-                paramType = true;
-              };
-            };
-          };
-        };
-        gopls = {
-          enable = true;
-          settings = {
-            hints = {
-              assignVariableTypes = true;
-              compositeLiteralFields = true;
-              compositeLiteralTypes = true;
-              constantValues = true;
-              functionTypeParameters = true;
-              parameterNames = true;
-              rangeVariableTypes = true;
-            };
-          };
-        };
-        tinymist = {
-          enable = true;
-          settings = {
-            formatterMode = "typstyle";
-            exportPdf = "onType";
-            outputPath = "$root/target/$name";
-          };
-        };
-        qmlls = {
-          enable = true;
-          cmd = [
-            "qmlls"
-            "-E"
-          ];
-        };
-        clangd.enable = true;
-        java_language_server.enable = true;
-        sqls.enable = true;
-        bashls.enable = true;
-        yamlls.enable = true;
-        jsonls.enable = true;
-        openscad_lsp.enable = true;
+  lsp = {
+    # enable = true;
+    inlayHints.enable = true;
+    servers = {
+      nixd = {
+        enable = true;
+        settings.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
       };
+      pylsp = {
+        enable = true;
+        settings = {
+          plugins = {
+            ruff = {
+              enabled = true;
+              extendSelect = [
+                "I"
+                "E"
+                "W"
+                "Q"
+                "N"
+                "T10"
+                "ARG"
+                "FIX"
+                "ISC"
+                "D414"
+                "D417"
+                "D419"
+              ];
+              lineLength = 79;
+              config = builtins.toString (
+                (pkgs.formats.toml { }).generate "ruff.toml" {
+                  lint.flake8-implicit-str-concat.allow-multiline = false;
+                }
+              );
+            };
+            pylsp_mypy = {
+              enabled = true;
+              overrides.__raw = # lua
+                ''
+                  (function ()
+                      local virtual_environment = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
+                      if virtual_environment then
+                          return { "--python-executable", virtual_environment .. "/bin/python3", true }
+                      end
+                      return { true }
+                  end)()
+                '';
+            };
+          };
+        };
+      };
+      lua_ls = {
+        enable = true;
+        settings = {
+          telemetry.enable = false;
+          diagnostics.globals = [
+            "vim" # neovim configuration
+            "love" # love2d game engine
+            "sol" # solarus game engine
+          ];
+          workspace = {
+            library = [
+              "${pkgs.neovim}/share/nvim/runtime"
+              "\${3rd}/love2d/library"
+              # no easily accessible static docs offline for solarus lua api
+            ];
+            checkThirdParty = false;
+          };
+          Lua = {
+            hint = {
+              enable = true;
+              arrayIndex = "Enable";
+              setType = true;
+              paramName = "All";
+              paramType = true;
+            };
+          };
+        };
+      };
+      gopls = {
+        enable = true;
+        settings = {
+          hints = {
+            assignVariableTypes = true;
+            compositeLiteralFields = true;
+            compositeLiteralTypes = true;
+            constantValues = true;
+            functionTypeParameters = true;
+            parameterNames = true;
+            rangeVariableTypes = true;
+          };
+        };
+      };
+      tinymist = {
+        enable = true;
+        settings = {
+          formatterMode = "typstyle";
+          exportPdf = "onType";
+          outputPath = "$root/target/$name";
+        };
+      };
+      qmlls = {
+        enable = true;
+        settings.cmd = [
+          "qmlls"
+          "-E"
+        ];
+      };
+      clangd.enable = true;
+      java_language_server.enable = true;
+      sqls.enable = true;
+      bashls.enable = true;
+      yamlls.enable = true;
+      jsonls.enable = true;
+      openscad_lsp.enable = true;
     };
+  };
+  plugins = {
     rustaceanvim.enable = true;
     typescript-tools.enable = true;
-    lean.enable = true;
+    # lean.enable = true;
   };
   keymaps = [
     # defined outside of lsp for whichkey
