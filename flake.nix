@@ -11,12 +11,11 @@
 
   outputs =
     {
-      nixpkgs,
       nixvim,
       ...
-    }:
+    }@inputs:
     let
-      per_system = nixpkgs.lib.genAttrs nixpkgs.lib.systems.doubles.all;
+      per_system = inputs.nixpkgs.lib.genAttrs inputs.nixpkgs.lib.systems.doubles.all;
       nixvimModule = system: {
         inherit system;
         module = import ./config;
