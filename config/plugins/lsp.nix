@@ -155,6 +155,7 @@ in
         sqls.enable = true;
         bashls.enable = true;
         yamlls.enable = true;
+        taplo.enable = true;
         jsonls.enable = true;
         openscad_lsp.enable = true;
       };
