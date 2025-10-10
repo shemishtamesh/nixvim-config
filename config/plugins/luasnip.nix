@@ -42,6 +42,23 @@
             )
           )
         })
+
+        luasnip.add_snippets("python", {
+          luasnip.snippet(
+            "main",
+            fmt(
+              "\n\n\n" .. [[
+                  def main():
+                      {}
+
+
+                  if __name__ == "__main__":
+                      main()
+              ]],
+              { luasnip.insert_node(0) }
+            )
+          ),
+        })
       '';
     };
     cmp = {
