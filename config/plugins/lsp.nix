@@ -162,7 +162,7 @@ in
     };
     rustaceanvim.enable = true;
     typescript-tools.enable = true;
-    lean.enable = true;
+    # lean.enable = true; # '`require('lspconfig')` "framework" is deprecated' warning
   };
   keymaps = [
     # defined outside of lsp for whichkey
