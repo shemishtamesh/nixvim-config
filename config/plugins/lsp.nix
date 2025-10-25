@@ -30,6 +30,12 @@ let
         diagnostics = "<cmd>lua vim.diagnostic.setqflist()<cr>";
       }
   );
+  solarus_lua_api = pkgs.fetchzip {
+    name = "solarus_lua_api";
+    url = "https://gitlab.com/api/v4/projects/solarus-games%2Fsolarus/repository/archive.zip?path=work/EmmyLua/emmy_api&sha=release-2.0.1";
+    extension = "zip";
+    sha256 = "sha256-y+OQAWjazwwf/EFiLvBrgt90pOF4jM7GpCDiqzaWINE=";
+  };
 in
 {
   diagnostic.settings = {
@@ -106,7 +112,7 @@ in
               library = [
                 "${pkgs.neovim}/share/nvim/runtime"
                 "\${3rd}/love2d/library"
-                # no easily accessible static docs offline for solarus lua api
+                "${solarus_lua_api}/work/EmmyLua/emmy_api"
               ];
               checkThirdParty = false;
             };

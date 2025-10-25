@@ -75,111 +75,113 @@ in
       command = "wqa";
     };
   };
-  plugins.treesitter-textobjects.extraOptions.move =
-    let
-      textobjectStartDesc = isStart: if isStart then "start" else "end";
-      textobjectNextDesc = isNext: if isNext then "next" else "previous";
-      textobjectsMoveKey =
-        isNext: isStart: key:
-        "${if isNext then "]" else "["}${if isStart then key else lib.toUpper key}";
-      textobjectsMoveAttributeSet = isNext: isStart: {
-        "${textobjectsMoveKey isNext isStart "f"}" = {
-          query = "@function.outer";
-          desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} function";
+  plugins.treesitter-textobjects.settings = {
+    move =
+      let
+        textobjectStartDesc = isStart: if isStart then "start" else "end";
+        textobjectNextDesc = isNext: if isNext then "next" else "previous";
+        textobjectsMoveKey =
+          isNext: isStart: key:
+          "${if isNext then "]" else "["}${if isStart then key else lib.toUpper key}";
+        textobjectsMoveAttributeSet = isNext: isStart: {
+          "${textobjectsMoveKey isNext isStart "f"}" = {
+            query = "@function.outer";
+            desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} function";
+          };
+          "${textobjectsMoveKey isNext isStart "c"}" = {
+            query = "@class.outer";
+            desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} class";
+          };
+          "${textobjectsMoveKey isNext isStart "="}" = {
+            query = "@assignment.outer";
+            query_group = "locals";
+            desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} assignment";
+          };
+          "${textobjectsMoveKey isNext isStart "r"}" = {
+            query = "@loop.outer";
+            query_group = "locals";
+            desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} loop";
+          };
+          "${textobjectsMoveKey isNext isStart "i"}" = {
+            query = "@conditional.outer";
+            query_group = "locals";
+            desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} conditional";
+          };
+          "${textobjectsMoveKey isNext isStart "k"}" = {
+            query = "@block.outer";
+            query_group = "locals";
+            desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} block";
+          };
         };
-        "${textobjectsMoveKey isNext isStart "c"}" = {
-          query = "@class.outer";
-          desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} class";
-        };
-        "${textobjectsMoveKey isNext isStart "="}" = {
-          query = "@assignment.outer";
-          query_group = "locals";
-          desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} assignment";
-        };
-        "${textobjectsMoveKey isNext isStart "r"}" = {
-          query = "@loop.outer";
-          query_group = "locals";
-          desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} loop";
-        };
-        "${textobjectsMoveKey isNext isStart "i"}" = {
-          query = "@conditional.outer";
-          query_group = "locals";
-          desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} conditional";
-        };
-        "${textobjectsMoveKey isNext isStart "k"}" = {
-          query = "@block.outer";
-          query_group = "locals";
-          desc = "Go to the ${textobjectStartDesc isStart} of the ${textobjectNextDesc isNext} block";
-        };
+      in
+      {
+        goto_next_start = textobjectsMoveAttributeSet true true;
+        goto_previous_start = textobjectsMoveAttributeSet false true;
+        goto_next_end = textobjectsMoveAttributeSet true false;
+        goto_previous_end = textobjectsMoveAttributeSet false false;
       };
-    in
-    {
-      goto_next_start = textobjectsMoveAttributeSet true true;
-      goto_previous_start = textobjectsMoveAttributeSet false true;
-      goto_next_end = textobjectsMoveAttributeSet true false;
-      goto_previous_end = textobjectsMoveAttributeSet false false;
-    };
-  plugins.treesitter-textobjects.extraOptions.select.keymaps = {
-    "if" = {
-      query = "@function.inner";
-      desc = "Select inner part of a function region";
-    };
-    "af" = {
-      query = "@function.outer";
-      desc = "Select outer part of a function region";
-    };
-    "ic" = {
-      query = "@class.inner";
-      desc = "Select inner part of a class region";
-    };
-    "ac" = {
-      query = "@class.outer";
-      desc = "Select outer part of a class region";
-    };
-    "ia" = {
-      query = "@assignment.inner";
-      query_group = "locals";
-      desc = "Select inner part of a assignment region";
-    };
-    "aa" = {
-      query = "@assignment.outer";
-      query_group = "locals";
-      desc = "Select outer part of an assignment region";
-    };
-    "il" = {
-      query = "@loop.inner";
-      query_group = "locals";
-      desc = "Select inner part of a loop region";
-    };
-    "al" = {
-      query = "@loop.outer";
-      query_group = "locals";
-      desc = "Select outer part of a loop region";
-    };
-    "ii" = {
-      query = "@conditional.inner";
-      query_group = "locals";
-      desc = "Select inner part of a conditional region";
-    };
-    "ai" = {
-      query = "@conditional.outer";
-      query_group = "locals";
-      desc = "Select outer part of a conditional region";
-    };
-    "ik" = {
-      query = "@block.inner";
-      query_group = "locals";
-      desc = "Select inner part of a block region";
-    };
-    "ak" = {
-      query = "@block.outer";
-      query_group = "locals";
-      desc = "Select outer part of a block region";
-    };
-    "as" = {
-      query = "@scope";
-      query_group = "locals";
-      desc = "Select language scope";
+    keymaps = {
+      "if" = {
+        query = "@function.inner";
+        desc = "Select inner part of a function region";
+      };
+      "af" = {
+        query = "@function.outer";
+        desc = "Select outer part of a function region";
+      };
+      "ic" = {
+        query = "@class.inner";
+        desc = "Select inner part of a class region";
+      };
+      "ac" = {
+        query = "@class.outer";
+        desc = "Select outer part of a class region";
+      };
+      "ia" = {
+        query = "@assignment.inner";
+        query_group = "locals";
+        desc = "Select inner part of a assignment region";
+      };
+      "aa" = {
+        query = "@assignment.outer";
+        query_group = "locals";
+        desc = "Select outer part of an assignment region";
+      };
+      "il" = {
+        query = "@loop.inner";
+        query_group = "locals";
+        desc = "Select inner part of a loop region";
+      };
+      "al" = {
+        query = "@loop.outer";
+        query_group = "locals";
+        desc = "Select outer part of a loop region";
+      };
+      "ii" = {
+        query = "@conditional.inner";
+        query_group = "locals";
+        desc = "Select inner part of a conditional region";
+      };
+      "ai" = {
+        query = "@conditional.outer";
+        query_group = "locals";
+        desc = "Select outer part of a conditional region";
+      };
+      "ik" = {
+        query = "@block.inner";
+        query_group = "locals";
+        desc = "Select inner part of a block region";
+      };
+      "ak" = {
+        query = "@block.outer";
+        query_group = "locals";
+        desc = "Select outer part of a block region";
+      };
+      "as" = {
+        query = "@scope";
+        query_group = "locals";
+        desc = "Select language scope";
+      };
     };
   };
 }

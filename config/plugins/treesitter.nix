@@ -16,7 +16,7 @@
     };
     treesitter-textobjects = {
       enable = true;
-      extraOptions = {
+      settings = {
         lookahead = true;
         move = {
           enable = true;
