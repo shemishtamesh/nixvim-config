@@ -18,6 +18,7 @@
     relativenumber = true;
     winblend = 10;
     winborder = "rounded";
+    cmdheight = 0;
 
     # Better editing experience
     expandtab = true;
