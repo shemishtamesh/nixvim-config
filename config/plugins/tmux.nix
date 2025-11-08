@@ -4,8 +4,6 @@
   extraPlugins = with pkgs.vimPlugins; [ vim-tpipeline ];
   extraConfigLua = ''
     if vim.env.TMUX then
-      vim.g.tpipeline_restore = 1
-
       vim.api.nvim_create_autocmd({ "FocusGained", "ColorScheme" }, {
         callback = function()
           vim.defer_fn(function()
