@@ -13,6 +13,7 @@
     ./indent-blankline.nix
     ./which-key.nix
     ./snacks.nix
+    ./mini.nix
     ./dadbod.nix
     ./nvim-dap.nix
     ./flash.nix
@@ -21,12 +22,12 @@
     ./visimatch.nix
     ./jupytext.nix
     ./luasnip.nix
-    ./neoscroll.nix
+    # ./neoscroll.nix
     # ./gitblame.nix
     # ./hardtime.nix
     # ./dashboard.nix
     # ./obsidian.nix
-    ./ethersync-nvim.nix
+    ./teamtype.nix
     # ./opencode-nvim.nix
     ./gitsigns.nix
     ./neogit.nix
