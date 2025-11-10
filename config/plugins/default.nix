@@ -13,7 +13,7 @@
     ./indent-blankline.nix
     ./which-key.nix
     ./snacks.nix
-    ./mini.nix
+    # ./mini.nix
     ./dadbod.nix
     ./nvim-dap.nix
     ./flash.nix
