@@ -34,10 +34,10 @@
     ./git-worktree.nix
     ./coerce.nix
     ./tmux.nix
+    ./lualine.nix
   ];
 
   plugins = {
-    lualine.enable = true;
     colorizer.enable = true;
     otter.enable = true;
     numbertoggle.enable = true;
