@@ -23,8 +23,8 @@
             __unkeyed-1 = {
               __raw = ''
                 function()
+                  -- Early return when no search highlighting
                   if vim.v.hlsearch == 0 then return "" end
-                  local count = vim.fn.searchcount()
 
                   -- Get the last search count without recomputation
                   local result = vim.fn.searchcount({ recompute = 0 })
