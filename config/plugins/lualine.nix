@@ -27,7 +27,7 @@
                   if vim.v.hlsearch == 0 then return "" end
 
                   -- Get the last search count without recomputation
-                  local result = vim.fn.searchcount({ recompute = 0 })
+                  local result = vim.fn.searchcount({ recompute = 1 })
 
                   if not result or vim.tbl_isempty(result) then
                     return ""
