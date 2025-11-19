@@ -120,7 +120,7 @@ in
         goto_next_end = textobjectsMoveAttributeSet true false;
         goto_previous_end = textobjectsMoveAttributeSet false false;
       };
-    keymaps = {
+    select.keymaps = {
       "if" = {
         query = "@function.inner";
         desc = "Select inner part of a function region";
