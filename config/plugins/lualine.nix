@@ -40,7 +40,7 @@
 
                   -- Handle timeouts
                   if result.incomplete == 1 then
-                    return string.format(" /%s [?/??]", search_pat)
+                    return string.format("%s [?/??]", search_pat)
                   end
 
                   -- Handle maxcount exceeded
@@ -50,14 +50,14 @@
                     local maxc = result.maxcount
 
                     if total > maxc and cur > maxc then
-                      return string.format(" /%s [>%d/>%d]", search_pat, cur, total)
+                      return string.format("%s [>%d/>%d]", search_pat, cur, total)
                     elseif total > maxc then
-                      return string.format(" /%s [%d/>%d]", search_pat, cur, total)
+                      return string.format("%s [%d/>%d]", search_pat, cur, total)
                     end
                   end
 
                   -- Normal display
-                  return string.format(" /%s [%d/%d]", search_pat, result.current, result.total)
+                  return string.format("%s [%d/%d]", search_pat, result.current, result.total)
                 end
               '';
             };
