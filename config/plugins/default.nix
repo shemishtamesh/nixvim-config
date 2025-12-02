@@ -35,6 +35,7 @@
     ./coerce.nix
     ./tmux.nix
     ./lualine.nix
+    ./noice-nvim.nix
   ];
 
   plugins = {

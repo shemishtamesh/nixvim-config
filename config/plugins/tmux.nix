@@ -24,5 +24,11 @@ in
     (keymap "i" "<c-k>" "<c-o>:TmuxNavigateUp<cr>" { silent = true; })
     (keymap "i" "<c-l>" "<c-o>:TmuxNavigateRight<cr>" { silent = true; })
     (keymap "i" "<c-\\>" "<c-o>:TmuxNavigatePrevious<cr>" { silent = true; })
+
+    (keymap "v" "<c-h>" ":<c-u>TmuxNavigateLeft<cr>gv" { silent = true; })
+    (keymap "v" "<c-j>" ":<c-u>TmuxNavigateDown<cr>gv" { silent = true; })
+    (keymap "v" "<c-k>" ":<c-u>TmuxNavigateUp<cr>gv" { silent = true; })
+    (keymap "v" "<c-l>" ":<c-u>TmuxNavigateRight<cr>gv" { silent = true; })
+    (keymap "v" "<c-\\>" ":<c-u>TmuxNavigatePrevious<cr>gv" { silent = true; })
   ];
 }

@@ -1,4 +1,8 @@
 {
+  opts = {
+    cmdheight = 0;
+    showcmdloc = "statusline";
+  };
   plugins = {
     lualine = {
       enable = true;
@@ -16,6 +20,10 @@
             };
           }
           "mode"
+        ];
+        lualine_y = [
+          "%S"
+          "progress"
         ];
         lualine_z = [
           "location"
