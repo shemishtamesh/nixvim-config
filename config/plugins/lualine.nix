@@ -22,7 +22,7 @@
           "mode"
         ];
         lualine_y = [
-          "%S"
+          # "%S"
           "progress"
         ];
         lualine_z = [
