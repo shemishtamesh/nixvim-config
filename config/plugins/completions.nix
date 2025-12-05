@@ -54,6 +54,7 @@ in
         { name = "path"; }
       ];
       experimental.ghost_text = true;
+      window.completion.winhighlight = "Normal:CmpNormal";
     };
   };
 }

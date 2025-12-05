@@ -26,5 +26,21 @@
       packages = per_system (system: {
         default = nixvim.legacyPackages.${system}.makeNixvimWithModule (nixvimModule system);
       });
+      apps = per_system (system: {
+        view_config = {
+          type = "app";
+          program = nixpkgs.lib.getExe (
+            nixpkgs.legacyPackages.${system}.writeShellApplication {
+              name = "view_config";
+              text =
+                # sh
+                ''
+                  nix build
+                  ./result/bin/nixvim-print-init | nvim -c "set ft=lua | set readonly"
+                '';
+            }
+          );
+        };
+      });
     };
 }
