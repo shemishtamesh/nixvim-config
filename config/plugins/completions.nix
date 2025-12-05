@@ -57,4 +57,7 @@ in
       window.completion.winhighlight = "Normal:CmpNormal";
     };
   };
+  extraConfigLua = ''
+    vim.api.nvim_set_hl(0, "CmpItemAbbr", { link = "Normal" })
+  '';
 }
