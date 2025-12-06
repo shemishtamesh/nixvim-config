@@ -6,7 +6,10 @@ in
 {
   plugins.telescope = {
     enable = true;
-    extensions.frecency.enable = true;
+    extensions.frecency = {
+      enable = true;
+      settings.auto_validate = true;
+    };
     settings.defaults.layout_config.horizontal.width = 0.9;
   };
   keymaps = [
