@@ -36,7 +36,10 @@
                 # sh
                 ''
                   nix build
-                  ./result/bin/nixvim-print-init | nvim -c "set ft=lua | set readonly"
+                  tmp_init_path=/tmp/nixvim-print-init-output-init.lua
+                  ./result/bin/nixvim-print-init > $tmp_init_path
+                  $EDITOR $tmp_init_path
+                  rm $tmp_init_path
                 '';
             }
           );
