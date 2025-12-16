@@ -45,7 +45,7 @@ in
 
     # faster exit
     (keymap "n" "Q" "<cmd>qa<cr>" { })
-    (keymap "n" "<M-q>" "<cmd>qa!<cr>" { })
+    (keymap "n" "<leader>Q" "<cmd>qa!<cr>" { })
 
     # alternative alternative file binding
     (keymap "n" "<M-6>" ''<C-^>'' { })
