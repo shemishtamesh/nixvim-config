@@ -1,6 +1,3 @@
-let
-  keymap = (import ../nix_functions.nix).keymap;
-in
 {
   plugins = {
     oil = {
@@ -12,7 +9,6 @@ in
           "size"
           "mtime"
         ];
-        keymaps.q = "actions.close";
         delete_to_trash = true;
         skip_confirm_for_simple_edits = false;
         view_options = {

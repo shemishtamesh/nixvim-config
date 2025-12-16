@@ -44,7 +44,7 @@ in
     (keymap "n" "<leader>h" "<cmd>set hlsearch!<cr>" { })
 
     # faster exit
-    (keymap "n" "Q" "<cmd>qa<cr>" { })
+    (keymap "n" "<M-q>" "<cmd>qa<cr>" { })
 
     # alternative alternative file binding
     (keymap "n" "<M-6>" ''<C-^>'' { })
