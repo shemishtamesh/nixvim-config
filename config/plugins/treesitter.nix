@@ -5,9 +5,21 @@
       enable = true;
       folding = true;
       settings = {
-        highlight.enable = true;
+        highlight = {
+          enable = true;
+          additional_vim_regex_highlighting = true;
+        };
         indent.enable = true;
         auto_install = true;
+        incremental_selection = {
+          enable = true;
+          keymaps = {
+            init_selection = "<leader>,";
+            node_incremental = "<leader>,";
+            scope_incremental = "<leader><";
+            node_decremental = "<leader>.";
+          };
+        };
       };
     };
     treesitter-context = {
@@ -29,5 +41,8 @@
       };
     };
   };
-  extraPackages = with pkgs; [ gcc nodejs ];
+  extraPackages = with pkgs; [
+    gcc
+    nodejs
+  ];
 }
