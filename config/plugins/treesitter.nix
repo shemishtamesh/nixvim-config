@@ -11,6 +11,11 @@
         };
         indent.enable = true;
         auto_install = true;
+        parser_install_dir = (
+          if pkgs.lib.strings.hasSuffix "darwin" pkgs.stdenv.hostPlatform.system
+            then "$HOME/.local/share/nvim/treesitter"
+          else "$XDG_DATA_HOME/nvim/treesitter"
+        );
         incremental_selection = {
           enable = true;
           keymaps = {

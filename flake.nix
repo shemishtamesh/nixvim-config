@@ -37,9 +37,9 @@
                 ''
                   nix build
                   tmp_init_path=/tmp/nixvim-print-init-output-init.lua
-                  ./result/bin/nixvim-print-init > $tmp_init_path
-                  $EDITOR $tmp_init_path
-                  rm $tmp_init_path
+                  ./result/bin/nixvim-print-init > "$tmp_init_path"
+                  "$EDITOR" "$tmp_init_path"
+                  rm "$tmp_init_path"
                 '';
             }
           );
