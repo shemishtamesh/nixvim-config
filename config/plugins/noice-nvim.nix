@@ -8,6 +8,7 @@ in
     };
   };
   keymaps = [
+    (keymap [ "n" ] "<leader>n" "<cmd>NoicePick<cr>" { })
     (keymap [ "n" "i" "v" ] "<M-;>" "<cmd>NoiceDismiss<cr>" { })
   ];
 }
