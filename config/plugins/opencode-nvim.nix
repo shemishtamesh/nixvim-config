@@ -2,16 +2,6 @@
 {
   extraPlugins = with pkgs; [
     vimPlugins.opencode-nvim
-    # (vimUtils.buildVimPlugin {
-    #   pname = "opencode-nvim";
-    #   version = "latest";
-    #   src = fetchFromGitHub {
-    #     owner = "NickvanDyke";
-    #     repo = "opencode.nvim";
-    #     rev = "main";
-    #     sha256 = "sha256-U3oF7Vpi6ozsXXe8gYNtWswZLtr+PrUdON0qAsnycmo=";
-    #   };
-    # })
   ];
   keymaps = [
     {
@@ -20,25 +10,19 @@
     }
     {
       key = "<leader>oa";
-      action = "<cmd>lua require('opencode').ask()<cr>";
-      mode = "n";
-    }
-    {
-      key = "<leader>oa";
-      action = "<cmd>lua require('opencode').ask('@selection: ')<cr>";
-      mode = "v";
-    }
-    {
-      key = "<leader>oe";
-      action = "<cmd>lua require('opencode').select_prompt()<cr>";
+      action = ''<cmd>lua require('opencode').ask("@this: ", { submit = true })<cr>'';
       mode = [
         "n"
         "v"
       ];
     }
     {
-      key = "<leader>on";
-      action = "<cmd>lua require('opencode').command('session_new')<cr>";
+      key = "<leader>os";
+      action = "<cmd>lua require('opencode').select()<cr>";
+      mode = [
+        "n"
+        "v"
+      ];
     }
   ];
   extraPackages = with pkgs; [ lsof ];

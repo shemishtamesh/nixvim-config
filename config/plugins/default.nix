@@ -28,7 +28,7 @@
     # ./dashboard.nix
     # ./obsidian.nix
     ./teamtype.nix
-    # ./opencode-nvim.nix
+    ./opencode-nvim.nix
     ./gitsigns.nix
     ./neogit.nix
     ./git-worktree.nix
