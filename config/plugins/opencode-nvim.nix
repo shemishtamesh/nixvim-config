@@ -3,6 +3,14 @@
   extraPlugins = with pkgs; [
     vimPlugins.opencode-nvim
   ];
+  plugins.opencode-nvim = {
+    enable = true;
+    setup = {
+      user_commands = {
+        "OpenCode" = "toggle";
+      };
+    };
+  };
   keymaps = [
     {
       key = "<leader>ot";
