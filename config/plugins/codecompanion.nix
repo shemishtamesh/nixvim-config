@@ -13,7 +13,10 @@ in
           model = "qwen3-coder";
         };
       });
-      display.action_palette.provider = "telescope";
+      display = {
+        action_palette.provider = "telescope";
+        chat.start_in_insert_mode = true;
+      };
     };
   };
   keymaps = [
