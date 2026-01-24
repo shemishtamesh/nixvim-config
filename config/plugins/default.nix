@@ -37,7 +37,7 @@
     ./coerce.nix
     ./tmux.nix
     ./lualine.nix
-    # ./noice-nvim.nix
+    ./noice-nvim.nix
     ./oil.nix
   ];
 
