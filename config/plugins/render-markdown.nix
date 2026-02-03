@@ -1,7 +1,13 @@
 { pkgs, ... }:
 {
   plugins = {
-    render-markdown.enable = true;
+    render-markdown = {
+      enable = true;
+      settings.file_types = [
+        "markdown"
+        "codecompanion"
+      ];
+    };
 
     cmp = {
       settings = {
