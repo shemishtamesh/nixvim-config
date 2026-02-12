@@ -14,8 +14,23 @@
         view_options = {
           show_hidden = true;
         };
+        keymaps = {
+          "<M-s>" = "actions.select";
+          "<M-h>" = "actions.select";
+          "<M-t>" = "actions.select";
+          "<M-p>" = "actions.preview";
+          "<M-c>" = "actions.close";
+          "<M-l>" = "actions.refresh";
+          "<C-s>" = false;
+          "<C-h>" = false;
+          "<C-t>" = false;
+          "<C-p>" = false;
+          "<C-c>" = false;
+          "<C-l>" = false;
+        };
       };
     };
+    oil-git-status.enable = true;
   };
   keymaps = [
     {
