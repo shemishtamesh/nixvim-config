@@ -74,7 +74,7 @@ in
                   "D419"
                 ];
                 lineLength = 79;
-                config = builtins.toString (
+                config = toString (
                   (pkgs.formats.toml { }).generate "ruff.toml" {
                     lint = {
                       flake8-implicit-str-concat.allow-multiline = false;
@@ -195,6 +195,7 @@ in
     (keymap "n" "gd" telescope_commands.definitions { silent = true; })
     (keymap "n" "]d" "<cmd>lua vim.diagnostic.goto_next()<cr>" { silent = true; })
     (keymap "n" "[d" "<cmd>lua vim.diagnostic.goto_prev()<cr>" { silent = true; })
+    (keymap "n" "<M-d>" "<cmd>lua vim.diagnostic.open_float()<cr>" { silent = true; })
   ];
   extraPackages = with pkgs; [
     cargo

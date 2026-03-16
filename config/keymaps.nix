@@ -9,26 +9,26 @@ in
   };
   keymaps = [
     # system clipboard
-    (keymap "n" "<leader>y" ''"+y'' { })
+    (keymap "n" "<leader>y" ''"+y'' { silent = true; })
     (keymap "v" "<leader>y" ''"+y:let @*=@+<cr>'' { silent = true; })
     (keymap "n" "<leader>Y" ''"+y$:let @*=@+<cr>'' { silent = true; })
     (keymap "v" "<leader>Y" ''"+yy:let @*=@+<cr>'' { silent = true; })
-    (keymap [ "n" "v" ] "<leader>p" ''"+p'' { })
-    (keymap [ "n" "v" ] "<leader>P" ''"+P'' { })
-    (keymap [ "n" "v" ] "<M-p>" ''"0p'' { })
-    (keymap [ "n" "v" ] "<M-P>" ''"0P'' { })
+    (keymap [ "n" "v" ] "<leader>p" ''"+p'' { silent = true; })
+    (keymap [ "n" "v" ] "<leader>P" ''"+P'' { silent = true; })
+    (keymap [ "n" "v" ] "<M-p>" ''"0p'' { silent = true; })
+    (keymap [ "n" "v" ] "<M-P>" ''"0P'' { silent = true; })
 
     # moving code segments
-    (keymap "n" "<M-j>" "V:m '>+1<cr>gv=" { })
-    (keymap "n" "<M-k>" "V:m '>-2<cr>gv=" { })
-    (keymap "v" "<M-j>" "<cmd>m '>+1<cr>gv=gv" { })
-    (keymap "v" "<M-k>" "<cmd>m '<-2<cr>gv=gv" { })
+    (keymap "n" "<M-j>" "V:m '>+1<cr>gv=" { silent = true; })
+    (keymap "n" "<M-k>" "V:m '>-2<cr>gv=" { silent = true; })
+    (keymap "v" "<M-j>" "<cmd>m '>+1<cr>gv=gv" { silent = true; })
+    (keymap "v" "<M-k>" "<cmd>m '<-2<cr>gv=gv" { silent = true; })
 
     # quickfix list navigation
-    (keymap "n" "<M-o>" "<cmd>cprev<cr>" { })
-    (keymap "n" "<M-i>" "<cmd>cnext<cr>" { })
-    (keymap "n" "<leader>k" "<cmd>lprev<cr>" { })
-    (keymap "n" "<leader>j" "<cmd>lnext<cr>" { })
+    (keymap "n" "<M-o>" "<cmd>cprev<cr>" { silent = true; })
+    (keymap "n" "<M-i>" "<cmd>cnext<cr>" { silent = true; })
+    (keymap "n" "<leader>k" "<cmd>lprev<cr>" { silent = true; })
+    (keymap "n" "<leader>j" "<cmd>lnext<cr>" { silent = true; })
 
     # replace current word
     (keymap "n" "<leader>rw" ":%s/<C-r><C-w>/t/gI<Left><Left><Left><BackSpace>" { })
@@ -38,22 +38,22 @@ in
     (keymap "n" "<leader>X" "<cmd>!chmod -x %<cr>" { silent = true; })
 
     # toggle spell check
-    (keymap "n" "<leader>sc" "<cmd>setlocal spell! spelllang=en_us<cr>" { })
+    (keymap "n" "<leader>sc" "<cmd>setlocal spell! spelllang=en_us<cr>" { silent = true; })
 
     # toggle search highlighting highlighting
-    (keymap "n" "<leader>h" "<cmd>set hlsearch!<cr>" { })
+    (keymap "n" "<leader>h" "<cmd>set hlsearch!<cr>" { silent = true; })
 
     # faster exit
-    (keymap "n" "Q" "<cmd>qa<cr>" { })
-    (keymap "n" "<leader>Q" "<cmd>qa!<cr>" { })
+    (keymap "n" "Q" "<cmd>qa<cr>" { silent = true; })
+    (keymap "n" "<leader>Q" "<cmd>qa!<cr>" { silent = true; })
 
     # alternative alternative file binding
-    (keymap "n" "<M-6>" ''<C-^>'' { })
+    (keymap "n" "<M-6>" ''<C-^>'' { silent = true; })
 
     # select last pasted text
     (keymap "n" "gp"
       ''<cmd>lua vim.api.nvim_feedkeys("`[" .. vim.fn.strpart(vim.fn.getregtype(), 0, 1) .. "`]", "n", false)<cr>''
-      { }
+      { silent = true; }
     )
   ];
   userCommands = {
