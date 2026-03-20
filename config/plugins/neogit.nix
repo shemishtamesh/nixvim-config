@@ -7,7 +7,6 @@ in
       enable = true;
       settings = {
         integrations.telescope = true;
-        console_timeout = 0;
         graph_style = "unicode";
       };
     };
