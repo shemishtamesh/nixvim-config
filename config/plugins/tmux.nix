@@ -16,37 +16,6 @@ in
       })
 
       vim.o.laststatus = 1
-
-      local tpipeline_enabled = true
-
-      local function update_tpipeline()
-        -- current tab's window count
-        local one_window = (vim.fn.winnr("$") == 1)
-
-        if one_window and not tpipeline_enabled then
-          vim.fn["tpipeline#state#toggle"]()
-          tpipeline_enabled = true
-        elseif not one_window and tpipeline_enabled then
-          vim.fn["tpipeline#state#toggle"]()
-          tpipeline_enabled = false
-        end
-      end
-
-      local group = vim.api.nvim_create_augroup("TpipelineAutoToggle", { clear = true })
-
-      vim.api.nvim_create_autocmd({
-        "VimEnter",
-        "WinEnter",
-        "WinNew",
-        "WinClosed",
-        "TabEnter",
-      }, {
-        group = group,
-        callback = function()
-          -- defer slightly so the window layout is fully updated
-          vim.schedule(update_tpipeline)
-        end,
-      })
     end
   '';
   keymaps = [
