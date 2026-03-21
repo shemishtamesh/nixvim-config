@@ -39,6 +39,8 @@
     ./lualine.nix
     ./noice-nvim.nix
     ./oil.nix
+    ./navic.nix
+    ./aerial.nix
   ];
 
   plugins = {
