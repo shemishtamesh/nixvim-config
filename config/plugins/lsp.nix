@@ -164,6 +164,7 @@ in
         taplo.enable = true;
         jsonls.enable = true;
         openscad_lsp.enable = true;
+        html.enable = true;
       };
     };
     rustaceanvim.enable = true;
