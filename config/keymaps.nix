@@ -1,6 +1,7 @@
 { lib, ... }:
 let
   keymap = (import ./nix_functions.nix).keymap;
+  restart_session = "/tmp/current_nvim_session_for_restart.vim";
 in
 {
   globals = {
@@ -8,6 +9,9 @@ in
     maplocalleader = "\\";
   };
   keymaps = [
+    # restart session (reload config)
+    (keymap "n" "<leader><M-r>" "<cmd>mksession! ${restart_session} | restart source ${restart_session}<cr>" { })
+
     # system clipboard
     (keymap "n" "<leader>y" ''"+y'' { silent = true; })
     (keymap "v" "<leader>y" ''"+y:let @*=@+<cr>'' { silent = true; })
@@ -48,7 +52,7 @@ in
     (keymap "n" "<leader>Q" "<cmd>qa!<cr>" { silent = true; })
 
     # alternative alternative file binding
-    (keymap "n" "<M-6>" ''<C-^>'' { silent = true; })
+    (keymap "n" "<M-6>" "<C-^>" { silent = true; })
 
     # select last pasted text
     (keymap "n" "gp"

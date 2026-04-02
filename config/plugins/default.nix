@@ -17,8 +17,8 @@
     ./dadbod.nix
     ./nvim-dap.nix
     ./flash.nix
-    ./nvim-surround.nix
     ./render-markdown.nix
+    ./nvim-surround.nix
     ./visimatch.nix
     ./jupytext.nix
     ./luasnip.nix
