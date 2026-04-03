@@ -1,6 +1,4 @@
-let
-  keymap = (import ../nix_functions.nix).keymap;
-in
+{utils, ...}:
 {
   plugins = {
     git-worktree = {
@@ -36,7 +34,7 @@ in
   '';
 
   keymaps = [
-    (keymap "n" "<leader>w" "<cmd>lua require('telescope').extensions.git_worktree.git_worktree()<cr>"
+    (utils.map "n" "<leader>w" "<cmd>lua require('telescope').extensions.git_worktree.git_worktree()<cr>"
       { }
     )
   ];

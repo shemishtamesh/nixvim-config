@@ -1,6 +1,5 @@
-{ lib, ... }:
+{ lib, utils, ... }:
 let
-  keymap = (import ./nix_functions.nix).keymap;
   restart_session = "/tmp/current_nvim_session_for_restart.vim";
 in
 {
@@ -10,52 +9,52 @@ in
   };
   keymaps = [
     # restart session (reload config)
-    (keymap "n" "<leader><M-r>" "<cmd>mksession! ${restart_session} | restart source ${restart_session}<cr>" { })
+    (utils.map "n" "<leader><M-r>" "<cmd>mksession! ${restart_session} | restart source ${restart_session}<cr>" { })
 
     # system clipboard
-    (keymap "n" "<leader>y" ''"+y'' { silent = true; })
-    (keymap "v" "<leader>y" ''"+y:let @*=@+<cr>'' { silent = true; })
-    (keymap "n" "<leader>Y" ''"+y$:let @*=@+<cr>'' { silent = true; })
-    (keymap "v" "<leader>Y" ''"+yy:let @*=@+<cr>'' { silent = true; })
-    (keymap [ "n" "v" ] "<leader>p" ''"+p'' { silent = true; })
-    (keymap [ "n" "v" ] "<leader>P" ''"+P'' { silent = true; })
-    (keymap [ "n" "v" ] "<M-p>" ''"0p'' { silent = true; })
-    (keymap [ "n" "v" ] "<M-P>" ''"0P'' { silent = true; })
+    (utils.map "n" "<leader>y" ''"+y'' { silent = true; })
+    (utils.map "v" "<leader>y" ''"+y:let @*=@+<cr>'' { silent = true; })
+    (utils.map "n" "<leader>Y" ''"+y$:let @*=@+<cr>'' { silent = true; })
+    (utils.map "v" "<leader>Y" ''"+yy:let @*=@+<cr>'' { silent = true; })
+    (utils.map [ "n" "v" ] "<leader>p" ''"+p'' { silent = true; })
+    (utils.map [ "n" "v" ] "<leader>P" ''"+P'' { silent = true; })
+    (utils.map [ "n" "v" ] "<M-p>" ''"0p'' { silent = true; })
+    (utils.map [ "n" "v" ] "<M-P>" ''"0P'' { silent = true; })
 
     # moving code segments
-    (keymap "n" "<M-j>" "V:m '>+1<cr>gv=" { silent = true; })
-    (keymap "n" "<M-k>" "V:m '>-2<cr>gv=" { silent = true; })
-    (keymap "v" "<M-j>" "<cmd>m '>+1<cr>gv=gv" { silent = true; })
-    (keymap "v" "<M-k>" "<cmd>m '<-2<cr>gv=gv" { silent = true; })
+    (utils.map "n" "<M-j>" "V:m '>+1<cr>gv=" { silent = true; })
+    (utils.map "n" "<M-k>" "V:m '>-2<cr>gv=" { silent = true; })
+    (utils.map "v" "<M-j>" "<cmd>m '>+1<cr>gv=gv" { silent = true; })
+    (utils.map "v" "<M-k>" "<cmd>m '<-2<cr>gv=gv" { silent = true; })
 
     # quickfix list navigation
-    (keymap "n" "<M-o>" "<cmd>cprev<cr>" { silent = true; })
-    (keymap "n" "<M-i>" "<cmd>cnext<cr>" { silent = true; })
-    (keymap "n" "<leader>k" "<cmd>lprev<cr>" { silent = true; })
-    (keymap "n" "<leader>j" "<cmd>lnext<cr>" { silent = true; })
+    (utils.map "n" "<M-o>" "<cmd>cprev<cr>" { silent = true; })
+    (utils.map "n" "<M-i>" "<cmd>cnext<cr>" { silent = true; })
+    (utils.map "n" "<leader>k" "<cmd>lprev<cr>" { silent = true; })
+    (utils.map "n" "<leader>j" "<cmd>lnext<cr>" { silent = true; })
 
     # replace current word
-    (keymap "n" "<leader>rw" ":%s/<C-r><C-w>/t/gI<Left><Left><Left><BackSpace>" { })
+    (utils.map "n" "<leader>rw" ":%s/<C-r><C-w>/t/gI<Left><Left><Left><BackSpace>" { })
 
     # make current file executable
-    (keymap "n" "<leader>x" "<cmd>!chmod +x %<cr>" { silent = true; })
-    (keymap "n" "<leader>X" "<cmd>!chmod -x %<cr>" { silent = true; })
+    (utils.map "n" "<leader>x" "<cmd>!chmod +x %<cr>" { silent = true; })
+    (utils.map "n" "<leader>X" "<cmd>!chmod -x %<cr>" { silent = true; })
 
     # toggle spell check
-    (keymap "n" "<leader>sc" "<cmd>setlocal spell! spelllang=en_us<cr>" { silent = true; })
+    (utils.map "n" "<leader>sc" "<cmd>setlocal spell! spelllang=en_us<cr>" { silent = true; })
 
     # toggle search highlighting highlighting
-    (keymap "n" "<leader>h" "<cmd>set hlsearch!<cr>" { silent = true; })
+    (utils.map "n" "<leader>h" "<cmd>set hlsearch!<cr>" { silent = true; })
 
     # faster exit
-    (keymap "n" "Q" "<cmd>qa<cr>" { silent = true; })
-    (keymap "n" "<leader>Q" "<cmd>qa!<cr>" { silent = true; })
+    (utils.map "n" "Q" "<cmd>qa<cr>" { silent = true; })
+    (utils.map "n" "<leader>Q" "<cmd>qa!<cr>" { silent = true; })
 
     # alternative alternative file binding
-    (keymap "n" "<M-6>" "<C-^>" { silent = true; })
+    (utils.map "n" "<M-6>" "<C-^>" { silent = true; })
 
     # select last pasted text
-    (keymap "n" "gp"
+    (utils.map "n" "gp"
       ''<cmd>lua vim.api.nvim_feedkeys("`[" .. vim.fn.strpart(vim.fn.getregtype(), 0, 1) .. "`]", "n", false)<cr>''
       { silent = true; }
     )

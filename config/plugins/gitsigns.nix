@@ -1,6 +1,4 @@
-let
-  keymap = (import ../nix_functions.nix).keymap;
-in
+{utils, ...}:
 {
   plugins.gitsigns = {
     enable = true;
@@ -20,30 +18,30 @@ in
   };
 
   keymaps = [
-    (keymap "n" "[G" "<cmd>Gitsigns nav_hunk first<cr>" { })
-    (keymap "n" "[g" "<cmd>Gitsigns nav_hunk prev<cr>" { })
-    (keymap "n" "]g" "<cmd>Gitsigns nav_hunk next<cr>" { })
-    (keymap "n" "]G" "<cmd>Gitsigns nav_hunk last<cr>" { })
+    (utils.map "n" "[G" "<cmd>Gitsigns nav_hunk first<cr>" { })
+    (utils.map "n" "[g" "<cmd>Gitsigns nav_hunk prev<cr>" { })
+    (utils.map "n" "]g" "<cmd>Gitsigns nav_hunk next<cr>" { })
+    (utils.map "n" "]G" "<cmd>Gitsigns nav_hunk last<cr>" { })
 
-    (keymap "n" "<leader>Gv" "<cmd>Gitsigns preview_hunk<cr>" { })
-    (keymap "n" "<leader>GV" "<cmd>Gitsigns preview_hunk_inline<cr>" { })
+    (utils.map "n" "<leader>Gv" "<cmd>Gitsigns preview_hunk<cr>" { })
+    (utils.map "n" "<leader>GV" "<cmd>Gitsigns preview_hunk_inline<cr>" { })
 
-    (keymap "n" "<leader>Gs" "<cmd>Gitsigns select_hunk<cr>" { })
+    (utils.map "n" "<leader>Gs" "<cmd>Gitsigns select_hunk<cr>" { })
 
-    (keymap "n" "<leader>GR" "<cmd>Gitsigns reset_buffer<cr>" { })
-    (keymap "n" "<leader>Gr" "<cmd>Gitsigns reset_hunk<cr>" { })
-    (keymap "n" "<leader>Ga" "<cmd>Gitsigns stage_hunk<cr>" { })
-    (keymap "n" "<leader>GA" "<cmd>Gitsigns stage_buffer<cr>" { })
+    (utils.map "n" "<leader>GR" "<cmd>Gitsigns reset_buffer<cr>" { })
+    (utils.map "n" "<leader>Gr" "<cmd>Gitsigns reset_hunk<cr>" { })
+    (utils.map "n" "<leader>Ga" "<cmd>Gitsigns stage_hunk<cr>" { })
+    (utils.map "n" "<leader>GA" "<cmd>Gitsigns stage_buffer<cr>" { })
 
-    (keymap "n" "<leader>Gw" "<cmd>Gitsigns toggle_word_diff<cr>" { })
+    (utils.map "n" "<leader>Gw" "<cmd>Gitsigns toggle_word_diff<cr>" { })
 
-    (keymap "n" "<leader>Gb" "<cmd>Gitsigns blame_line<cr>" { })
-    (keymap "n" "<leader>GB" "<cmd>Gitsigns blame<cr>" { })
-    (keymap "n" "<leader>Gl" "<cmd>Gitsigns toggle_current_line_blame<cr>" { })
+    (utils.map "n" "<leader>Gb" "<cmd>Gitsigns blame_line<cr>" { })
+    (utils.map "n" "<leader>GB" "<cmd>Gitsigns blame<cr>" { })
+    (utils.map "n" "<leader>Gl" "<cmd>Gitsigns toggle_current_line_blame<cr>" { })
 
-    (keymap "n" "<leader>Gq" "<cmd>Gitsigns setqflist<cr>" { })
+    (utils.map "n" "<leader>Gq" "<cmd>Gitsigns setqflist<cr>" { })
 
-    (keymap "n" "<leader>Gd" "<cmd>Gitsigns diffthis vertical=true split=rightbelow<cr>" { })
-    (keymap "n" "<leader>GD" "<cmd>Gitsigns diffthis ~1 vertical=true split=rightbelow<cr>" { })
+    (utils.map "n" "<leader>Gd" "<cmd>Gitsigns diffthis vertical=true split=rightbelow<cr>" { })
+    (utils.map "n" "<leader>GD" "<cmd>Gitsigns diffthis ~1 vertical=true split=rightbelow<cr>" { })
   ];
 }

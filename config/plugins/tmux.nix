@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-let
-  keymap = (import ../nix_functions.nix).keymap;
-in
+{ pkgs, utils, ... }:
 {
   plugins.tmux-navigator.enable = true;
   extraPlugins = with pkgs.vimPlugins; [ vim-tpipeline ];
@@ -19,16 +16,16 @@ in
     end
   '';
   keymaps = [
-    (keymap "i" "<c-h>" "<c-o>:TmuxNavigateLeft<cr>" { silent = true; })
-    (keymap "i" "<c-j>" "<c-o>:TmuxNavigateDown<cr>" { silent = true; })
-    (keymap "i" "<c-k>" "<c-o>:TmuxNavigateUp<cr>" { silent = true; })
-    (keymap "i" "<c-l>" "<c-o>:TmuxNavigateRight<cr>" { silent = true; })
-    (keymap "i" "<c-\\>" "<c-o>:TmuxNavigatePrevious<cr>" { silent = true; })
+    (utils.map "i" "<c-h>" "<c-o>:TmuxNavigateLeft<cr>" { silent = true; })
+    (utils.map "i" "<c-j>" "<c-o>:TmuxNavigateDown<cr>" { silent = true; })
+    (utils.map "i" "<c-k>" "<c-o>:TmuxNavigateUp<cr>" { silent = true; })
+    (utils.map "i" "<c-l>" "<c-o>:TmuxNavigateRight<cr>" { silent = true; })
+    (utils.map "i" "<c-\\>" "<c-o>:TmuxNavigatePrevious<cr>" { silent = true; })
 
-    (keymap "v" "<c-h>" ":<c-u>TmuxNavigateLeft<cr>gv" { silent = true; })
-    (keymap "v" "<c-j>" ":<c-u>TmuxNavigateDown<cr>gv" { silent = true; })
-    (keymap "v" "<c-k>" ":<c-u>TmuxNavigateUp<cr>gv" { silent = true; })
-    (keymap "v" "<c-l>" ":<c-u>TmuxNavigateRight<cr>gv" { silent = true; })
-    (keymap "v" "<c-\\>" ":<c-u>TmuxNavigatePrevious<cr>gv" { silent = true; })
+    (utils.map "v" "<c-h>" ":<c-u>TmuxNavigateLeft<cr>gv" { silent = true; })
+    (utils.map "v" "<c-j>" ":<c-u>TmuxNavigateDown<cr>gv" { silent = true; })
+    (utils.map "v" "<c-k>" ":<c-u>TmuxNavigateUp<cr>gv" { silent = true; })
+    (utils.map "v" "<c-l>" ":<c-u>TmuxNavigateRight<cr>gv" { silent = true; })
+    (utils.map "v" "<c-\\>" ":<c-u>TmuxNavigatePrevious<cr>gv" { silent = true; })
   ];
 }

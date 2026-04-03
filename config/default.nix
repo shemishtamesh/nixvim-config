@@ -7,6 +7,10 @@
     ./ftplugin.nix
   ];
 
+  _module.args = {
+    utils = (import ./utils.nix);
+  };
+
   nixpkgs.config = {
     allowUnfree = true;
   };

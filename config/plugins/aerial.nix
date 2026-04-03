@@ -1,9 +1,7 @@
-let
-  keymap = (import ../nix_functions.nix).keymap;
-in
+{utils, ...}:
 {
   plugins.aerial.enable = true;
   keymaps = [
-    (keymap "n" "<leader>O" "<cmd>:AerialToggle<cr>" { silent = true; })
+    (utils.map "n" "<leader>O" "<cmd>:AerialToggle<cr>" { silent = true; })
   ];
 }

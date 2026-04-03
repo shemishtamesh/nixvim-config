@@ -44,6 +44,9 @@
     directory = "/tmp/";
     undodir = "/tmp/";
 
+    # Ask instead of error before exiting with unsaved changes
+    confirm = true;
+
     # Remember 100 items in commandline history
     history = 100;
 

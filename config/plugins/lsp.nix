@@ -1,7 +1,5 @@
-{ pkgs, config, ... }:
+{ pkgs, config, utils, ... }:
 let
-  keymap = (import ../nix_functions.nix).keymap;
-
   telescope_commands = (
     if config.plugins.telescope.enable then
       {
@@ -173,30 +171,30 @@ in
   };
   keymaps = [
     # defined outside of lsp for whichkey
-    (keymap "n" "<leader>la" "<cmd>lua vim.lsp.buf.code_action()<cr>" { silent = true; })
-    (keymap "n" "<leader>lf" "<cmd>lua vim.lsp.buf.format()<cr>" { silent = true; })
-    (keymap "n" "<leader>ln" "<cmd>lua vim.lsp.buf.rename()<cr>" { silent = true; })
-    (keymap "n" "<leader>lh" "<cmd>lua vim.lsp.buf.signature_help()<cr>" { silent = true; })
-    (keymap "n" "<leader>lc" "<cmd>lua vim.lsp.buf.typehierarchy()<cr>" { silent = true; })
-    (keymap "n" "<leader>ll"
+    (utils.map "n" "<leader>la" "<cmd>lua vim.lsp.buf.code_action()<cr>" { silent = true; })
+    (utils.map "n" "<leader>lf" "<cmd>lua vim.lsp.buf.format()<cr>" { silent = true; })
+    (utils.map "n" "<leader>ln" "<cmd>lua vim.lsp.buf.rename()<cr>" { silent = true; })
+    (utils.map "n" "<leader>lh" "<cmd>lua vim.lsp.buf.signature_help()<cr>" { silent = true; })
+    (utils.map "n" "<leader>lc" "<cmd>lua vim.lsp.buf.typehierarchy()<cr>" { silent = true; })
+    (utils.map "n" "<leader>ll"
       "<cmd>lua vim.diagnostic.config({virtual_lines = not vim.diagnostic.config().virtual_lines, virtual_text = not vim.diagnostic.config().virtual_text})<cr>"
       {
         silent = true;
       }
     )
-    (keymap "n" "<leader>ld" telescope_commands.diagnostics { silent = true; })
-    (keymap "n" "<leader>lm" telescope_commands.implementations { silent = true; })
-    (keymap "n" "<leader>li" telescope_commands.incoming_calls { silent = true; })
-    (keymap "n" "<leader>lo" telescope_commands.outgoing_calls { silent = true; })
-    (keymap "n" "<leader>lr" telescope_commands.references { silent = true; })
-    (keymap "n" "<leader>lt" telescope_commands.type_definitions { silent = true; })
-    (keymap "n" "<leader>ls" telescope_commands.workspace_symbols { silent = true; })
-    (keymap "n" "<leader>lO" telescope_commands.document_symbols { silent = true; })
-    (keymap "n" "gD" telescope_commands.declarations { silent = true; })
-    (keymap "n" "gd" telescope_commands.definitions { silent = true; })
-    (keymap "n" "]d" "<cmd>lua vim.diagnostic.goto_next()<cr>" { silent = true; })
-    (keymap "n" "[d" "<cmd>lua vim.diagnostic.goto_prev()<cr>" { silent = true; })
-    (keymap "n" "<M-d>" "<cmd>lua vim.diagnostic.open_float()<cr>" { silent = true; })
+    (utils.map "n" "<leader>ld" telescope_commands.diagnostics { silent = true; })
+    (utils.map "n" "<leader>lm" telescope_commands.implementations { silent = true; })
+    (utils.map "n" "<leader>li" telescope_commands.incoming_calls { silent = true; })
+    (utils.map "n" "<leader>lo" telescope_commands.outgoing_calls { silent = true; })
+    (utils.map "n" "<leader>lr" telescope_commands.references { silent = true; })
+    (utils.map "n" "<leader>lt" telescope_commands.type_definitions { silent = true; })
+    (utils.map "n" "<leader>ls" telescope_commands.workspace_symbols { silent = true; })
+    (utils.map "n" "<leader>lO" telescope_commands.document_symbols { silent = true; })
+    (utils.map "n" "gD" telescope_commands.declarations { silent = true; })
+    (utils.map "n" "gd" telescope_commands.definitions { silent = true; })
+    (utils.map "n" "]d" "<cmd>lua vim.diagnostic.goto_next()<cr>" { silent = true; })
+    (utils.map "n" "[d" "<cmd>lua vim.diagnostic.goto_prev()<cr>" { silent = true; })
+    (utils.map "n" "<M-d>" "<cmd>lua vim.diagnostic.open_float()<cr>" { silent = true; })
   ];
   extraPackages = with pkgs; [
     cargo

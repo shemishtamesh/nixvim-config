@@ -1,18 +1,19 @@
-{ lib, ... }:
-let
-  keymap = (import ../nix_functions.nix).keymap;
-in
+{ lib, utils, ... }:
 {
   plugins.codecompanion = {
     enable = true;
     settings = {
       opts.completion_provider = "cmp";
-      interactions = lib.genAttrs [ "chat" "inline" "background" "cmd" ] (_: {
-        adapter = {
-          name = "ollama";
-          model = "qwen3-coder";
+      interactions =
+        lib.genAttrs [ "chat" "inline" "background" "cmd" ] (_: {
+          adapter = {
+            name = "ollama";
+            model = "qwen3-coder";
+          };
+        })
+        // {
+          cli.agent = "opencode";
         };
-      });
       display = {
         action_palette.provider = "telescope";
         chat.start_in_insert_mode = true;
@@ -20,11 +21,11 @@ in
     };
   };
   keymaps = [
-    (keymap [ "n" "v" ] "<M-a>" "<cmd>CodeCompanion<cr>" { })
-    (keymap [ "n" "v" ] "<leader>A" "<cmd>CodeCompanionActions<cr>" { })
-    (keymap "n" "<leader>a" "<cmd>CodeCompanionChat Toggle<cr>" { })
-    (keymap "v" "<leader>a" "<cmd>CodeCompanionChat Add<cr>" { })
-    (keymap "ca" "CC" "CodeCompanion" { })
+    (utils.map [ "n" "v" ] "<M-a>" "<cmd>CodeCompanion<cr>" { })
+    (utils.map [ "n" "v" ] "<leader>A" "<cmd>CodeCompanionActions<cr>" { })
+    (utils.map "n" "<leader>a" "<cmd>CodeCompanionChat Toggle<cr>" { })
+    (utils.map "v" "<leader>a" "<cmd>CodeCompanionChat Add<cr>" { })
+    (utils.map "ca" "CC" "CodeCompanion" { })
   ];
   extraConfigLua = ''
     local codecompanion_extmarks_default_opts = {

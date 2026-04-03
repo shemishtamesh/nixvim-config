@@ -1,6 +1,4 @@
-let
-  keymap = (import ../nix_functions.nix).keymap;
-in
+{utils, ...}:
 {
   plugins = {
     neogit = {
@@ -13,18 +11,18 @@ in
   };
 
   keymaps = [
-    (keymap "n" "<leader>gs" "<cmd>Neogit<cr>" { })
-    (keymap "n" "<leader>gl" "<cmd>Neogit log<cr>" { })
-    (keymap "n" "<leader>gc" "<cmd>Neogit commit<cr>" { })
-    (keymap "n" "<leader>gw" "<cmd>Neogit worktree<cr>" { })
-    (keymap "n" "<leader>gb" "<cmd>Neogit branch<cr>" { })
-    (keymap "n" "<leader>gm" "<cmd>Neogit merge<cr>" { })
-    (keymap "n" "<leader>gr" "<cmd>Neogit remote<cr>" { })
-    (keymap "n" "<leader>gf" "<cmd>Neogit fetch<cr>" { })
-    (keymap "n" "<leader>gp" "<cmd>Neogit pull<cr>" { })
-    (keymap "n" "<leader>gP" "<cmd>Neogit push<cr>" { })
-    (keymap "n" "<leader>gS" "<cmd>Neogit stash<cr>" { })
-    (keymap "n" "<leader>gL" "<cmd>NeogitLog<cr>" { })
-    (keymap "n" "<leader>gC" "<cmd>NeogitCommit<cr>" { })
+    (utils.map "n" "<leader>gs" "<cmd>Neogit<cr>" { })
+    (utils.map "n" "<leader>gl" "<cmd>Neogit log<cr>" { })
+    (utils.map "n" "<leader>gc" "<cmd>Neogit commit<cr>" { })
+    (utils.map "n" "<leader>gw" "<cmd>Neogit worktree<cr>" { })
+    (utils.map "n" "<leader>gb" "<cmd>Neogit branch<cr>" { })
+    (utils.map "n" "<leader>gm" "<cmd>Neogit merge<cr>" { })
+    (utils.map "n" "<leader>gr" "<cmd>Neogit remote<cr>" { })
+    (utils.map "n" "<leader>gf" "<cmd>Neogit fetch<cr>" { })
+    (utils.map "n" "<leader>gp" "<cmd>Neogit pull<cr>" { })
+    (utils.map "n" "<leader>gP" "<cmd>Neogit push<cr>" { })
+    (utils.map "n" "<leader>gS" "<cmd>Neogit stash<cr>" { })
+    (utils.map "n" "<leader>gL" "<cmd>NeogitLog<cr>" { })
+    (utils.map "n" "<leader>gC" "<cmd>NeogitCommit<cr>" { })
   ];
 }

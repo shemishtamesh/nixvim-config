@@ -5,7 +5,34 @@
       ''
         vim.opt.tabstop = 2
         vim.opt.shiftwidth = 2
+
+        local function nix_gf()
+          local fname = vim.fn.expand("<cfile>")
+          if fname == "" then
+            return
+          end
+
+          local path = vim.fn.fnamemodify(fname, ":p")
+          local stat = vim.uv.fs_stat(path)
+
+          if stat and stat.type == "directory" then
+            local default_nix = vim.fs.joinpath(path, "default.nix")
+            local default_stat = vim.uv.fs_stat(default_nix)
+
+            if default_stat and default_stat.type == "file" then
+              vim.cmd.edit(vim.fn.fnameescape(default_nix))
+              return
+            end
+          end
+
+          vim.cmd.normal({ "gf", bang = true })
+        end
+
+        vim.keymap.set("n", "gf", nix_gf, {
+          desc = "Go to file, preferring default.nix for directories",
+        })
       '';
+
     "ftplugin/man.lua".text = # lua
       ''
         local go_to_manpage = function()
@@ -14,6 +41,7 @@
         end
         vim.keymap.set('n', 'gd', go_to_manpage, { noremap = true, buffer = true })
       '';
+
     "ftplugin/help.lua".text = # lua
       ''
         local go_to_help = function()
@@ -24,14 +52,17 @@
         vim.keymap.set('n', 'gd', go_to_help, { noremap = true, buffer = true })
         vim.keymap.set('n', 'q', "<cmd>q<cr>", { noremap = true, buffer = true })
       '';
+
     "ftplugin/markdown.lua".text = # lua
       ''
         vim.opt.wrap = true
         vim.opt.linebreak = true
         vim.opt.spell = true
       '';
+
     "ftplugin/gitcommit.lua".text = # lua
       "vim.opt.spell = true";
+
     "ftplugin/typst.lua".text =
       # not using normal string interpulation so that lua_ls wouldn't think there's a problem
       builtins.replaceStrings [ "nix_store_zathura_path" ] [ "${pkgs.zathura}/bin/zathura" ] # lua
@@ -48,6 +79,7 @@
             { noremap = true, buffer = true }
           )
         '';
+
     "ftplugin/c.lua".text = # lua
       ''
         vim.opt.tabstop = 2
