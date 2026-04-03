@@ -1,4 +1,3 @@
-{ ... }:
 {
   imports = [
     ./lsp.nix
@@ -51,12 +50,12 @@
     lastplace.enable = true;
     rainbow-delimiters.enable = true;
     quicker.enable = true;
+    smear-cursor.enable = true;
     # rustaceanvim.enable = true;
     # "dressing.nvim".enable = true;
     # vimtex.enable = true;
     # gen.enable = true
     # vim-asciidoctor.enable = true;
     # beacon.enable = true;
-    # noice.enable =  true;
   };
 }

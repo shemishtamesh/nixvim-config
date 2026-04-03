@@ -9,7 +9,10 @@ in
   };
   keymaps = [
     # restart session (reload config)
-    (utils.map "n" "<leader><M-r>" "<cmd>mksession! ${restart_session} | restart source ${restart_session}<cr>" { })
+    (utils.map "n" "<leader><M-r>"
+      "<cmd>mksession! ${restart_session} | restart source ${restart_session}<cr>"
+      { }
+    )
 
     # system clipboard
     (utils.map "n" "<leader>y" ''"+y'' { silent = true; })
@@ -58,6 +61,9 @@ in
       ''<cmd>lua vim.api.nvim_feedkeys("`[" .. vim.fn.strpart(vim.fn.getregtype(), 0, 1) .. "`]", "n", false)<cr>''
       { silent = true; }
     )
+
+    # return to normal mode in terminal
+    (utils.map "t" "<C-w><Esc>" "<C-\\><C-n>" { })
   ];
   userCommands = {
     W = {

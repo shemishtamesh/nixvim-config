@@ -12,7 +12,11 @@
           };
         })
         // {
-          cli.agent = "opencode";
+          cli = {
+            agent = "opencode";
+            agents.opencode.cmd = "opencode";
+            opts.reload = true;
+          };
         };
       display = {
         action_palette.provider = "telescope";
@@ -22,12 +26,25 @@
   };
   keymaps = [
     (utils.map [ "n" "v" ] "<M-a>" "<cmd>CodeCompanion<cr>" { })
-    (utils.map [ "n" "v" ] "<leader>A" "<cmd>CodeCompanionActions<cr>" { })
-    (utils.map "n" "<leader>a" "<cmd>CodeCompanionChat Toggle<cr>" { })
-    (utils.map "v" "<leader>a" "<cmd>CodeCompanionChat Add<cr>" { })
+    (utils.map [ "n" "v" ] "<leader><C-a>" "<cmd>CodeCompanionActions<cr>" { })
+    (utils.map "n" "<leader>A" "<cmd>CodeCompanionChat Toggle<cr>" { })
+    (utils.map "v" "<leader>A" "<cmd>CodeCompanionChat Add<cr>" { })
     (utils.map "ca" "CC" "CodeCompanion" { })
   ];
   extraConfigLua = ''
+    -- disable line numbers in "cli" tui agent
+    vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
+        pattern = "codecompanion_cli",
+        callback = function()
+            vim.schedule(function()
+                vim.wo.number = false
+                vim.wo.relativenumber = false
+                vim.wo.spell = false
+            end)
+        end,
+    })
+
+    -- mark lines that a companion is working on
     local codecompanion_extmarks_default_opts = {
       unique_line_sign_text = "",
       first_line_sign_text = "┌",

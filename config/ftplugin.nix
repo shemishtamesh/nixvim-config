@@ -1,39 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, utils, ... }:
 {
-  extraFiles = {
-    "ftplugin/nix.lua".text = # lua
+  extraConfigLua = utils.filetype_configs {
+    nix = # lua
       ''
-        vim.opt.tabstop = 2
-        vim.opt.shiftwidth = 2
-
-        local function nix_gf()
-          local fname = vim.fn.expand("<cfile>")
-          if fname == "" then
-            return
-          end
-
-          local path = vim.fn.fnamemodify(fname, ":p")
-          local stat = vim.uv.fs_stat(path)
-
-          if stat and stat.type == "directory" then
-            local default_nix = vim.fs.joinpath(path, "default.nix")
-            local default_stat = vim.uv.fs_stat(default_nix)
-
-            if default_stat and default_stat.type == "file" then
-              vim.cmd.edit(vim.fn.fnameescape(default_nix))
-              return
-            end
-          end
-
-          vim.cmd.normal({ "gf", bang = true })
-        end
-
-        vim.keymap.set("n", "gf", nix_gf, {
-          desc = "Go to file, preferring default.nix for directories",
-        })
+        vim.opt_local.tabstop = 2
+        vim.opt_local.shiftwidth = 2
       '';
 
-    "ftplugin/man.lua".text = # lua
+    man = # lua
       ''
         local go_to_manpage = function()
           local word = vim.fn.expand('<cword>')
@@ -42,7 +16,7 @@
         vim.keymap.set('n', 'gd', go_to_manpage, { noremap = true, buffer = true })
       '';
 
-    "ftplugin/help.lua".text = # lua
+    help = # lua
       ''
         local go_to_help = function()
           local line = vim.api.nvim_get_current_line()
@@ -53,23 +27,23 @@
         vim.keymap.set('n', 'q', "<cmd>q<cr>", { noremap = true, buffer = true })
       '';
 
-    "ftplugin/markdown.lua".text = # lua
+    markdown = # lua
       ''
-        vim.opt.wrap = true
-        vim.opt.linebreak = true
-        vim.opt.spell = true
+        vim.opt_local.wrap = true
+        vim.opt_local.linebreak = true
+        vim.opt_local.spell = true
       '';
 
-    "ftplugin/gitcommit.lua".text = # lua
-      "vim.opt.spell = true";
+    gitcommit = # lua
+      "vim.opt_local.spell = true";
 
-    "ftplugin/typst.lua".text =
+    typst =
       # not using normal string interpulation so that lua_ls wouldn't think there's a problem
       builtins.replaceStrings [ "nix_store_zathura_path" ] [ "${pkgs.zathura}/bin/zathura" ] # lua
         ''
-          vim.opt.wrap = true
-          vim.opt.linebreak = true
-          vim.opt.spell = true
+          vim.opt_local.wrap = true
+          vim.opt_local.linebreak = true
+          vim.opt_local.spell = true
 
           local zathura_path = "nix_store_zathura_path"
           vim.keymap.set(
@@ -80,10 +54,10 @@
           )
         '';
 
-    "ftplugin/c.lua".text = # lua
+    c = # lua
       ''
-        vim.opt.tabstop = 2
-        vim.opt.shiftwidth = 2
+        vim.opt_local.tabstop = 2
+        vim.opt_local.shiftwidth = 2
       '';
   };
 }

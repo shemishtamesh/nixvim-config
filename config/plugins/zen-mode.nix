@@ -34,7 +34,6 @@
       };
     };
   };
-  plugins.twilight.enable = true;
   keymaps = [
     {
       mode = "n";

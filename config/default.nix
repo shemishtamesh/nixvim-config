@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   imports = [
     ./options.nix
@@ -8,7 +9,7 @@
   ];
 
   _module.args = {
-    utils = (import ./utils.nix);
+    utils = import ./utils.nix lib;
   };
 
   nixpkgs.config = {
