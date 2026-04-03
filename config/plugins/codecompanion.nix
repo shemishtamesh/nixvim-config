@@ -5,17 +5,18 @@
     settings = {
       opts.completion_provider = "cmp";
       interactions =
-        lib.genAttrs [ "chat" "inline" "background" "cmd" ] (_: {
-          adapter = {
-            name = "ollama";
-            model = "qwen3-coder";
-          };
+        lib.genAttrs [ "chat" "background" "cmd" ] (_: {
+          adapter.name = "opencode";
         })
         // {
           cli = {
             agent = "opencode";
             agents.opencode.cmd = "opencode";
             opts.reload = true;
+          };
+          inline.adapter = {
+            name = "ollama";
+            model = "qwen3-coder";
           };
         };
       display = {
