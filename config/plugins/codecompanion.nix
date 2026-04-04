@@ -32,6 +32,11 @@
       };
       adapters.http = {
         opts.show_presets = false;
+        ollama.__raw = ''
+          function()
+            return require("codecompanion.adapters").extend("openai_compatible", {})
+          end
+        '';
         openrouter.__raw = ''
           function()
             return require("codecompanion.adapters").extend("openai_compatible", {
