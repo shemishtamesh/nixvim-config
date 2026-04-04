@@ -4,6 +4,10 @@
     enable = true;
     settings = {
       opts.completion_provider = "cmp";
+      display = {
+        action_palette.provider = "telescope";
+        chat.start_in_insert_mode = true;
+      };
       interactions =
         lib.genAttrs [ "inline" "chat" "background" "cmd" ] (_: {
           adapter = {
@@ -18,9 +22,34 @@
             opts.reload = true;
           };
         };
-      display = {
-        action_palette.provider = "telescope";
-        chat.start_in_insert_mode = true;
+      adapters.acp = {
+        opts.show_presets = false;
+        opencode.__raw = ''
+          function()
+            return require("codecompanion.adapters").extend("opencode", {})
+          end
+        '';
+      };
+      adapters.http = {
+        opts.show_presets = false;
+        openrouter.__raw = ''
+          function()
+            return require("codecompanion.adapters").extend("openai_compatible", {
+              name = "openrouter",
+              formatted_name = "Open Router",
+              env = {
+                url = "https://openrouter.ai/api",
+                api_key = "OPENROUTER_API_KEY",
+                chat_url = "/v1/chat/completions",
+              },
+              schema = {
+                model = {
+                  default = "openrouter/free",
+                },
+              },
+            })
+          end
+        '';
       };
     };
   };
