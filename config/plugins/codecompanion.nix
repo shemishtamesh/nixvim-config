@@ -5,18 +5,17 @@
     settings = {
       opts.completion_provider = "cmp";
       interactions =
-        lib.genAttrs [ "chat" "background" "cmd" ] (_: {
-          adapter.name = "opencode";
+        lib.genAttrs [ "inline" "chat" "background" "cmd" ] (_: {
+          adapter = {
+            name = "ollama";
+            model = "qwen3-coder";
+          };
         })
         // {
           cli = {
             agent = "opencode";
             agents.opencode.cmd = "opencode";
             opts.reload = true;
-          };
-          inline.adapter = {
-            name = "ollama";
-            model = "qwen3-coder";
           };
         };
       display = {
@@ -27,6 +26,7 @@
   };
   keymaps = [
     (utils.map [ "n" "v" ] "<M-a>" "<cmd>CodeCompanion<cr>" { })
+    (utils.map [ "n" "v" ] "<leader>ac" "<cmd>CodeCompanionCLI<cr>" { })
     (utils.map [ "n" "v" ] "<leader><C-a>" "<cmd>CodeCompanionActions<cr>" { })
     (utils.map "n" "<leader>A" "<cmd>CodeCompanionChat Toggle<cr>" { })
     (utils.map "v" "<leader>A" "<cmd>CodeCompanionChat Add<cr>" { })
