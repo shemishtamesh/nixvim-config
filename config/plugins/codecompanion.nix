@@ -26,6 +26,10 @@
   };
   keymaps = [
     (utils.map [ "n" "v" ] "<M-a>" "<cmd>CodeCompanion<cr>" { })
+    (utils.map [
+      "n"
+      "v"
+    ] "<leader>ap" ''<cmd>lua require("codecompanion").cli({ prompt = true })<cr>'' { })
     (utils.map [ "n" "v" ] "<leader>ac" "<cmd>CodeCompanionCLI<cr>" { })
     (utils.map [ "n" "v" ] "<leader><C-a>" "<cmd>CodeCompanionActions<cr>" { })
     (utils.map "n" "<leader>A" "<cmd>CodeCompanionChat Toggle<cr>" { })
