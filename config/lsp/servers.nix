@@ -22,7 +22,8 @@
     };
   };
   imports = [
-    ./tix.nix
+    # ./tix.nix
+    ./nixd.nix
     # ./pylsp.nix
     ./astral.nix
     ./gopls.nix
