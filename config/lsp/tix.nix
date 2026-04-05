@@ -1,3 +1,12 @@
+/*
+NOTE: add this to flake's input to use again:
+```nix
+tix = {
+  url = "github:JRMurr/tix";
+  inputs.nixpkgs.follows = "nixpkgs";
+};
+```
+*/
 { inputs, pkgs, ... }:
 {
   lsp.servers.tix =

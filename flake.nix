@@ -7,11 +7,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    tix = {
-      url = "github:JRMurr/tix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
