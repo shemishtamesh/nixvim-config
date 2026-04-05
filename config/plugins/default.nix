@@ -1,6 +1,5 @@
 {
   imports = [
-    ./lsp.nix
     ./completions.nix
     ./telescope.nix
     ./undotree.nix

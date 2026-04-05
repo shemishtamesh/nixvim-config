@@ -2,9 +2,11 @@
 {
   imports = [
     ./options.nix
+    ./autocommands.nix
     ./keymaps.nix
     ./highlights.nix
     ./plugins
+    ./lsp
     ./ftplugin.nix
   ];
 

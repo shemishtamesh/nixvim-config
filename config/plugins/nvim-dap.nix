@@ -1,4 +1,4 @@
-{ utils, ... }:
+{ utils, pkgs, ... }:
 {
   plugins = {
     dap.enable = true;
@@ -34,4 +34,7 @@
       require('dapui').close()
     end
   '';
+  extraPackages = with pkgs; [
+    lldb
+  ];
 }
