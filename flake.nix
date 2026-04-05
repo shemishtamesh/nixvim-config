@@ -7,19 +7,26 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    tix = {
+      url = "github:JRMurr/tix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
-      nixvim,
+      # type: nixpkgs :: Pkgs
       nixpkgs,
+      nixvim,
       ...
-    }:
+    }@inputs:
     let
       per_system = nixpkgs.lib.genAttrs nixpkgs.lib.systems.doubles.all;
       nixvimModule = system: {
         inherit system;
         module = import ./config;
+        extraSpecialArgs = { inherit inputs; };
       };
     in
     {

@@ -1,4 +1,10 @@
-{ pkgs, config, utils, ... }:
+{
+  pkgs,
+  config,
+  utils,
+  inputs,
+  ...
+}:
 let
   telescope_commands = (
     if config.plugins.telescope.enable then
@@ -43,15 +49,34 @@ in
     severity_sort = true;
     update_in_insert = true;
   };
+  lsp.servers.tix =
+    let
+      # type: package :: Derivation
+      package = inputs.tix.packages.${pkgs.system}.default;
+    in
+    {
+      enable = true;
+      name = "tix";
+      inherit package;
+      config = {
+        cmd = [
+          "${package}/bin/tix"
+          "lsp"
+        ];
+        filetypes = [ "nix" ];
+        root_markers = [
+          "tix.toml"
+          "flake.nix"
+          ".git"
+        ];
+        settings.inlayHints.enable = false;
+      };
+    };
   plugins = {
     lsp = {
       enable = true;
       inlayHints = true;
       servers = {
-        nixd = {
-          enable = true;
-          settings.formatting.command = [ "${pkgs.nixfmt}/bin/nixfmt" ];
-        };
         pylsp = {
           enable = true;
           settings = {
@@ -197,6 +222,7 @@ in
     (utils.map "n" "<M-d>" "<cmd>lua vim.diagnostic.open_float()<cr>" { silent = true; })
   ];
   extraPackages = with pkgs; [
+    nixfmt
     cargo
     rustc
     lldb
