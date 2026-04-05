@@ -64,6 +64,40 @@ in
 
     # return to normal mode in terminal
     (utils.map "t" "<C-w><Esc>" "<C-\\><C-n>" { })
+
+    {
+      mode = "";
+      key = "gf";
+      action.__raw = ''
+        function()
+          local raw = vim.fn.expand("<cfile>")
+          if raw == "" then
+            return
+          end
+
+          local bufname = vim.api.nvim_buf_get_name(0)
+
+          local base_dir
+          if bufname ~= "" then
+            base_dir = vim.fn.fnamemodify(bufname, ":p:h")
+          else
+            base_dir = vim.fn.getcwd()
+          end
+
+          local target
+          if vim.fn.fnamemodify(raw, ":p") == raw then
+            target = raw
+          else
+            target = vim.fs.normalize(base_dir .. "/" .. raw)
+          end
+
+          vim.cmd.edit(vim.fn.fnameescape(target))
+        end
+      '';
+      options = {
+        desc = "[g]o to [f]ile";
+      };
+    }
   ];
   userCommands = {
     W = {
