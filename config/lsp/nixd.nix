@@ -15,7 +15,7 @@
             hostnameEnvVar = builtins.getEnv "HOSTNAME";
             hostname = (
               if hostnameEnvVar == "" && builtins.pathExists /etc/hostname
-              then builtins.readFile /etc/hostname
+              then builtins.replaceStrings ["\n" "\r"] ["" ""] (builtins.readFile /etc/hostname)
               else hostnameEnvVar
             );
           '';
@@ -49,8 +49,12 @@
             let
               ${flakeAndSystem}
             in
-            if builtins.hasAttr system flake.packages && builtins.hasAttr "default" flake.packages.''${system}
-               then flake.packages.''${system}.default.options
+            if (
+              builtins.hasAttr "packages" flake
+              && builtins.hasAttr system flake.packages
+              && builtins.hasAttr "default" flake.packages.''${system}
+            )
+            then flake.packages.''${system}.default.options
             else {}
           '';
         in
