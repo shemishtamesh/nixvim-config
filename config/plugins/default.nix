@@ -25,7 +25,6 @@
     # ./hardtime.nix
     # ./dashboard.nix
     # ./obsidian.nix
-    ./teamtype.nix
     # ./opencode-nvim.nix
     # ./avante.nix
     ./codecompanion.nix
@@ -50,6 +49,7 @@
     rainbow-delimiters.enable = true;
     quicker.enable = true;
     smear-cursor.enable = true;
+    teamtype.enable = true;
     # "dressing.nvim".enable = true;
     # vimtex.enable = true;
     # gen.enable = true

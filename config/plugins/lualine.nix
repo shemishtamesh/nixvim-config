@@ -114,6 +114,11 @@
                   return ""
                 end
 
+                -- Limit search pattern length to 20 characters
+                if #search_pat > 20 then
+                  search_pat = string.sub(search_pat, 1, 17) .. "…"
+                end
+
                 -- Handle timeouts
                 if result.incomplete == 1 then
                   return string.format("%s [?/??]", search_pat)
