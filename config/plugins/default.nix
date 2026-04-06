@@ -50,7 +50,6 @@
     rainbow-delimiters.enable = true;
     quicker.enable = true;
     smear-cursor.enable = true;
-    # rustaceanvim.enable = true;
     # "dressing.nvim".enable = true;
     # vimtex.enable = true;
     # gen.enable = true

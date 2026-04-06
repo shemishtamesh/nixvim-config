@@ -1,4 +1,4 @@
-{utils, ...}:
+{ utils, ... }:
 {
   plugins.aerial.enable = true;
   keymaps = [

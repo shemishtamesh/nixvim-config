@@ -1,4 +1,4 @@
-{utils, ...}:
+{ utils, ... }:
 {
   plugins = {
     git-worktree = {
@@ -34,7 +34,8 @@
   '';
 
   keymaps = [
-    (utils.map "n" "<leader>w" "<cmd>lua require('telescope').extensions.git_worktree.git_worktree()<cr>"
+    (utils.map "n" "<leader>w"
+      "<cmd>lua require('telescope').extensions.git_worktree.git_worktree()<cr>"
       { }
     )
   ];

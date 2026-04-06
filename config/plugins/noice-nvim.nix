@@ -1,4 +1,4 @@
-{utils, ...}:
+{ utils, ... }:
 {
   plugins.noice = {
     enable = true;

@@ -42,6 +42,9 @@
     # ./tix.nix
     ./nixd.nix
 
+    # lua
+    ./lua_ls.nix
+
     # python
     # ./pylsp.nix
     ./astral.nix

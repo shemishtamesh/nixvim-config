@@ -41,6 +41,10 @@
                 };
                 format = {
                   quote-style = "double";
+                  indent-width = 4;
+                  line-ending = "lf";
+                  skip-magic-trailing-comma = false;
+                  docstring-code-format = true;
                 };
               }
             );

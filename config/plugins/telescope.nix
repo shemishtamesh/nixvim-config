@@ -16,7 +16,9 @@ in
   };
   keymaps = [
     (utils.map "n" "<leader>fo" "<cmd>Telescope oldfiles<cr>" { })
-    (utils.map "n" "<leader>ff" ''<cmd>Telescope frecency workspace=CWD path_display={"smart"}<cr>'' { })
+    (utils.map "n" "<leader>ff" ''<cmd>Telescope frecency workspace=CWD path_display={"smart"}<cr>''
+      { }
+    )
     (utils.map "n" "<leader>fF" "<cmd>Telescope frecency<cr>" { })
     {
       mode = "n";

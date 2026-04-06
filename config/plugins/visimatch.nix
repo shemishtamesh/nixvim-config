@@ -15,5 +15,5 @@
   ];
 
   extraConfigLua = # lua
-    ''require('visimatch').setup()'';
+    "require('visimatch').setup()";
 }
