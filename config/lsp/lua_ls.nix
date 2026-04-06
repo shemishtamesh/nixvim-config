@@ -10,12 +10,14 @@ in
 {
   lsp.servers.lua_ls = {
     enable = true;
-    config = {
-      telemetry.enable = false;
+    config.settings.Lua = {
+      telemetry = {
+        enable = false;
+      };
       diagnostics.globals = [
-        "vim" # neovim configuration
-        "love" # love2d game engine
-        "sol" # solarus game engine
+        "vim"
+        "love"
+        "sol"
       ];
       workspace = {
         library = [
@@ -25,14 +27,12 @@ in
         ];
         checkThirdParty = false;
       };
-      Lua = {
-        hint = {
-          enable = true;
-          arrayIndex = "Enable";
-          setType = true;
-          paramName = "All";
-          paramType = true;
-        };
+      hint = {
+        enable = true;
+        arrayIndex = "Enable";
+        setType = true;
+        paramName = "All";
+        paramType = true;
       };
     };
   };
