@@ -8,7 +8,7 @@ let
   };
 in
 {
-  lua_ls = {
+  lsp.servers.lua_ls = {
     enable = true;
     config = {
       telemetry.enable = false;
