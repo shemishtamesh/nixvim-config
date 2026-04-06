@@ -11,7 +11,14 @@
         let
           flake_definition = /* nix */ "builtins.getFlake (toString ./.)";
           flake = /* nix */ "flake = ${flake_definition};";
-          hostname = "hostname = builtins.getEnv \"HOSTNAME\";";
+          hostname = ''
+            hostnameEnvVar = builtins.getEnv "HOSTNAME";
+            hostname = (
+              if hostnameEnvVar == "" && builtins.pathExists /etc/hostname
+              then builtins.readFile /etc/hostname
+              else hostnameEnvVar
+            );
+          '';
           username = "username = builtins.getEnv \"USER\";";
           system = "system = builtins.currentSystem;";
 
