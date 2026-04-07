@@ -63,7 +63,7 @@ in
     )
 
     # return to normal mode in terminal
-    (utils.map "t" "<C-w><Esc>" "<C-\\><C-n>" { })
+    (utils.map "t" "<A-Esc>" "<C-\\><C-n>" { })
 
     {
       mode = "";

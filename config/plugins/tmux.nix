@@ -1,6 +1,5 @@
-{ pkgs, utils, ... }:
+{ pkgs, ... }:
 {
-  plugins.tmux-navigator.enable = true;
   extraPlugins = with pkgs.vimPlugins; [ vim-tpipeline ];
   extraConfigLua = ''
     if vim.env.TMUX then
@@ -15,34 +14,51 @@
       vim.o.laststatus = 1
     end
   '';
+
+  plugins.tmux-navigator = {
+    enable = true;
+    settings.no_mappings = 1;
+  };
   keymaps =
     let
-      terminal_action = action: {
-        __raw = ''
-          function()
-            vim.cmd("stopinsert")
-            vim.cmd("${action}")
-          end
-        '';
+      commandPrefix = "TmuxNavigate";
+      keyToCommandSuffixes = {
+        "<c-h>" = "Left";
+        "<c-j>" = "Down";
+        "<c-k>" = "Up";
+        "<c-l>" = "Right";
+        "<c-\>" = "Previous";
       };
+      modePatterns = command: {
+        "n" = ":${command}<cr>";
+        "v" = ":<c-u>${command}<cr>gv";
+        "i" = "<c-o>:${command}<cr>";
+        "t" = "<c-\\><c-o>:${command}<cr>";
+      };
+      keymap_options = {
+        silent = true;
+      };
+      keysAndCommands = builtins.attrValues (
+        builtins.mapAttrs (key: suffix: {
+          inherit key;
+          command = commandPrefix + suffix;
+        }) keyToCommandSuffixes
+      );
+      keysAndPerModeActions = map (keyAndCommand: {
+        inherit (keyAndCommand) key;
+        modesToActions = modePatterns keyAndCommand.command;
+      }) keysAndCommands;
     in
-    [
-      (utils.map "v" "<c-h>" ":<c-u>TmuxNavigateLeft<cr>gv" { silent = true; })
-      (utils.map "v" "<c-j>" ":<c-u>TmuxNavigateDown<cr>gv" { silent = true; })
-      (utils.map "v" "<c-k>" ":<c-u>TmuxNavigateUp<cr>gv" { silent = true; })
-      (utils.map "v" "<c-l>" ":<c-u>TmuxNavigateRight<cr>gv" { silent = true; })
-      (utils.map "v" "<c-\\>" ":<c-u>TmuxNavigatePrevious<cr>gv" { silent = true; })
-
-      (utils.map "i" "<c-h>" "<c-o>:TmuxNavigateLeft<cr>" { silent = true; })
-      (utils.map "i" "<c-j>" "<c-o>:TmuxNavigateDown<cr>" { silent = true; })
-      (utils.map "i" "<c-k>" "<c-o>:TmuxNavigateUp<cr>" { silent = true; })
-      (utils.map "i" "<c-l>" "<c-o>:TmuxNavigateRight<cr>" { silent = true; })
-      (utils.map "i" "<c-\\>" "<c-o>:TmuxNavigatePrevious<cr>" { silent = true; })
-
-      (utils.map "t" "<c-h>" (terminal_action "TmuxNavigateLeft") { silent = true; })
-      (utils.map "t" "<c-j>" (terminal_action "TmuxNavigateDown") { silent = true; })
-      (utils.map "t" "<c-k>" (terminal_action "TmuxNavigateUp") { silent = true; })
-      (utils.map "t" "<c-l>" (terminal_action "TmuxNavigateRight") { silent = true; })
-      (utils.map "t" "<c-\\>" (terminal_action "TmuxNavigatePrevious") { silent = true; })
-    ];
+    builtins.concatLists (
+      map (
+        keyAndPerMode:
+        builtins.attrValues (
+          builtins.mapAttrs (mode: action: {
+            inherit mode action;
+            key = keyAndPerMode.key;
+            options = keymap_options;
+          }) keyAndPerMode.modesToActions
+        )
+      ) keysAndPerModeActions
+    );
 }
