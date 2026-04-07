@@ -24,12 +24,6 @@ in
     (utils.map [ "n" "v" ] "<M-p>" ''"0p'' { silent = true; })
     (utils.map [ "n" "v" ] "<M-P>" ''"0P'' { silent = true; })
 
-    # moving code segments
-    (utils.map "n" "<M-j>" "V:m '>+1<cr>gv=" { silent = true; })
-    (utils.map "n" "<M-k>" "V:m '>-2<cr>gv=" { silent = true; })
-    (utils.map "v" "<M-j>" "<cmd>m '>+1<cr>gv=gv" { silent = true; })
-    (utils.map "v" "<M-k>" "<cmd>m '<-2<cr>gv=gv" { silent = true; })
-
     # quickfix list navigation
     (utils.map "n" "<M-o>" "<cmd>cprev<cr>" { silent = true; })
     (utils.map "n" "<M-i>" "<cmd>cnext<cr>" { silent = true; })
