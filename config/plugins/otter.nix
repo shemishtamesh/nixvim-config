@@ -2,19 +2,26 @@
 {
   plugins.otter = {
     enable = true;
-    settings.buffers.ignore_pattern = {
-      python = "(^ *$|^(%s*[%%!].*))";
-      lua = "^ *$";
+    settings.buffers.preambles = 
+      let
+        sh_diagnostic_disables = ''
+          # shellcheck disable=SC1009,SC1039,SC1056,SC1072,SC1073,SC1078,SC1079,SC1089,SC140,SC2027,SC2034,SC2068,SC2086,SC2140,SC2145,SC2154,SC2171,SC2284,SC2288,SC2289'';
+      in
+      {
+      sh = [ sh_diagnostic_disables ];
+      bash = [ sh_diagnostic_disables ];
+      zsh = [ sh_diagnostic_disables ];
+      lua = [
+        "---@diagnostic disable: duplicate-set-field, exp-in-action, inject-field, miss-name, miss-sep-in-table, miss-symbol, undefined-global, trailing-space, unreachable-code, unused-local"
+      ];
     };
   };
   extraConfigLua = /* lua */ ''
-    ${
-      utils.filetype_configs {
-        markdown = /* lua */ ''
-          require("otter").activate()
-        '';
-      }
-    }
+    ${utils.filetype_configs {
+      markdown = /* lua */ ''
+        require("otter").activate()
+      '';
+    }}
 
     local function is_otter_buffer(bufnr)
       if not bufnr or bufnr == 0 then return false end
@@ -36,14 +43,12 @@
 
     local original_setqflist = vim.diagnostic.setqflist
 
-    ---@diagnostic disable: duplicate-set-field
     vim.diagnostic.setqflist = function(opts)
       opts = opts or {}
       local bufnr = opts.bufnr
 
       if not bufnr then
         local all_diagnostics = filter_diagnostics(vim.diagnostic.get())
-        ---@diagnostic disable: inject-field
         opts.bufnr = nil
         opts.diagnostics = all_diagnostics
       elseif is_otter_buffer(bufnr) then

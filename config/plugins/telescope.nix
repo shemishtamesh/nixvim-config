@@ -24,7 +24,6 @@ in
       mode = "n";
       key = "<leader>F";
       action.__raw = ''
-        ---@diagnostic disable: miss-name
         function()
           local _ = vim.fn.system("git rev-parse --is-inside-work-tree")
           if vim.v.shell_error == 0 then

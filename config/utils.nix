@@ -16,8 +16,6 @@ lib: {
           filetype: config: # lua
           ''
             vim.api.nvim_create_autocmd("FileType", {
-              ---@diagnostic disable: miss-sep-in-table
-              ---@diagnostic disable: miss-symbol
               pattern = "${filetype}",
               callback = function()
                 ${config}

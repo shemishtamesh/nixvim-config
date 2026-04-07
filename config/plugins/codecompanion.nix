@@ -25,7 +25,6 @@
       adapters.acp = {
         opts.show_presets = false;
         opencode.__raw = ''
-          ---@diagnostic disable: miss-name
           function()
             return require("codecompanion.adapters").extend("opencode", {})
           end
@@ -34,7 +33,6 @@
       adapters.http = {
         opts.show_presets = false;
         ollama.__raw = ''
-          ---@diagnostic disable: unreachable-code
           function()
             return require("codecompanion.adapters").extend("openai_compatible", {
               name = "Ollama"

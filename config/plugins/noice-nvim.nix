@@ -11,6 +11,7 @@
           4
         ];
       };
+      messages.view_search = "notify";
     };
   };
   keymaps = [

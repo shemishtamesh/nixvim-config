@@ -32,7 +32,6 @@ let
       }
   );
   toggle_diagnostics_on_separate_lines.__raw = ''
-    ---@diagnostic disable: miss-name
     function()
       local cfg = vim.diagnostic.config()
       if cfg then
@@ -66,8 +65,8 @@ in
     (keymap "<leader>lO" telescope_commands.document_symbols)
     (keymap "gD" telescope_commands.declarations)
     (keymap "gd" telescope_commands.definitions)
-    (keymap "]d" "<cmd>lua vim.diagnostic.goto_next()<cr>")
-    (keymap "[d" "<cmd>lua vim.diagnostic.goto_prev()<cr>")
+    (keymap "]d" "<cmd>lua vim.diagnostic.jump({count=1})<cr>")
+    (keymap "[d" "<cmd>lua vim.diagnostic.jump({count=-1})<cr>")
     (keymap "<M-d>" "<cmd>lua vim.diagnostic.open_float()<cr>")
   ];
 }

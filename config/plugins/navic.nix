@@ -8,7 +8,6 @@
       mode = "n";
       key = "<leader>o";
       action.__raw = ''
-        ---@diagnostic disable: miss-name
         function()
           if vim.o.winbar == "" then
             vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
