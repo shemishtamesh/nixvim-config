@@ -3,6 +3,7 @@
     ./completions.nix
     ./telescope.nix
     ./undotree.nix
+    # ./atone.nix
     ./treesitter.nix
     ./comment.nix
     # ./codeium.nix
@@ -37,12 +38,12 @@
     ./noice-nvim.nix
     ./oil.nix
     ./navic.nix
+    ./otter.nix
     ./aerial.nix
   ];
 
   plugins = {
     colorizer.enable = true;
-    otter.enable = true;
     numbertoggle.enable = true;
     web-devicons.enable = true;
     lastplace.enable = true;
