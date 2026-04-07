@@ -2,7 +2,10 @@
 {
   plugins.otter = {
     enable = true;
-    settings.handle_leading_whitespace = true;
+    settings.buffers.ignore_pattern = {
+      python = "(^ *$|^(%s*[%%!].*))";
+      lua = "^ *$";
+    };
   };
   extraConfigLua = utils.filetype_configs {
     markdown = /* lua */ ''
