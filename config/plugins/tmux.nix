@@ -23,11 +23,11 @@
     let
       commandPrefix = "TmuxNavigate";
       keyToCommandSuffixes = {
-        "<c-h>" = "Left";
-        "<c-j>" = "Down";
-        "<c-k>" = "Up";
-        "<c-l>" = "Right";
-        "<c-\>" = "Previous";
+        "<m-h>" = "Left";
+        "<m-j>" = "Down";
+        "<m-k>" = "Up";
+        "<m-l>" = "Right";
+        "<m-bs>" = "Previous";
       };
       modePatterns = command: {
         "n" = ":${command}<cr>";
