@@ -1,6 +1,7 @@
 let
   search_options = {
     mapping.__raw = ''
+      ---@diagnostic disable: undefined-global
       cmp.mapping.preset.cmdline({ ["<C-y>"] = { c = cmp.mapping.confirm() } })
     '';
     sources = [ { name = "buffer"; } ];
@@ -49,7 +50,10 @@ in
         {
           name = "buffer";
           # Words from other open buffers can also be suggested.
-          option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+          option.get_bufnrs.__raw = ''
+            ---@diagnostic disable: exp-in-action
+            vim.api.nvim_list_bufs
+          '';
         }
         { name = "path"; }
       ];

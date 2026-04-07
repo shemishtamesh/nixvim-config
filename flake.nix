@@ -11,7 +11,6 @@
 
   outputs =
     {
-      # type: nixpkgs :: Pkgs
       nixpkgs,
       nixvim,
       ...

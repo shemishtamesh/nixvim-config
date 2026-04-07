@@ -39,6 +39,7 @@
       mode = "n";
       key = "<leader>z";
       action.__raw = ''
+        ---@diagnostic disable: miss-name
         function()
           require("zen-mode").toggle()
           vim.cmd('IBLToggle');

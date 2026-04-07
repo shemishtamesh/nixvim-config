@@ -11,6 +11,7 @@
           {
             __unkeyed-1 = {
               __raw = ''
+                ---@diagnostic disable: miss-name
                 function()
                   local reg = vim.fn.reg_recording()
                   if reg == "" then return "" end
@@ -29,6 +30,8 @@
               --  - 'v' (characterwise selection): returns total characters (UTF-8 aware)
               --  - 'V' (linewise selection: returns number of lines
               --  - '\22' (blockwise selection): returns rows x columns
+              ---@diagnostic disable: miss-name
+              ---@diagnostic disable: unreachable-code
               function()
                 -- Get current mode
                 local mode = vim.fn.mode()

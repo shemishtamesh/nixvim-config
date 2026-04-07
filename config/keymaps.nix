@@ -63,6 +63,7 @@ in
       mode = "";
       key = "gf";
       action.__raw = ''
+        ---@diagnostic disable: miss-name
         function()
           local raw = vim.fn.expand("<cfile>")
           if raw == "" then

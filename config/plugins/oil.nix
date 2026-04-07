@@ -37,6 +37,7 @@
       mode = "n";
       key = "<leader>e";
       action.__raw = ''
+        ---@diagnostic disable: miss-name
         function()
           if vim.w.is_oil_win then
             require("oil").close()

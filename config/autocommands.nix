@@ -3,6 +3,7 @@
     {
       event = [ "BufWritePre" ];
       callback.__raw = ''
+        ---@diagnostic disable: miss-name
         function(args)
           local file = vim.api.nvim_buf_get_name(args.buf)
           if file == "" then

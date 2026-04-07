@@ -22,7 +22,11 @@
         shortcut = [
           {
             action = {
-              __raw = "function(path) vim.cmd('Telescope find_files') end";
+              __raw = ''
+                ---@diagnostic disable: miss-name
+                ---@diagnostic disable: unused-local
+                function(path) vim.cmd('Telescope find_files') end
+              '';
             };
             desc = "Files";
             group = "Label";

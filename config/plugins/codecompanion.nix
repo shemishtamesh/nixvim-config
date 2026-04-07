@@ -25,6 +25,7 @@
       adapters.acp = {
         opts.show_presets = false;
         opencode.__raw = ''
+          ---@diagnostic disable: miss-name
           function()
             return require("codecompanion.adapters").extend("opencode", {})
           end
@@ -33,14 +34,17 @@
       adapters.http = {
         opts.show_presets = false;
         ollama.__raw = ''
+          ---@diagnostic disable: unreachable-code
           function()
-            return require("codecompanion.adapters").extend("openai_compatible", {})
+            return require("codecompanion.adapters").extend("openai_compatible", {
+              name = "Ollama"
+            })
           end
         '';
         openrouter.__raw = ''
           function()
             return require("codecompanion.adapters").extend("openai_compatible", {
-              name = "openrouter",
+              name = "Open Router",
               formatted_name = "Open Router",
               env = {
                 url = "https://openrouter.ai/api",

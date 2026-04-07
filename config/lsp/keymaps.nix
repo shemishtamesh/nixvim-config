@@ -1,7 +1,5 @@
 {
-  pkgs,
   config,
-  utils,
   ...
 }:
 let
@@ -34,12 +32,15 @@ let
       }
   );
   toggle_diagnostics_on_separate_lines.__raw = ''
+    ---@diagnostic disable: miss-name
     function()
       local cfg = vim.diagnostic.config()
-      vim.diagnostic.config({
-        virtual_lines = not cfg.virtual_lines,
-        virtual_text = not cfg.virtual_text,
-      })
+      if cfg then
+        vim.diagnostic.config({
+          virtual_lines = not cfg.virtual_lines,
+          virtual_text = not cfg.virtual_text,
+        })
+      end
     end
   '';
   keymap = key: action: {
