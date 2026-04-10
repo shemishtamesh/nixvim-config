@@ -18,7 +18,7 @@
         owner = "gregorias";
         repo = "coop.nvim";
         rev = "main";
-        sha256 = "sha256-eUpJPhZ+tnyCXtpAqZ676rJOh/WwSMAYjWbEc1a1uVU=";
+        sha256 = "sha256-7brkTkeT8OjG5EWGMR+eJCzf9ynXRHNLHFdprqN2DDk=";
       };
     })
   ];
