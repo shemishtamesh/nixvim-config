@@ -65,8 +65,6 @@ in
     (keymap "<leader>lO" telescope_commands.document_symbols)
     (keymap "gD" telescope_commands.declarations)
     (keymap "gd" telescope_commands.definitions)
-    (keymap "]d" "<cmd>lua vim.diagnostic.jump({count=1})<cr>")
-    (keymap "[d" "<cmd>lua vim.diagnostic.jump({count=-1})<cr>")
     (keymap "<M-d>" "<cmd>lua vim.diagnostic.open_float()<cr>")
   ];
 }
