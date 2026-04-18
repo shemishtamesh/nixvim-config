@@ -1,11 +1,14 @@
 {
-  diagnostic.settings = {
-    signs = false;
-    underline = true;
-    virtual_text = true;
-    severity_sort = true;
-    update_in_insert = true;
-  };
+  imports = [
+    ./nix
+    ./python
+    ./lua.nix
+    ./go.nix
+    ./qml.nix
+    ./rust.nix
+    ./typescript.nix
+    ./typst.nix
+  ];
   lsp = {
     inlayHints.enable = true;
     servers = {
@@ -20,16 +23,5 @@
       html.enable = true; # html
     };
   };
-  imports = [
-    ./nix.nix
-    ./lua.nix
-    ./python.nix
-    ./go.nix
-    ./qml.nix
-    ./rust.nix
-    ./typescript.nix
-  ];
-  plugins = {
-    lean.enable = true; # lean
-  };
+  plugins.lean.enable = true; # lean
 }

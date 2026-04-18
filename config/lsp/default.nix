@@ -1,6 +1,7 @@
 {
   imports = [
-    ./servers.nix
+    ./servers
     ./keymaps.nix
+    ./diagnostics.nix
   ];
 }

@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 {
-  lsp.servers.tix =
+  tix =
     /*
       NOTE: add this to flake's input to use again:
       ```nix
@@ -15,7 +15,7 @@
       package = inputs.tix.packages.${pkgs.system}.default;
     in
     {
-      enable = true;
+      enable = false;
       name = "tix";
       inherit package;
       config = {
@@ -32,6 +32,4 @@
         settings.inlayHints.enable = false;
       };
     };
-
-  extraPackages = [ pkgs.nixfmt ];
 }
