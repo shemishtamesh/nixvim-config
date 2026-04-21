@@ -1,17 +1,22 @@
 { utils, ... }:
 {
-  plugins.noice = {
-    enable = true;
-    settings = {
-      cmdline.view = "hover";
-      views.hover.border = {
-        style = "rounded";
-        padding = [
-          0
-          4
-        ];
+  plugins = {
+    noice = {
+      enable = true;
+      settings = {
+        cmdline.view = "hover";
+        views.hover.border.style = "none";
+        messages.view_search = "notify";
       };
-      messages.view_search = "notify";
+    };
+    notify = {
+      enable = true;
+      settings = {
+        stages = "slide";
+        top_down = false;
+        minimum_width = 0;
+        render = "compact";
+      };
     };
   };
   keymaps = [
