@@ -4,18 +4,48 @@
     noice = {
       enable = true;
       settings = {
-        cmdline.view = "hover";
-        views.hover.border.style = "none";
-        messages.view_search = "notify";
-      };
-    };
-    notify = {
-      enable = true;
-      settings = {
-        stages = "slide";
-        top_down = false;
-        minimum_width = 0;
-        render = "compact";
+        messages.view_search = "mini";
+        cmdline.view = "hover_pill";
+        views = {
+          hover.border.style = "rounded";
+          hover_pill = {
+            backend = "popup";
+            relative = "cursor";
+            position = {
+              row = "1";
+              col = "-2";
+            };
+            size = {
+              width = "auto";
+              height = "auto";
+            };
+            border = {
+              style = [
+                ""
+                ""
+                ""
+                [
+                  ""
+                  "NoiceHoverPillBorder"
+                ]
+                ""
+                ""
+                ""
+                [
+                  ""
+                  "NoiceHoverPillBorder"
+                ]
+              ];
+            };
+            win_options = {
+              winhighlight = {
+                Normal = "NoiceHoverPill";
+                FloatBorder = "NoiceHoverPillBorder";
+              };
+              winblend = 0;
+            };
+          };
+        };
       };
     };
   };
@@ -23,4 +53,13 @@
     (utils.map [ "n" ] "<leader>n" "<cmd>NoicePick<cr>" { })
     (utils.map [ "n" "i" "v" ] "<M-;>" "<cmd>NoiceDismiss<cr>" { })
   ];
+  extraConfigLua = ''
+    vim.api.nvim_set_hl(0, "NoiceHoverPill", {
+      bg = vim.g.base16_gui01,
+    })
+    vim.api.nvim_set_hl(0, "NoiceHoverPillBorder", {
+      fg = vim.g.base16_gui01,
+      bg = vim.g.base16_gui00,
+    })
+  '';
 }
