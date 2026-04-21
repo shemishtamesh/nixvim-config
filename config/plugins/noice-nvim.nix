@@ -12,7 +12,7 @@
             backend = "popup";
             relative = "cursor";
             position = {
-              row = "1";
+              row = "0";
               col = "-2";
             };
             size = {
