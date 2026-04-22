@@ -2,6 +2,6 @@
   imports = [
     ./servers
     ./keymaps.nix
-    ./diagnostics.nix
+    ./general.nix
   ];
 }

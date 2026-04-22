@@ -1,4 +1,5 @@
 {
+  plugins.lsp.enable = true;
   diagnostic.settings = {
     signs = false;
     underline = true;
