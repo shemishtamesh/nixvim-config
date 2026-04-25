@@ -3,16 +3,13 @@
     ./completions.nix
     ./telescope.nix
     ./undotree.nix
-    # ./atone.nix
     ./treesitter.nix
     ./comment.nix
-    # ./codeium.nix
     ./minuet.nix
     ./zen-mode.nix
     ./indent-blankline.nix
     ./which-key.nix
     ./snacks.nix
-    # ./mini.nix
     ./dadbod.nix
     ./nvim-dap.nix
     ./flash.nix
@@ -21,13 +18,6 @@
     ./visimatch.nix
     ./jupytext.nix
     ./luasnip.nix
-    # ./neoscroll.nix
-    # ./gitblame.nix
-    # ./hardtime.nix
-    # ./dashboard.nix
-    # ./obsidian.nix
-    # ./opencode-nvim.nix
-    # ./avante.nix
     ./codecompanion.nix
     ./gitsigns.nix
     ./neogit.nix
@@ -51,10 +41,5 @@
     quicker.enable = true;
     smear-cursor.enable = true;
     teamtype.enable = true;
-    # "dressing.nvim".enable = true;
-    # vimtex.enable = true;
-    # gen.enable = true
-    # vim-asciidoctor.enable = true;
-    # beacon.enable = true;
   };
 }
