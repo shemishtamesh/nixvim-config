@@ -8,7 +8,7 @@
         owner = "gregorias";
         repo = "coerce.nvim";
         rev = "main";
-        sha256 = "sha256-SjBWwd8tCymt9lO7w7FH7fVyYmWlXwR6UkMo801iNxw=";
+        sha256 = "sha256-RTE2THMwNPAgKmZt8j5TYqNVBJ5ZM+BCl0EX7fNjlIk=";
       };
     })
     (vimUtils.buildVimPlugin {

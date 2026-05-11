@@ -39,17 +39,19 @@
 
     typst =
       # not using normal string interpulation so that lua_ls wouldn't think there's a problem
-      builtins.replaceStrings [ "nix_store_zathura_path" ] [ "${pkgs.zathura}/bin/zathura" ] # lua
+      builtins.replaceStrings
+        [ "open_command_string" ]
+        [ (if pkgs.stdenv.isDarwin then "open" else "xdg-open") ] # lua
         ''
           vim.opt_local.wrap = true
           vim.opt_local.linebreak = true
           vim.opt_local.spell = true
 
-          local zathura_path = "nix_store_zathura_path"
+          local open_command = "open_command_string"
           vim.keymap.set(
             'n',
             '<leader>lp',
-            '<cmd>silent !' .. zathura_path .. ' target/%:.:r.pdf&<cr>',
+            '<cmd>silent !' .. open_command .. ' target/%:.:r.pdf&<cr>',
             { noremap = true, buffer = true }
           )
         '';
