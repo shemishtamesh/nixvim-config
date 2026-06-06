@@ -4,5 +4,4 @@
   extraPackages = with pkgs; [
     typescript
   ];
-
 }
