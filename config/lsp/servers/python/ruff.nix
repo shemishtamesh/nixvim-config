@@ -22,6 +22,7 @@
             ];
             ignore = [
               "F821" # duplicate of a ty error
+              "ARG002" # duplicate of a ty error
               "ISC003"
             ];
           };
