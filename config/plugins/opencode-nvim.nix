@@ -15,6 +15,7 @@
     {
       key = "<leader>ot";
       action = "<cmd>lua require('opencode').toggle()<cr>";
+      options = { desc = "Toggle OpenCode"; };
     }
     {
       key = "<leader>oa";
@@ -23,6 +24,7 @@
         "n"
         "v"
       ];
+      options = { desc = "Ask OpenCode about selection"; };
     }
     {
       key = "<leader>os";
@@ -31,6 +33,7 @@
         "n"
         "v"
       ];
+      options = { desc = "Select OpenCode agent"; };
     }
   ];
   extraPackages = with pkgs; [ lsof ];

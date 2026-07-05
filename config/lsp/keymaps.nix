@@ -42,29 +42,31 @@ let
       end
     end
   '';
-  keymap = key: action: {
+  keymap = key: action: desc: {
     mode = "n";
     inherit key action;
+    options = { inherit desc; };
   };
 in
 {
   lsp.keymaps = [
-    (keymap "<leader>la" "<cmd>lua vim.lsp.buf.code_action()<cr>")
-    (keymap "<leader>lf" "<cmd>lua vim.lsp.buf.format()<cr>")
-    (keymap "<leader>ln" "<cmd>lua vim.lsp.buf.rename()<cr>")
-    (keymap "<leader>lh" "<cmd>lua vim.lsp.buf.signature_help()<cr>")
-    (keymap "<leader>lc" "<cmd>lua vim.lsp.buf.typehierarchy()<cr>")
-    (keymap "<leader>ll" toggle_diagnostics_on_separate_lines)
-    (keymap "<leader>ld" telescope_commands.diagnostics)
-    (keymap "<leader>lm" telescope_commands.implementations)
-    (keymap "<leader>li" telescope_commands.incoming_calls)
-    (keymap "<leader>lo" telescope_commands.outgoing_calls)
-    (keymap "<leader>lr" telescope_commands.references)
-    (keymap "<leader>lt" telescope_commands.type_definitions)
-    (keymap "<leader>ls" telescope_commands.workspace_symbols)
-    (keymap "<leader>lO" telescope_commands.document_symbols)
-    (keymap "gD" telescope_commands.declarations)
-    (keymap "gd" telescope_commands.definitions)
-    (keymap "<M-d>" "<cmd>lua vim.diagnostic.open_float()<cr>")
+    (keymap "<leader>la" "<cmd>lua vim.lsp.buf.code_action()<cr>" "Code action")
+    (keymap "<leader>lf" "<cmd>lua vim.lsp.buf.format()<cr>" "Format buffer")
+    (keymap "<leader>ln" "<cmd>lua vim.lsp.buf.rename()<cr>" "Rename symbol")
+    (keymap "<leader>lh" "<cmd>lua vim.lsp.buf.signature_help()<cr>" "Signature help")
+    (keymap "<leader>lc" "<cmd>lua vim.lsp.buf.typehierarchy()<cr>" "Type hierarchy")
+    (keymap "<leader>ll" toggle_diagnostics_on_separate_lines "Toggle inline diagnostics")
+    (keymap "<leader>ld" telescope_commands.diagnostics "Diagnostics")
+    (keymap "<leader>lm" telescope_commands.implementations "Implementations")
+    (keymap "<leader>li" telescope_commands.incoming_calls "Incoming calls")
+    (keymap "<leader>lo" telescope_commands.outgoing_calls "Outgoing calls")
+    (keymap "<leader>lr" telescope_commands.references "References")
+    (keymap "<leader>lt" telescope_commands.type_definitions "Type definitions")
+    (keymap "<leader>ls" telescope_commands.workspace_symbols "Workspace symbols")
+    (keymap "<leader>lO" telescope_commands.document_symbols "Document symbols")
+    (keymap "gD" telescope_commands.declarations "Go to declaration")
+    (keymap "gd" telescope_commands.definitions "Go to definition")
+    (keymap "<M-d>" "<cmd>lua vim.diagnostic.open_float()<cr>" "Show diagnostic")
+
   ];
 }

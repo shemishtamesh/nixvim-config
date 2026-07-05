@@ -29,6 +29,13 @@
         "<m-l>" = "Right";
         "<m-bs>" = "Previous";
       };
+      keyToDescriptions = {
+        "<m-h>" = "Tmux navigate left";
+        "<m-j>" = "Tmux navigate down";
+        "<m-k>" = "Tmux navigate up";
+        "<m-l>" = "Tmux navigate right";
+        "<m-bs>" = "Tmux navigate previous";
+      };
       modePatterns = command: {
         "n" = ":${command}<cr>";
         "v" = ":<c-u>${command}<cr>gv";
@@ -56,7 +63,7 @@
           builtins.mapAttrs (mode: action: {
             inherit mode action;
             key = keyAndPerMode.key;
-            options = keymap_options;
+            options = keymap_options // { desc = keyToDescriptions.${keyAndPerMode.key}; };
           }) keyAndPerMode.modesToActions
         )
       ) keysAndPerModeActions

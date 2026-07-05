@@ -50,7 +50,7 @@
     };
   };
   keymaps = [
-    (utils.map [ "n" ] "<leader>n" "<cmd>NoicePick<cr>" { })
+    (utils.map [ "n" ] "<leader>fn" "<cmd>NoicePick<cr>" { desc = "Find Notifications (Noice)"; })
     (utils.map [ "n" "i" "v" ] "<M-;>" "<cmd>NoiceDismiss<cr>" { })
   ];
   extraConfigLua = ''

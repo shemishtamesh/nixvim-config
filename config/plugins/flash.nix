@@ -12,6 +12,6 @@
   };
 
   keymaps = [
-    (utils.map "n" "<C-s>" "<cmd>lua require('flash').jump()<cr>" { })
+    (utils.map "n" "<C-s>" "<cmd>lua require('flash').jump()<cr>" { desc = "Flash jump"; })
   ];
 }

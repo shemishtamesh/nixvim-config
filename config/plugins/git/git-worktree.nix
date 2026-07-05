@@ -27,7 +27,7 @@
       return nil
     end
 
-    vim.keymap.set("n", "<leader>W", function()
+    vim.keymap.set("n", "<leader>gW", function()
       local common_worktree_dir = get_common_worktree_dir()
       require('telescope').extensions.git_worktree.create_git_worktree({ prefix = common_worktree_dir .. "/" })
     end, { desc = "[G]it [W]orktree [C]reate" })

@@ -11,53 +11,51 @@ in
     # restart session (reload config)
     (utils.map "n" "<leader><M-r>"
       "<cmd>mksession! ${restart_session} | restart source ${restart_session}<cr>"
-      { }
+      { desc = "Restart Neovim (save session)"; }
     )
 
     # system clipboard
-    (utils.map "n" "<leader>y" ''"+y'' { silent = true; })
-    (utils.map "v" "<leader>y" ''"+y:let @*=@+<cr>'' { silent = true; })
-    (utils.map "n" "<leader>Y" ''"+y$:let @*=@+<cr>'' { silent = true; })
-    (utils.map "v" "<leader>Y" ''"+yy:let @*=@+<cr>'' { silent = true; })
-    (utils.map [ "n" "v" ] "<leader>p" ''"+p'' { silent = true; })
-    (utils.map [ "n" "v" ] "<leader>P" ''"+P'' { silent = true; })
-    (utils.map [ "n" "v" ] "<M-p>" ''"0p'' { silent = true; })
-    (utils.map [ "n" "v" ] "<M-P>" ''"0P'' { silent = true; })
+    (utils.map "n" "<leader>y" ''"+y'' { silent = true; desc = "Yank to clipboard"; })
+    (utils.map "v" "<leader>y" ''"+y:let @*=@+<cr>'' { silent = true; desc = "Yank selection to clipboard"; })
+    (utils.map "n" "<leader>Y" ''"+y$:let @*=@+<cr>'' { silent = true; desc = "Yank line to clipboard"; })
+    (utils.map "v" "<leader>Y" ''"+yy:let @*=@+<cr>'' { silent = true; desc = "Yank line to clipboard (visual)"; })
+    (utils.map [ "n" "v" ] "<leader>p" ''"+p'' { silent = true; desc = "Paste from clipboard"; })
+    (utils.map [ "n" "v" ] "<leader>P" ''"+P'' { silent = true; desc = "Paste from clipboard (before cursor)"; })
+    (utils.map [ "n" "v" ] "<M-p>" ''"0p'' { silent = true; desc = "Paste from register 0"; })
+    (utils.map [ "n" "v" ] "<M-P>" ''"0P'' { silent = true; desc = "Paste from register 0 (before cursor)"; })
 
-    # quickfix list navigation
-    (utils.map "n" "<M-o>" "<cmd>cprev<cr>" { silent = true; })
-    (utils.map "n" "<M-i>" "<cmd>cnext<cr>" { silent = true; })
-    (utils.map "n" "<leader>k" "<cmd>lprev<cr>" { silent = true; })
-    (utils.map "n" "<leader>j" "<cmd>lnext<cr>" { silent = true; })
+    # location list navigation
+    (utils.map "n" "<leader>jj" "<cmd>lnext<cr>" { silent = true; desc = "Jump to next location"; })
+    (utils.map "n" "<leader>jk" "<cmd>lprev<cr>" { silent = true; desc = "Jump to previous location"; })
 
     # replace current word
-    (utils.map "n" "<leader>rw" ":%s/<C-r><C-w>/t/gI<Left><Left><Left><BackSpace>" { })
+    (utils.map "n" "<leader>rw" ":%s/<C-r><C-w>/t/gI<Left><Left><Left><BackSpace>" { desc = "Replace word under cursor"; })
 
     # make current file executable
-    (utils.map "n" "<leader>x" "<cmd>!chmod +x %<cr>" { silent = true; })
-    (utils.map "n" "<leader>X" "<cmd>!chmod -x %<cr>" { silent = true; })
+    (utils.map "n" "<leader>mx" "<cmd>!chmod +x %<cr>" { silent = true; desc = "Make file executable"; })
+    (utils.map "n" "<leader>mX" "<cmd>!chmod -x %<cr>" { silent = true; desc = "Make file non-executable"; })
 
     # toggle spell check
-    (utils.map "n" "<leader>sc" "<cmd>setlocal spell! spelllang=en_us<cr>" { silent = true; })
+    (utils.map "n" "<leader>js" "<cmd>setlocal spell! spelllang=en_us<cr>" { silent = true; desc = "Toggle spell check"; })
 
-    # toggle search highlighting highlighting
-    (utils.map "n" "<leader>h" "<cmd>set hlsearch!<cr>" { silent = true; })
+    # toggle search highlighting
+    (utils.map "n" "<leader>jh" "<cmd>set hlsearch!<cr>" { silent = true; desc = "Toggle search highlight"; })
 
     # faster exit
-    (utils.map "n" "Q" "<cmd>qa<cr>" { silent = true; })
-    (utils.map "n" "<leader>Q" "<cmd>qa!<cr>" { silent = true; })
+    (utils.map "n" "Q" "<cmd>qa<cr>" { silent = true; desc = "Quit all" ; })
+    (utils.map "n" "<leader>Q" "<cmd>qa!<cr>" { silent = true; desc = "Force quit all"; })
 
     # alternative alternative file binding
-    (utils.map "n" "<M-6>" "<C-^>" { silent = true; })
+    (utils.map "n" "<M-6>" "<C-^>" { silent = true; desc = "Toggle alternate file"; })
 
     # select last pasted text
     (utils.map "n" "gp"
       ''<cmd>lua vim.api.nvim_feedkeys("`[" .. vim.fn.strpart(vim.fn.getregtype(), 0, 1) .. "`]", "n", false)<cr>''
-      { silent = true; }
+      { silent = true; desc = "Select last pasted text"; }
     )
 
     # return to normal mode in terminal
-    (utils.map "t" "<A-Esc>" "<C-\\><C-n>" { })
+    (utils.map "t" "<A-Esc>" "<C-\\><C-n>" { desc = "Terminal normal mode"; })
 
     # make gf :edit file when so it can be written if doesn't exist
     {

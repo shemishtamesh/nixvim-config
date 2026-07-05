@@ -61,15 +61,15 @@
     };
   };
   keymaps = [
-    (utils.map [ "n" "v" ] "<M-a>" "<cmd>CodeCompanion<cr>" { })
+    (utils.map [ "n" "v" ] "<M-a>" "<cmd>CodeCompanion<cr>" { desc = "CodeCompanion"; })
     (utils.map [
       "n"
       "v"
-    ] "<leader>ap" ''<cmd>lua require("codecompanion").cli({ prompt = true })<cr>'' { })
-    (utils.map [ "n" "v" ] "<leader>ac" "<cmd>CodeCompanionCLI<cr>" { })
-    (utils.map [ "n" "v" ] "<leader><C-a>" "<cmd>CodeCompanionActions<cr>" { })
-    (utils.map "n" "<leader>A" "<cmd>CodeCompanionChat Toggle<cr>" { })
-    (utils.map "v" "<leader>A" "<cmd>CodeCompanionChat Add<cr>" { })
+    ] "<leader>ap" ''<cmd>lua require("codecompanion").cli({ prompt = true })<cr>'' { desc = "CodeCompanion CLI (prompt)"; })
+    (utils.map [ "n" "v" ] "<leader>ac" "<cmd>CodeCompanionCLI<cr>" { desc = "CodeCompanion CLI"; })
+    (utils.map [ "n" "v" ] "<leader><C-a>" "<cmd>CodeCompanionActions<cr>" { desc = "CodeCompanion actions"; })
+    (utils.map "n" "<leader>A" "<cmd>CodeCompanionChat Toggle<cr>" { desc = "Toggle CodeCompanion chat"; })
+    (utils.map "v" "<leader>A" "<cmd>CodeCompanionChat Add<cr>" { desc = "Add selection to chat"; })
     (utils.map "ca" "CC" "CodeCompanion" { })
   ];
   extraConfigLua = ''

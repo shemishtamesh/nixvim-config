@@ -6,7 +6,7 @@
   keymaps = [
     {
       mode = "n";
-      key = "<leader>o";
+      key = "<leader>to";
       action.__raw = ''
         function()
           if vim.o.winbar == "" then
@@ -18,6 +18,7 @@
       '';
       options = {
         silent = true;
+        desc = "Toggle Breadcrumbs (Navic)";
       };
     }
   ];
