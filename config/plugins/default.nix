@@ -19,9 +19,7 @@
     # ./jupytext.nix
     ./luasnip.nix
     ./codecompanion.nix
-    ./gitsigns.nix
-    ./neogit.nix
-    ./git-worktree.nix
+    ./git
     ./coerce.nix
     ./tmux.nix
     ./lualine.nix
