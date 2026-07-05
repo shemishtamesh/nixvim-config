@@ -1,7 +1,7 @@
 {
   lsp.servers.tinymist = {
     enable = true;
-    config = {
+    config.settings = {
       formatterMode = "typstyle";
       exportPdf = "onType";
       outputPath = "$root/target/$name";
