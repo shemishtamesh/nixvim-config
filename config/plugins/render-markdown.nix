@@ -6,6 +6,7 @@
       settings.file_types = [
         "markdown"
         "codecompanion"
+        "octo"
       ];
     };
 
