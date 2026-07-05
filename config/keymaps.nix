@@ -36,10 +36,10 @@ in
     (utils.map "n" "<leader>mX" "<cmd>!chmod -x %<cr>" { silent = true; desc = "Make file non-executable"; })
 
     # toggle spell check
-    (utils.map "n" "<leader>js" "<cmd>setlocal spell! spelllang=en_us<cr>" { silent = true; desc = "Toggle spell check"; })
+    (utils.map "n" "<leader>ts" "<cmd>setlocal spell! spelllang=en_us<cr>" { silent = true; desc = "Toggle spell check"; })
 
     # toggle search highlighting
-    (utils.map "n" "<leader>jh" "<cmd>set hlsearch!<cr>" { silent = true; desc = "Toggle search highlight"; })
+    (utils.map "n" "<leader>th" "<cmd>set hlsearch!<cr>" { silent = true; desc = "Toggle search highlight"; })
 
     # faster exit
     (utils.map "n" "Q" "<cmd>qa<cr>" { silent = true; desc = "Quit all" ; })
