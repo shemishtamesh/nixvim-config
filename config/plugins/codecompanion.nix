@@ -12,7 +12,7 @@
         lib.genAttrs [ "inline" "chat" "background" "cmd" ] (_: {
           adapter = {
             name = "ollama";
-            model = "qwen3-coder";
+            model = "ornith";
           };
         })
         // {

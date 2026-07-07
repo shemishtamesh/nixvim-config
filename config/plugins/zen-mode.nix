@@ -48,6 +48,7 @@
       '';
       options = {
         silent = true;
+        desc = "Enter presentation mode";
       };
     }
   ];
