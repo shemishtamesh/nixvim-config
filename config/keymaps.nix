@@ -59,9 +59,25 @@ in
     # replace current word
     (utils.map "n" "<leader>rw" ":%s/<C-r><C-w>/t/gI<Left><Left><Left><BackSpace>" { desc = "Replace word under cursor"; })
 
-    # make current file executable
-    (utils.map "n" "<leader>mx" "<cmd>!chmod +x %<cr>" { silent = true; desc = "Make file executable"; })
-    (utils.map "n" "<leader>mX" "<cmd>!chmod -x %<cr>" { silent = true; desc = "Make file non-executable"; })
+    # toggle file executable
+    {
+      mode = "n";
+      key = "<leader>tx";
+      action.__raw = ''
+        function()
+          local f = vim.fn.expand("%")
+          local p = vim.fn.getfperm(f)
+          if p:sub(3, 3) == "x" then
+            vim.fn.setfperm(f, p:sub(1, 2) .. "-" .. p:sub(4))
+            vim.notify("Removed executable")
+          else
+            vim.fn.setfperm(f, p:sub(1, 2) .. "x" .. p:sub(4))
+            vim.notify("Made executable")
+          end
+        end
+      '';
+      options = { silent = true; desc = "Toggle file execute permission"; };
+    }
 
     # toggle spell check
     (utils.map "n" "<leader>ts" "<cmd>setlocal spell! spelllang=en_us<cr>" { silent = true; desc = "Toggle spell check"; })
