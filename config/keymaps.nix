@@ -7,6 +7,34 @@ in
     mapleader = " ";
     maplocalleader = "\\";
   };
+
+  extraConfigLua = ''
+    ---@param relative boolean
+    function CopyLocation(relative)
+      local file = relative and vim.fn.expand("%:~:.") or vim.fn.expand("%:p")
+      if file == "" then file = "[No Name]" end
+      local loc = string.format("%s:%d:%d", file, vim.fn.line("."), vim.fn.col("."))
+      vim.fn.setreg("+", loc)
+      vim.fn.setreg("*", loc)
+      vim.notify("Copied: " .. loc)
+    end
+
+    ---@param relative boolean
+    function CopyVisualLocation(relative)
+      local file = relative and vim.fn.expand("%:~:.") or vim.fn.expand("%:p")
+      if file == "" then file = "[No Name]" end
+      local loc = string.format("%s:%d:%d", file, vim.fn.line("v"), vim.fn.col("v"))
+      vim.cmd('normal! "+y')
+      local text = vim.fn.getreg("+")
+      local ft = vim.bo.filetype
+      local fence = ft ~= "" and ("```" .. ft) or "```"
+      local result = string.format("%s\n%s\n%s\n```", loc, fence, text)
+      vim.fn.setreg("+", result)
+      vim.fn.setreg("*", result)
+      vim.notify("Copied location + code block")
+    end
+  '';
+
   keymaps = [
     # restart session (reload config)
     (utils.map "n" "<leader><M-r>"
@@ -53,6 +81,32 @@ in
       ''<cmd>lua vim.api.nvim_feedkeys("`[" .. vim.fn.strpart(vim.fn.getregtype(), 0, 1) .. "`]", "n", false)<cr>''
       { silent = true; desc = "Select last pasted text"; }
     )
+
+    # copy file location to clipboard
+    {
+      mode = "n";
+      key = "<leader>yC";
+      action.__raw = "function() CopyLocation(false) end";
+      options = { silent = true; desc = "Copy cursor location (absolute path)"; };
+    }
+    {
+      mode = "n";
+      key = "<leader>yc";
+      action.__raw = "function() CopyLocation(true) end";
+      options = { silent = true; desc = "Copy cursor location (relative path)"; };
+    }
+    {
+      mode = "v";
+      key = "<leader>yC";
+      action.__raw = "function() CopyVisualLocation(false) end";
+      options = { silent = true; desc = "Copy cursor location + code block (absolute)"; };
+    }
+    {
+      mode = "v";
+      key = "<leader>yc";
+      action.__raw = "function() CopyVisualLocation(true) end";
+      options = { silent = true; desc = "Copy cursor location + code block (relative)"; };
+    }
 
     # return to normal mode in terminal
     (utils.map "t" "<A-Esc>" "<C-\\><C-n>" { desc = "Terminal normal mode"; })
