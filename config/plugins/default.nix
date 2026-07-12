@@ -36,7 +36,7 @@
     web-devicons.enable = true;
     lastplace.enable = true;
     rainbow-delimiters.enable = true;
-    quicker.enable = true;
+    # quicker.enable = true;
     smear-cursor.enable = true;
     teamtype.enable = true;
   };
