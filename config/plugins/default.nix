@@ -28,6 +28,8 @@
     ./navic.nix
     ./otter.nix
     ./aerial.nix
+    ./baleia.nix
+    ./diffs.nix
   ];
 
   plugins = {
