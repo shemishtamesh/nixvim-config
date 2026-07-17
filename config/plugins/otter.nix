@@ -12,7 +12,7 @@
       bash = [ sh_diagnostic_disables ];
       zsh = [ sh_diagnostic_disables ];
       lua = [
-        "---@diagnostic disable: duplicate-set-field, exp-in-action, inject-field, miss-name, miss-sep-in-table, miss-symbol, undefined-global, trailing-space, unreachable-code, unused-local"
+        "---@diagnostic disable: duplicate-set-field, exp-in-action, inject-field, miss-name, miss-sep-in-table, miss-symbol, undefined-global, trailing-space, unreachable-code, unused-local, unknown-symbol, err-eq-as-assign, redefined-local"
       ];
     };
   };
