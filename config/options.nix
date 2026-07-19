@@ -16,7 +16,7 @@
     number = true;
     numberwidth = 1;
     relativenumber = true;
-    winblend = 10;
+    winblend = 0;
     winborder = "rounded";
 
     # Better editing experience
