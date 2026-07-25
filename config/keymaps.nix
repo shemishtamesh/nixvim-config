@@ -101,25 +101,25 @@ in
     # copy file location to clipboard
     {
       mode = "n";
-      key = "<leader>yC";
+      key = "<leader>bY";
       action.__raw = "function() CopyLocation(false) end";
       options = { silent = true; desc = "Copy cursor location (absolute path)"; };
     }
     {
       mode = "n";
-      key = "<leader>yc";
+      key = "<leader>by";
       action.__raw = "function() CopyLocation(true) end";
       options = { silent = true; desc = "Copy cursor location (relative path)"; };
     }
     {
       mode = "v";
-      key = "<leader>yC";
+      key = "<leader>bY";
       action.__raw = "function() CopyVisualLocation(false) end";
       options = { silent = true; desc = "Copy cursor location + code block (absolute)"; };
     }
     {
       mode = "v";
-      key = "<leader>yc";
+      key = "<leader>by";
       action.__raw = "function() CopyVisualLocation(true) end";
       options = { silent = true; desc = "Copy cursor location + code block (relative)"; };
     }
