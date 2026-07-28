@@ -29,8 +29,8 @@
     (utils.map "n" "<leader>Gs" "<cmd>Gitsigns select_hunk<cr>" { desc = "Select hunk"; })
 
     (utils.map "n" "<leader>GR" "<cmd>Gitsigns reset_buffer<cr>" { desc = "Reset buffer"; })
-    (utils.map "n" "<leader>Gr" "<cmd>Gitsigns reset_hunk<cr>" { desc = "Reset hunk"; })
-    (utils.map "n" "<leader>Ga" "<cmd>Gitsigns stage_hunk<cr>" { desc = "Stage hunk"; })
+    (utils.map [ "n" "v" ] "<leader>Gr" ":Gitsigns reset_hunk<cr>" { desc = "Reset hunk"; })
+    (utils.map [ "n" "v" ] "<leader>Ga" ":Gitsigns stage_hunk<cr>" { desc = "Stage hunk"; })
     (utils.map "n" "<leader>GA" "<cmd>Gitsigns stage_buffer<cr>" { desc = "Stage buffer"; })
 
     (utils.map "n" "<leader>Gw" "<cmd>Gitsigns toggle_word_diff<cr>" { desc = "Toggle word diff"; })
