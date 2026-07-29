@@ -1,10 +1,13 @@
-{ utils, ... }:
+{ utils, config, ... }:
 {
   plugins = {
     neogit = {
       enable = true;
       settings = {
-        integrations.telescope = true;
+        integrations = {
+          telescope = config.plugins.telescope.enable;
+          diffview = config.plugins.diffview.enable;
+        };
         graph_style = "unicode";
       };
     };
