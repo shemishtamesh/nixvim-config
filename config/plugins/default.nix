@@ -30,6 +30,7 @@
     ./aerial.nix
     ./baleia.nix
     ./diffs.nix
+    ./diffview.nix
   ];
 
   plugins = {
