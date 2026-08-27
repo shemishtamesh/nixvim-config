@@ -18,7 +18,7 @@
     ./visimatch.nix
     # ./jupytext.nix
     ./luasnip.nix
-    ./codecompanion.nix
+    ./codecompanion
     ./git
     ./coerce.nix
     ./tmux.nix
@@ -31,7 +31,7 @@
     ./baleia.nix
     ./diffs.nix
     ./diffview.nix
-    ./silverbullet.nix
+    ./silverbullet
   ];
 
   plugins = {

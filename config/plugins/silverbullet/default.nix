@@ -12,17 +12,6 @@
       };
     })
   ];
-  extraConfigLua = /* lua */ ''
-    require("silverbullet").setup({
-      default_space = "personal",
-      spaces = {
-        personal = {
-          url = "https://shenixtamesh.local:8443/",
-        },
-      },
-    })
-  '';
-
   keymaps = [
     (utils.map "n" "<leader>nf" "<cmd>SilverBulletFind<cr>" { desc = "Note: find page"; })
     (utils.map "n" "<leader>nn" ''<cmd>lua vim.ui.input({ prompt = "New note: " }, function(name) if name and name ~= "" then vim.cmd("SilverBulletNew " .. name) end end)<cr>''
@@ -39,5 +28,8 @@
     (utils.map "n" "<leader>nr" "<cmd>SilverBulletReload<cr>" { desc = "Note: reload page"; })
     (utils.map "n" "<leader>nR" "<cmd>SilverBulletReload!<cr>" { desc = "Note: reload page (discard changes)"; })
     (utils.map "n" "<leader>nd" "<cmd>SilverBulletDelete<cr>" { desc = "Note: delete page"; })
+    (utils.map "n" "<leader>nv" "<cmd>lua SilverBulletPreview.toggle()<cr>"
+      { desc = "Note: toggle rendered \${...} view (readonly)"; })
   ];
+  extraConfigLua = builtins.readFile ./config.lua;
 }
