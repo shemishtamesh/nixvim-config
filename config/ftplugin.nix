@@ -41,7 +41,7 @@
       # not using normal string interpulation so that lua_ls wouldn't think there's a problem
       builtins.replaceStrings
         [ "open_command_string" ]
-        [ (if pkgs.stdenv.isDarwin then "open" else "xdg-open") ] # lua
+        [ (if pkgs.stdenv.hostPlatform.isDarwin then "open" else "xdg-open") ] # lua
         ''
           vim.opt_local.wrap = true
           vim.opt_local.linebreak = true

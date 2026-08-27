@@ -8,7 +8,7 @@
         owner = "barrettruth";
         repo = "diffs.nvim";
         rev = "main";
-        sha256 = "sha256-v7DRUpD0IGCD1g9CKfIA1AL/BKU4DEFWZ9zmzN42yY4=";
+        sha256 = "sha256-gCMg7oyoa+k0p0YDWElXCdY8bGZ/TEp0V4JXnQd27og=";
       };
     })
   ];
