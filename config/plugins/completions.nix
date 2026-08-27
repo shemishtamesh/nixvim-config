@@ -45,6 +45,7 @@ in
       sources = [
         { name = "calc"; }
         { name = "nvim_lsp"; }
+        { name = "silverbullet"; }
         { name = "buffer"; }
         {
           name = "buffer";

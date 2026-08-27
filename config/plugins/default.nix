@@ -31,6 +31,7 @@
     ./baleia.nix
     ./diffs.nix
     ./diffview.nix
+    ./silverbullet.nix
   ];
 
   plugins = {
