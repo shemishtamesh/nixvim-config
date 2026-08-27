@@ -9,13 +9,19 @@
         chat.start_in_insert_mode = true;
       };
       interactions =
-        lib.genAttrs [ "inline" "chat" "background" "cmd" ] (_: {
+        lib.genAttrs [ "chat" "background" "cmd" ] (_: {
           adapter = {
             name = "ollama";
             model = "ornith";
           };
         })
         // {
+          inline = {
+            adapter = {
+              name = "ollama";
+              model = "qwen2.5-coder:7b";
+            };
+          };
           cli = {
             agent = "opencode";
             agents.opencode.cmd = "opencode";

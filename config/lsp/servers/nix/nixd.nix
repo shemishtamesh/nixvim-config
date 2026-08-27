@@ -4,10 +4,6 @@
     nixd = {
       enable = true;
       config = {
-        cmd = [
-          "nixd"
-          "--semantic-tokens=true"
-        ];
         settings.nixd =
           let
             flake_definition = /* nix */ "builtins.getFlake (toString ./.)";
