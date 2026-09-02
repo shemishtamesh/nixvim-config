@@ -35,6 +35,17 @@
             return require("codecompanion.adapters").extend("opencode", {})
           end
         '';
+        pi_acp.__raw = ''
+          function()
+            return require("codecompanion.adapters").extend("opencode", {
+              name = "pi_acp",
+              formatted_name = "Pi",
+              commands = {
+                default = { "pi-acp" },
+              },
+            })
+          end
+        '';
       };
       adapters.http = {
         opts.show_presets = false;
