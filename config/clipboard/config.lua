@@ -11,9 +11,9 @@ local native_copy = function(cmd)
   return function(lines)
     local payload = table.concat(lines, "\n")
     if #payload > 0 then payload = payload .. "\n" end
-    local code = vim.fn.system(cmd, payload)
-    if type(code) == "number" and code ~= 0 then
-      error("native clipboard failed: " .. code)
+    vim.fn.system(cmd, payload)
+    if vim.v.shell_error ~= 0 then
+      error("native clipboard failed: " .. vim.v.shell_error)
     end
   end
 end
