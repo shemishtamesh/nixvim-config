@@ -4,6 +4,7 @@
     ./options.nix
     ./autocommands.nix
     ./keymaps.nix
+    ./clipboard
     ./highlights.nix
     ./plugins
     ./lsp
