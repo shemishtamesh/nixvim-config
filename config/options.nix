@@ -32,6 +32,7 @@
     listchars = "trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂";
     conceallevel = 2;
     foldlevel = 99999; # disable folding by default
+    autoread = true; # refresh files on external changes
 
     # Case insensitive searching UNLESS /C or capital in search
     ignorecase = true;

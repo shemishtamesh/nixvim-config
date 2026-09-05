@@ -49,8 +49,7 @@ in
     (utils.map "n" "<leader>th" "<cmd>set hlsearch!<cr>" { silent = true; desc = "Toggle search highlight"; })
 
     # faster exit
-    (utils.map "n" "Q" "<cmd>qa<cr>" { silent = true; desc = "Quit all" ; })
-    (utils.map "n" "<leader>Q" "<cmd>qa!<cr>" { silent = true; desc = "Force quit all"; })
+    (utils.map "n" "<leader>Q" "<cmd>qa<cr>" { silent = true; desc = "Quit all" ; })
 
     # alternative alternative file binding
     (utils.map "n" "<M-6>" "<C-^>" { silent = true; desc = "Toggle alternate file"; })
