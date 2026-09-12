@@ -32,6 +32,9 @@
     ./diffs.nix
     ./diffview.nix
     ./silverbullet
+    ./smartcolumn.nix
+    ./tiny-code-action.nix
+    ./workspace-diagnostics.nix
   ];
 
   plugins = {
@@ -43,5 +46,6 @@
     # quicker.enable = true;
     smear-cursor.enable = true;
     teamtype.enable = true;
+    schemastore.enable = true;
   };
 }

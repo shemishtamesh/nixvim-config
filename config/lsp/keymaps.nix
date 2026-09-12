@@ -50,7 +50,6 @@ let
 in
 {
   lsp.keymaps = [
-    (keymap "<leader>la" "<cmd>lua vim.lsp.buf.code_action()<cr>" "Code action")
     (keymap "<leader>lf" "<cmd>lua vim.lsp.buf.format()<cr>" "Format buffer")
     (keymap "<leader>ln" "<cmd>lua vim.lsp.buf.rename()<cr>" "Rename symbol")
     (keymap "<leader>lh" "<cmd>lua vim.lsp.buf.signature_help()<cr>" "Signature help")

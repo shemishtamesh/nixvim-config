@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   search_options = {
     mapping.__raw = ''
@@ -16,6 +17,10 @@ let
   };
 in
 {
+  extraPlugins = with pkgs; [
+    vimPlugins.cmp-rg
+  ];
+
   opts.completeopt = [
     "menu"
     "menuone"
@@ -55,6 +60,7 @@ in
           '';
         }
         { name = "path"; }
+        { name = "rg"; }
       ];
       experimental.ghost_text = true;
       window.completion.winhighlight = "Normal:CmpNormal";
