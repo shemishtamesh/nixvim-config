@@ -11,8 +11,9 @@
         "neo-tree"
         "noice"
         "text"
+        "NeogitStatus"
       ];
-     scope = "window";
+      scope = "window";
     };
   };
 }
