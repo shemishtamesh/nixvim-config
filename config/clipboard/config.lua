@@ -81,7 +81,7 @@ function CopyVisualLocation(relative)
   if file == "" then file = "[No Name]" end
   local loc = string.format("%s:%d:%d", file, vim.fn.line("v"), vim.fn.col("v"))
   vim.cmd('normal! "+y')
-  local text = vim.fn.getreg("+")
+  local text = vim.fn.getreg("+"):gsub("\r$", ""):gsub("\n$", "")
   local ft = vim.bo.filetype
   local fence = ft ~= "" and ("```" .. ft) or "```"
   local result = string.format("%s\n%s\n%s\n```", loc, fence, text)
