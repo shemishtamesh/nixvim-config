@@ -23,5 +23,4 @@
       html.enable = true; # html
     };
   };
-  plugins.lean.enable = true; # lean
 }

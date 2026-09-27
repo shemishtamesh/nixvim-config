@@ -8,7 +8,7 @@
         owner = "eyko139";
         repo = "silverbullet.nvim";
         rev = "main";
-        sha256 = "sha256-4uagubuAZPBZ9CR9htVz4gZc/5I16hA26F9UtsHbqvU=";
+        sha256 = "sha256-1nhvtPxXc+aJdCMU1wgaG56vC1KdSMmoJm1ZFb+Udwg=";
       };
     })
   ];

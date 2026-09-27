@@ -9,7 +9,7 @@
         owner = "wurli";
         repo = "visimatch.nvim";
         rev = "main";
-        sha256 = "sha256-+ye0R8pZxiXJ1UnU3jLajXYI5PHIuADZgjLS8Yj6TeQ=";
+        sha256 = "sha256-kdY8XiTzknG+rhr2hprK0BJC06iKuEm7QLWsNqxant8=";
       };
     })
   ];

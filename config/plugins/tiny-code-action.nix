@@ -13,7 +13,7 @@
       owner = "rachartier";
         repo = "tiny-code-action.nvim";
         rev = "main";
-        sha256 = "sha256-UF9zeO5Uujdt2MEwy2d2Lhk6JRnEN4vrEvYslv0/zaA=";
+        sha256 = "sha256-PLGomUsZt5KPabBtl1xof83sOxI7bv7DkHKjOnf8+/Q=";
       };
       nvimSkipModule = [ "tiny-code-action.previewers.snacks" ];
     })

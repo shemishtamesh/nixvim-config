@@ -23,21 +23,16 @@
             };
           };
           cli = {
-            agent = "opencode";
-            agents.opencode.cmd = "opencode";
+            agent = "pi";
+            agents.opencode.cmd = "pi";
             opts.reload = true;
           };
         };
       adapters.acp = {
         opts.show_presets = false;
-        opencode.__raw = ''
-          function()
-            return require("codecompanion.adapters").extend("opencode", {})
-          end
-        '';
         pi_acp.__raw = ''
           function()
-            return require("codecompanion.adapters").extend("opencode", {
+            return require("codecompanion.adapters").extend("pi", {
               name = "pi_acp",
               formatted_name = "Pi",
               commands = {
