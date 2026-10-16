@@ -3,6 +3,14 @@
   plugins.gitsigns = {
     enable = true;
     settings = {
+      # Notebook buffers contain converted text, not the JSON tracked by Git.
+      on_attach.__raw = ''
+        function(bufnr)
+          if vim.api.nvim_buf_get_name(bufnr):match("%.ipynb$") then
+            return false
+          end
+        end
+      '';
       current_line_blame = false;
       current_line_blame_formatter = "<author>, <author_time:%R>: <summary>";
       current_line_blame_opts = {

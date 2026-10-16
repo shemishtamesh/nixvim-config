@@ -16,7 +16,7 @@
     ./render-markdown.nix
     ./nvim-surround.nix
     ./visimatch.nix
-    # ./jupytext.nix
+    ./jupytext.nix
     ./luasnip.nix
     ./codecompanion
     ./git
