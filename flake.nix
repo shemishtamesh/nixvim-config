@@ -3,7 +3,10 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -16,7 +19,10 @@
       per_system = nixpkgs.lib.genAttrs nixpkgs.lib.systems.doubles.all;
       nixvimModule = system: {
         inherit system;
-        module = import ./config;
+        module = {
+          imports = [ ./config ];
+          nixpkgs.source = nixpkgs;
+        };
         extraSpecialArgs = { inherit inputs; };
       };
     in
