@@ -1,4 +1,4 @@
-{ utils, pkgs, ... }:
+{ config, lib, utils, pkgs, ... }:
 {
   plugins = {
     dap.enable = true;
@@ -9,6 +9,15 @@
     dap-go.enable = true;
   };
   keymaps = [
+    (lib.mkIf config.plugins.dap.enable (
+      utils.map "n" "<leader>dl"
+        (if config.plugins.telescope.enable then
+          "<cmd>Telescope dap list_breakpoints<cr>"
+        else
+          "<cmd>lua require('dap').list_breakpoints()<cr>"
+        )
+        { desc = "List breakpoints"; }
+    ))
     (utils.map "n" "<leader>db" "<cmd>lua require('dap').toggle_breakpoint()<cr>" { desc = "Toggle breakpoint"; })
     (utils.map "n" "<leader>dc" "<cmd>lua require('dap').continue()<cr>" { desc = "Continue debugger"; })
     (utils.map "n" "<leader>ds" "<cmd>lua require('dap').run_to_cursor()<cr>" { desc = "Run to cursor"; })

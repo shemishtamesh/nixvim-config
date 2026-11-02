@@ -1,4 +1,4 @@
-{ pkgs, utils, ... }:
+{ config, lib, pkgs, utils, ... }:
 let
   rg_args = "{'--hidden', '--glob', '!**/.git/**', '--glob', '!**/*.lock'}";
 in
@@ -14,6 +14,13 @@ in
     };
     settings.defaults.layout_config.horizontal.width = 0.9;
   };
+  extraPlugins = lib.optionals (config.plugins.telescope.enable && config.plugins.dap.enable) [
+    pkgs.vimPlugins.telescope-dap-nvim
+  ];
+  extraConfigLua = lib.optionalString (config.plugins.telescope.enable && config.plugins.dap.enable) ''
+    require('telescope').load_extension('dap')
+  '';
+
   keymaps = [
     (utils.map "n" "<leader>fo" "<cmd>Telescope oldfiles<cr>" { desc = "Find recent files"; })
     (utils.map "n" "<leader>ff" ''<cmd>Telescope frecency workspace=CWD path_display={"smart"}<cr>''
