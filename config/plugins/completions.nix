@@ -60,7 +60,13 @@ in
           '';
         }
         { name = "path"; }
-        { name = "rg"; }
+        {
+          name = "rg";
+          option = {
+            additional_arguments = "--max-depth 2 --max-filesize 256K";
+            debounce = 300;
+          };
+        }
       ];
       experimental.ghost_text = true;
       window.completion.winhighlight = "Normal:CmpNormal";
