@@ -3,8 +3,11 @@
   plugins.jupytext.enable = true;
   extraPackages = with pkgs; [ python3Packages.jupytext ];
 
-  # handle optional metadata
   extraConfigLua = /* lua */ ''
+    require("jupytext.utils").get_jupytext_file = function(filename, extension)
+      return vim.fn.fnamemodify(filename, ":r") .. ".generated-jupytext." .. extension
+    end
+
     require("jupytext.utils").get_ipynb_metadata = function(filename)
       local notebook = vim.json.decode(table.concat(vim.fn.readfile(filename), "\n"))
       local metadata = notebook.metadata or {}
