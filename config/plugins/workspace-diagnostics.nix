@@ -18,7 +18,7 @@
     ''
       if client:supports_method("workspace/diagnostic", bufnr) then
         vim.lsp.buf.workspace_diagnostics({ client_id = client.id })
-      else
+      elseif type(client.config.filetypes) == "table" and next(client.config.filetypes) ~= nil then
         require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
       end
     '';
