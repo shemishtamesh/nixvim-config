@@ -24,7 +24,7 @@
           };
           cli = {
             agent = "pi";
-            agents.opencode.cmd = "pi";
+            agents.pi.cmd = "pi";
             opts.reload = true;
           };
         };
