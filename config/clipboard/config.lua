@@ -47,7 +47,7 @@ end
 
 local copy_cmd = is_mac and { "pbcopy" }
   or is_windows and { "clip.exe" }
-  or { "wl-copy" }
+  or { "wl-copy", "--type", "text/plain" }
 
 local paste_cmd = is_mac and "pbpaste"
   or is_windows and "powershell.exe -NoProfile -Command Get-Clipboard -Raw"
