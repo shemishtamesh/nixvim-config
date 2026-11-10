@@ -1,6 +1,12 @@
 { pkgs, ... }:
 {
-  plugins.jupytext.enable = true;
+  plugins.jupytext = {
+    enable = true;
+    settings.custom_language_formatting.python = {
+      extension = "py";
+      style = "percent";
+    };
+  };
   extraPackages = with pkgs; [ python3Packages.jupytext ];
 
   extraConfigLua = /* lua */ ''
