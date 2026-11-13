@@ -32,11 +32,26 @@
         opts.show_presets = false;
         pi_acp.__raw = ''
           function()
-            return require("codecompanion.adapters").extend("pi", {
+            return require("codecompanion.adapters.acp").extend({
               name = "pi_acp",
               formatted_name = "Pi",
+              type = "acp",
+              roles = { llm = "assistant", user = "user" },
               commands = {
                 default = { "pi-acp" },
+              },
+              defaults = { mcpServers = {}, timeout = 20000 },
+              parameters = {
+                protocolVersion = 1,
+                clientCapabilities = {
+                  fs = { readTextFile = true, writeTextFile = true },
+                },
+                clientInfo = { name = "CodeCompanion.nvim", version = "1.0.0" },
+              },
+              handlers = {
+                request = {
+                  build_messages = require("codecompanion.adapters.acp.helpers").build_messages,
+                },
               },
             })
           end
