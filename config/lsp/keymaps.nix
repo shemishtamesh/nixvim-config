@@ -14,7 +14,7 @@ let
         incoming_calls = "<cmd>Telescope lsp_incoming_calls<cr>";
         outgoing_calls = "<cmd>Telescope lsp_outgoing_calls<cr>";
         definitions = "<cmd>Telescope lsp_definitions<cr>";
-        declarations = "<cmd>Telescope lsp_declarations<cr>";
+        declarations = "<cmd>lua vim.lsp.buf.declaration()<cr>";
         diagnostics = "<cmd>Telescope diagnostics<cr>";
       }
     else
@@ -65,6 +65,9 @@ in
     (keymap "<leader>lO" telescope_commands.document_symbols "Document symbols")
     (keymap "gD" telescope_commands.declarations "Go to declaration")
     (keymap "gd" telescope_commands.definitions "Go to definition")
+    (keymap "g<C-d>" "<cmd>vsplit<cr><cmd>setlocal nowinfixbuf<cr><cmd>lua vim.lsp.buf.definition()<cr>"
+      "Definition in vertical split"
+    )
     (keymap "<M-d>" "<cmd>lua vim.diagnostic.open_float()<cr>" "Show diagnostic")
 
   ];
